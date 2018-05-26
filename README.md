@@ -34,6 +34,8 @@ gods.mac  -  used for farming T3/T4 bosses.   Requires a toon with the tokens in
 
 justpull.mac  -  loops and pulls everything in range using scepter
 
+loot.inc   -  Loot utilities
+
 lootgo - lootgo3.mac   used for automated looting.   These use LoadIni files found in loot.inc or EZCharmUpgrade.inc.   You can set what to loot in those methods.   
 Useful if you have toons that want to loot different items, i.e T8 dragon scales. 
 
