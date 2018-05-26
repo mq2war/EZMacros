@@ -1,0 +1,50 @@
+sub main
+
+:loop 
+
+/if (${SpawnCount[Innoruuk range 70 80]}) {
+
+  /echo Innoruuk found
+  /gu mob spawned asshole
+  /delay 1
+  /beep
+  
+}
+
+/if (${SpawnCount[Rallos Zek range 70 80]}) {
+  /echo Rallos Zek Found
+  /gu Zek spawned asshole
+  /delay 1
+  /beep
+  
+}
+
+/if (${SpawnCount[Tribunal range 70 80]}) {
+  
+  /echo Tribunal Found
+  /gu Tribunal spawned asshole
+  /delay 1
+  /beep
+}
+ 
+/if (${SpawnCount[Soulsek Ro range 70 80]}) {
+  
+  /echo Soulsek Found
+  /gu SolRo spawned asshole
+  /delay 1
+  /beep
+}
+
+
+/if (${SpawnCount[Tserrina Syl`Tor's]}) {
+  
+  /echo Soulsek Found
+  /gu SolRo spawned asshole
+  /delay 1
+  /beep
+}
+/delay 3s
+
+/goto :loop
+
+/return

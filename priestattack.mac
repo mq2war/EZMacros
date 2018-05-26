@@ -1,0 +1,193 @@
+sub main
+
+/declare fists int inner
+/declare uw int inner
+/declare zerk int inner
+/declare ninja int inner
+/varset fists 0
+/varset uw 0
+/varset zerk 0
+/varset ninja 0
+
+
+/target npc radius 30
+/attack on
+/delay 1
+/keypress 2
+
+
+
+/if (${Target.ID}) {
+
+/attack on
+/delay 1
+
+/keypress 2
+/delay 1
+/bct ang //target ID ${Target.ID}
+/bct ang //stick 20 uw !front
+/delay 1
+/bct ang //attack on
+
+
+/itemnotify charm rightmouseup
+
+
+}
+
+
+/bct zerk //itemnotify mainhand rightmouseup
+/delay 1
+/disc commanding voice
+/delay 1
+/itemnotify rightfinger rightmouseup
+
+/bct ninja //itemnotify ammo rightmouseup
+/bct recluse //itemnotify powersource rightmouseup
+/delay 1
+/bct recluse //cast "Gale Force III"
+/delay 2
+/bct lateral //assist maslow
+/delay 2
+/bct lateral //cast "Breathless IV"
+
+:start
+
+| add code to check health and tell cleric to healme
+
+/if (${Target.ID}) {
+
+/attack on
+/delay 1
+
+
+/bct ang //target ID ${Target.ID}
+/bct ang //stick 20 uw !front
+/delay 1
+/bct ang //attack on
+
+}
+
+
+
+
+
+}
+
+/varcalc fists ${fists} + 1
+/varcalc uw ${uw} + 1
+/varcalc zerk ${zerk} + 1
+/varcalc ninja ${ninja} + 1
+/if (${fists}==5) {
+|/bct delegate //itemnotify mainhand rightmouseup
+/bct peign //itemnotify mainhand rightmouseup
+/bct peign //cast 3
+/bct lateral //assist Maslow
+/delay 1
+/bct lateral //cast "Insanity V"
+/bct recluse //itemnotify ranged rightmouseup
+/delay 1
+/bct peign //itemnotify ranged rightmouseup
+/bct recluse //cast "Burning Tender"
+/delay 1
+
+/bct recluse //cast 9
+}
+
+/if (${uw}==9) {
+
+
+}
+
+/if (${zerk}==4) {
+/bct zerk //itemnotify mainhand rightmouseup
+/varset zerk 0
+/delay 4
+/bct ratio //itemnotify chest rightmouseup
+/bct zerk //itemnotify chest rightmouseup
+
+}
+
+/if (${ninja}==15) {
+/bct ninja //itemnotify ammo rightmouseup
+/bct recluse //itemnotify powersource rightmouseup
+/varset ninja 0
+/delay 1
+/bct recluse //cast "Gale Force III"
+/itemnotify rightfinger rightmouseup
+}
+
+
+|/echo Ninja Count:  ${ninja}
+/delay 1s
+/delay 3
+
+
+/goto :start
+
+/return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/return

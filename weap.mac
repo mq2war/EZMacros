@@ -1,0 +1,21 @@
+#include combat.inc
+#include buffs.inc
+#include utils.inc
+
+sub main
+
+|  Example of weapon remove and put on  usage  /macro weap <bag#> <slot#>
+
+/if (!${Me.FreeInventory}) /multiline ; /echo Inventory error, please fix it.;/popup Inventory Error. Fix and Restart Macro;/mqlog LootError - ${Time.Date} - ${Time} - ${Me.CleanName} - ${Zone.ID};/autoinv;/endmac
+
+
+/call storeweapon ${Param0} ${Param1}
+
+/delay 2s
+
+/call getitem ${Param0} ${Param1}
+
+
+
+
+/return

@@ -1,0 +1,117 @@
+#Event TooFar "Your target is out of range, get closer!"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/varset count 0
+/gu I has teh healz
+
+:start
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+/if (${Me.SpellReady[Amplify Healing]} && !${Me.Buff[Amplify Healing].ID}) {
+/cast "Amplify Healing"
+}
+/stick off
+/delay 2
+/target pc ${Param0}
+
+/if (${Me.SpellReady[Tower of Vie III]} && !${Target.Buff[Tower of Vie III].ID})  {
+
+/cast "Tower of Vie III"
+
+/delay 2
+
+}
+
+|/echo ${Target.PctHPs}
+
+/if (${Zone.ShortName.Equal[oldblackburrow]}) {
+
+|/gu in bb
+
+/if (${Target.PctHPs} < 80 && ${Me.SpellReady[Over Raided Healing II]} ) {
+
+|/gu casting orh2
+/cast "Over Raided Healing II"
+
+/delay 15
+
+}
+
+} 
+
+
+/if (!${Zone.ShortName.Equal[oldblackburrow]} && ${Me.SpellReady[Over Raided Healing II]}) {
+/cast "Over Raided Healing II"
+/delay 15
+
+}
+
+
+/if (${Me.SpellReady[Mark of Emperors IV]}) {
+
+
+
+/if (${Zone.ShortName.Equal[oldblackburrow]} && ${count}>=2 ) {
+
+/assist ${Param0}
+
+/delay 4
+
+/cast "Mark of Emperors IV"
+/delay 7
+|/gu casting MoE on %t
+
+} 
+}
+
+/target ${Param0}
+/delay 1
+
+/echo ${count}
+
+/if (${Me.SpellReady[Word of Vivification II]} && ${count}>=3 ) {
+|/gu casting viv
+/cast "Word of Vivification II" 
+/varset count 0
+
+}
+
+|Size of group established
+
+|/varset size ${Group.Members}
+
+|/for x 0 to ${size}
+|	/if (${Group.Member[${x}].PctHPs} < 78 && ${Me.SpellReady[Word of Vivification]} ) {
+		
+|		/cast 1
+|		/delay 1s
+|		/target ${Group.Member[${x}]}
+|		/cast "Over Raided Healing II"
+
+|	}
+|/next x
+
+
+
+/delay 6
+
+/varcalc count ${count} + 1
+
+/goto :start
+
+/return
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+

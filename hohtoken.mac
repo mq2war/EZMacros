@@ -1,0 +1,283 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include tokenfarm.inc
+#include utils.inc
+
+Sub Main()
+
+|  Parms:  Param0: first FWP holder  Param1: 2nd FWP holder Param2: bag#  Param3: slot#  Param4:  looter Param5: avatar type
+/declare run int inner
+/varset run 0
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+
+
+/declare count int local
+/varset count 0
+
+|/if (${Param0.Equal[true]}) {
+|/call warbuff
+
+|/pet leave
+|}
+
+
+
+|TODO zone setup
+
+|/bct ${Param0} //say enter guild ${Param0} hohonora
+|/bct ${Param1} //say enter guild ${Param1} hohonora
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 90s
+/endmacro
+}
+
+| If run count is 0 go to guild of first FWP holder
+/echo this is run: ${run}
+
+/if (${run} == 0) {
+
+/echo ${Param0} Guild
+
+/bct ${Param4} //say enter guild ${Param0} hohonora
+/say enter guild ${Param0} hohonora
+/delay 30s
+
+/call ${Param5} ${Param2} ${Param3} ${Param4}
+
+/if (${Param5.Equal[storms]}) {
+
+/echo Storms!
+
+
+}
+
+/call NewKillFace 40
+/keypress 9
+/delay 10s
+/call NewKillFace 40
+/delay 2s
+
+/call lootsome
+
+
+/call NewKillFace 40
+
+
+}
+
+}
+
+| If run count is 0 go to guild of 2nd FWP holder
+|TODO make run call a method
+/if (${run} == 1) {
+/echo ${Param1} Guild
+
+/bct ${Param4} //say enter guild ${Param1} hohonora
+/say enter guild ${Param1} hohonora
+/delay 30s
+
+/call ${Param5} ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/call lootsome
+
+/call NewKillFace 40
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 2) {
+
+/echo ${Param0} RAID
+
+/bct ${Param4} //say enter raid ${Param0} hohonora
+/delay 3s
+/say enter raid ${Param0} hohonora
+/delay 45s
+
+||/call repop
+
+/delay 10s
+
+
+|/bct ${Param0} //say enter raid ${Param0} hohonora
+
+|/bct ${Param1} //say enter raid ${Param1} hohonora
+
+
+/call ${Param5} ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/call lootsome
+
+/call NewKillFace 40
+
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 3) {
+
+/echo ${Param1} RAID
+
+/bct ${Param4} //say enter raid ${Param1} hohonora
+/delay 3s
+/say enter raid ${Param1} hohonora
+/delay 30s
+/bct ${Param4} //say enter raid ${Param1} hohonora
+
+/call ${Param5} ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/call lootsome
+
+/call NewKillFace 40
+
+
+}
+
+
+/if (${run} == 4) {
+
+/echo ${Param1} SOLO
+
+/bct ${Param4} //say enter solo ${Param1} hohonora
+/delay 3s
+/bct ${Param4} //say enter solo ${Param1} hohonora
+/delay 2s
+/say enter solo ${Param1} hohonora
+/delay 30s
+
+/call ${Param5} ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/call lootsome
+
+/call NewKillFace 40
+
+
+}
+
+/if (${run} == 5) {
+
+/echo ${Param0} SOLO
+
+/bct ${Param4} //say enter solo ${Param0} hohonora
+/delay 3s
+/bct ${Param4} //say enter solo ${Param0} hohonora
+/delay 2s
+/say enter solo ${Param0} hohonora
+/delay 30s
+/bct ${Param4} //say enter solo ${Param0} hohonora
+
+/call ${Param5} ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/call lootsome
+
+/call NewKillFace 40
+
+
+}
+
+
+
+| TODO zone function
+
+
+
+
+
+/if (${run}==5) {
+/varset run 0
+
+/bct ${Param1} //macro repopinstances hohonora
+
+/delay 50s
+
+/bct ${Param4} //say enter guild ${Param1} hohonora
+/say enter guild ${Param1} hohonora
+
+
+
+}
+
+/varcalc run ${run} + 1
+
+/goto :start
+
+
+/return
+
+
+sub repop
+
+
+/if (${SpawnCount[pc]} == 2) {
+
+/bct ${Param0} //gu repopping instance
+/bct ${PARAM0} //say repop instance
+
+/bct ${Param1} //gu repopping instance
+/bct ${PARAM1} //say repop instance
+
+} else {
+
+/return 
+
+}
+
+
+sub lootsome
+
+/echo this is parm4 ${Param4}
+/echo this is parm4 condition ${Me.Name.Equal[${Param4}]}
+
+/if (${Me.Name.Equal[${Param4}]}) {
+
+/gu It's Me!
+/call LootIt 100
+
+} else {
+
+/gu It's You! 
+
+/bct ${Param4} //macro lootgo 100
+/delay 90s
+
+}
+
+/return
+
+
+
+/return

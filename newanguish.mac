@@ -1,0 +1,58 @@
+#include EZCharmUpgrade.inc
+#include buffs.inc
+#include utils.inc
+#include anguish.inc
+
+| ${PARAM0} repopper
+| ${PARAM1} looter
+| ${PARAM2} true if no looter
+| ${PARAM3} bag number
+| Param4 slot number
+Sub Main
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Anguish, the Fallen Palace]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+:start
+/twist off
+/delay 2s
+/call warbuff
+/delay 2s
+/call xpbuff
+/delay 2s
+
+
+
+/pet leave
+
+/call storeweapon ${Param3} ${Param4}
+/call entrance
+
+/call gren ${Param1} ${Param1} ${Param3} ${Param4}
+
+/delay 20s
+
+/bct ${Param0} //say repop instance
+
+/delay 30s
+
+/goto :start
+
+
+
+
+/return

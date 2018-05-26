@@ -1,0 +1,85 @@
+#include EZCharmUpgrade.inc
+#include buffs.inc
+#include anguish.inc
+#Event FG "You have entered Illsalin Marketplace."
+
+| ${PARAM0} repopper
+| ${PARAM1} looter
+| ${PARAM2} true if no looter
+Sub Main
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Anguish, the Fallen Palace]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+:start
+/twist off
+/delay 2s
+/call warbuff
+/delay 2s
+/call xpbuff
+/delay 2s
+
+
+
+/twist 11
+
+/pet leave
+
+/call solo ${Param1} ${Param2}
+
+/call gren ${Param1} ${Param2}
+
+/delay 5s
+
+:repop
+
+
+/if (${Zone.Name.Equal[Anguish, the Fallen Palace]} && ${SpawnCount[${Param0}]} > 0)  {
+/bct ${Param0} //say repop instance
+
+/delay 30s
+
+/echo ${Me.Y}
+
+/if (${Me.Y} != -2466.00) {
+
+/delay 30s
+/goto :repop
+
+} 
+
+} else {
+
+/endmacro 
+
+}
+
+/goto :start
+
+
+
+
+/return
+
+sub Event_FG
+
+/beep
+/beep
+
+/camp
+
+/return

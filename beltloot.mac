@@ -1,0 +1,19 @@
+#include loot.inc
+#include dm.inc
+#include utils.inc
+
+
+sub main
+
+/call LoadIni
+/call SetLootVar
+
+
+/call beltloot
+
+
+
+
+
+
+/return

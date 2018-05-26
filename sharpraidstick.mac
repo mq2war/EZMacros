@@ -1,0 +1,47 @@
+
+Sub Main
+
+
+
+
+/declare size int local
+/declare x int local
+
+:start
+/varset size ${Raid.Members}
+
+/for x 0 to ${size} {
+
+
+|| Make this your Raid COH holder
+    /if (${Me.Name.Equal[${Raid.Member[${x}].Name}]}) {
+
+        /next x
+    }
+    
+    
+    
+    /bct ${Raid.Member[${x}].Name} //target an open portal radius 700
+    /bct ${Raid.Member[${x}].Name} //stick 
+
+    | may have to adjust this
+    
+    /delay 8s
+    
+
+    
+    }
+	
+    
+ /next x
+
+|| Guild chat
+ /gu Done
+
+|| 9 is my call raid button   comment out with | or change
+ /keypress 9
+
+ /delay 3s
+
+ /goto :start
+ /return

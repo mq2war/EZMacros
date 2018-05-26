@@ -1,0 +1,73 @@
+#Event TooFar "Your target is out of range, get closer!"
+#event Death "You have been slain#*#"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/varset count 0
+
+/gu getting some
+
+:start
+/assist ${Param0}
+|/target npc radius 100
+/delay 1
+
+/if (${Me.SpellReady[Death IV]}) { 
+
+/echo in Death
+
+/cast "Death IV"
+
+/delay 7
+
+}
+
+
+/if (${Me.SpellReady[Epidemic]}) { 
+
+/cast "Epidemic"
+
+/delay 7
+
+}  else {  
+
+/delay 3
+
+/cast "Epidemic"
+
+/delay 8
+
+}
+
+
+/assist ${Param0}
+
+
+/if (${Me.SpellReady[Kaldar's Touch III]}) { 
+
+/cast "Kaldar's Touch III"
+
+/delay 15
+
+
+
+}
+
+
+
+/goto :start
+
+
+
+/return
+
+
+Sub Event_Death
+/bccmd quit
+/delay 1s
+/memspellset 1
+/bccmd connect
+/return
+

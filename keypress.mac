@@ -1,0 +1,7 @@
+sub main
+
+/keypress y hold
+/delay 5
+/keypress w
+
+/return

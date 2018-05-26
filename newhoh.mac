@@ -1,0 +1,185 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include hohupdate.inc
+#include buffs.inc
+Sub Main()
+
+| HoH Farming macro
+
+|{Param0} = instance type
+
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+|/call xpbuff
+/call warbuff
+|/bccmd quit
+/pet leave
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+||TODO
+|| -- implement weapon switchout
+|| -- parameterize kill falgs to sub routines
+|| -- implement succor and or instance repop
+|| -- implement call of looter
+
+/echo core ${Param0}
+
+/call soa
+
+/call heavens
+
+/call hate
+
+|/call guildreturn ${Param0}
+
+|/bccmd quit
+
+|/call soa
+
+|/call xroad
+
+|/call soa
+
+|/if (!${Me.Name.Equal[Peign]}||${Me.Name.Equal[Usurp]}) {
+
+|/call abyss
+
+
+|/call guildreturn ${Param0}
+
+
+|/bccmd quit
+
+|/call xpbuff
+
+|/call xroad
+
+|/call soa
+
+|/call north
+
+}
+
+
+/call skies
+
+/bccmd quit
+
+/call guildreturn ${Param0}
+
+/call xroad
+
+/call soa
+
+/call north
+
+/call xpbuff
+
+/call uw
+
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 45
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+
+/call xroad
+
+/call soa
+
+/call valor
+
+/call KillAllMobs 10 40
+/delay 1s
+/call KillAllMobs 10 40
+/call LootIt 45
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+/call xroad
+
+/call south
+
+/call soa
+
+/call storms
+
+/call xpbuff
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+
+/goto :start
+
+
+/return
+
+sub soa
+
+/if (${Me.Name.Equal[Maslow]}||${Me.Name.Equal[Usurp]}) {
+
+/itemnotify back rightmouseup
+
+}
+
+
+
+/return
+
+sub xpbuff
+
+
+/if (${Me.Name.Equal[Maslow]}) {
+
+
+/windowstate InventoryWindow open
+/delay 1s
+
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 1s
+/itemnotify in pack1 9 leftmouseup
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 1s
+/itemnotify pack4 rightmouseup
+/itemnotify pack4 rightmouseup
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 1s
+/autoinv
+
+
+/if (${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+/windowstate InventoryWindow close
+}
+
+/return

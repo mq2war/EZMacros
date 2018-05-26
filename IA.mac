@@ -1,0 +1,24 @@
+#Chat say
+
+sub main
+
+:start
+/doevents
+/delay 3s
+/goto :start
+
+
+
+/return
+
+Sub Event_Chat(ChatType, Sender, ChatText) 
+
+/echo ${ChatText}
+/echo ${Sender}
+/target ${Sender} radius 1000
+
+/if (${ChatText.Equal[Hail, Variable]}) {
+/casting 10136
+}
+
+/return 

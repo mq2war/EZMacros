@@ -1,0 +1,18 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include hohfarm.inc
+
+sub main
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+|/call xroad
+|/call abyss
+|/call north
+/call skies
+
+/return 

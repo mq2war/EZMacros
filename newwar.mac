@@ -1,0 +1,131 @@
+sub main
+
+
+:loop
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+|buff check
+
+
+|Save yourself
+|/if  (${Me.PctHPs} < 60 ) {
+
+/face nolook
+/disc Furious
+}
+
+
+:sw
+/itemnotify back rightmouseup
+/windowstate InventoryWindow open
+/delay 1s
+
+
+/if (${Me.Name.Equal[Usurp]}) {
+/call six
+/goto :end
+}
+:2h
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 2s
+
+/delay 1s
+/nomodkey /ctrlkey /itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 7.0].InvSlot} leftmouseup
+
+/delay 2s
+/if (!${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 7.0]}) {
+/echo in first !
+ /itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 7.0].InvSlot} leftmouseup
+}
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 1s
+/itemnotify pack4 leftmouseup
+/if (!${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 7.0]}) /autoinv
+/delay 2s
+
+/autoinv
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+
+
+:pet
+/nomodkey /ctrlkey /itemnotify ${FindItem[=Stone Monster Halloween Pet].InvSlot} leftmouseup
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 1s
+/itemnotify pack4 rightmouseup
+/itemnotify pack4 rightmouseup
+/delay 2s
+/itemnotify pack4 leftmouseup
+/delay 2s
+/autoinv
+
+/if (!${Me.Song[Warrior's Defense V].ID}) /goto :2h
+/if (!${Me.Song[Ancient Stonewall IX].ID}) /goto :sw
+|/if (!${Me.Buff[Stone Monster Familiar].ID}) /goto :pet
+
+/if (${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+/windowstate InventoryWindow close
+
+:end
+
+/return
+
+
+sub six
+
+:2h
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 2s
+
+/delay 1s
+/nomodkey /ctrlkey /itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 6.0].InvSlot} leftmouseup
+
+/delay 2s
+/if (!${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 6.0]}) {
+/echo in first !
+ /itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 6.0].InvSlot} leftmouseup
+}
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 1s
+/itemnotify pack4 leftmouseup
+/if (!${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 6.0]}) /autoinv
+/delay 2s
+
+/autoinv
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+/return
+
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+
+

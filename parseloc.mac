@@ -1,0 +1,18 @@
+sub main
+/declare newloc outer
+/declare locx int outer
+/declare locy int outer
+|parse loc
+/varset newloc ${/location}
+/echo ${newloc}
+
+/varset locx 5
+|/echo  Attempt at casting: ${int[${Math.Calc[${Me.Y}+${locx}]}]}
+/echo   Good Math:  ${Math.Calc[${Me.Y} + locx]}
+|/bct Submit //moveto loc ${int[${Math.Calc[${Me.Y}+${locx}]}]} ${int[${Math.Calc[${Me.X}+${locx}]}]}
+/return
+
+
+Sub Location
+
+/return /location

@@ -1,0 +1,20 @@
+sub main
+
+
+| Usage  smaploc.mac FileName.ini  StartingInt 
+/declare locnum int local
+/declare myloc local
+|/varset locnum ${Param0}
+
+|:start
+
+/varset locnum ${Math.Calc[${locnum} + 1]}
+/varset myloc ${Me.Y},${Me.X}
+
+/ini ${Param0} locations ${Param1} "/call RanInternalMoveTo ${myloc}"
+
+|/delay 2s 
+|/goto :start
+
+
+/return

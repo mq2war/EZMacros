@@ -1,0 +1,21 @@
+sub main
+
+|  usage  /macro maploc 0 filename
+/declare locnum int local
+/declare myloc local
+
+/varset locnum ${Param0}
+
+:start
+
+/varset locnum ${Math.Calc[${locnum} + 1]}
+/varset myloc ${Me.Y},${Me.X}
+
+/ini ${Param1} locations ${locnum} ${myloc}
+
+/delay 15
+
+/goto :start
+
+
+/return

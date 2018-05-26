@@ -1,0 +1,29 @@
+#Event Redo "Your Skin of the Drake III spell has worn off Maslow."
+
+sub main
+
+:start
+
+/target ${Param0}
+
+/cast 3
+
+/cast 1
+
+/delay 5s
+
+/doevents
+/goto :start
+
+
+/return
+
+
+
+Sub Event_Redo 
+
+/target Maslow
+/cast 3
+
+
+/return

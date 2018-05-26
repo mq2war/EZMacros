@@ -1,0 +1,107 @@
+#turbo
+
+Sub Main
+
+/declare count int inner 0
+/varset count 0
+
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) { 
+
+/cast "Focus of Healing"
+/delay 4
+
+}
+/gu I brin da dps too
+
+/delay 5s
+
+
+:loop
+
+
+
+
+/delay 4
+/if (${Me.SpellReady[Ancestral Grudge]} ) /cast "Ancestral Grudge"
+
+
+/delay 2
+
+/if (${Me.SpellReady[Champion]} && !${Me.Buff[Champion].ID}) {
+
+ /cast Champion
+
+ /delay 15
+
+}
+
+
+
+/if (${Me.SpellReady[Spirit of the Kraken II]} && !${Me.Buff[Spirit of the Kraken II].ID}) {
+
+/echo ready
+
+/cast "Spirit of the Kraken II"
+
+}
+
+
+/if (${Me.PctHPs} < 60) {
+
+/target ${Me.ID}
+/cast "Acquittal of the Tribunal III"
+/delay 1s
+}
+
+/target ${Param0} 
+
+/if (${Target.PctHPs} < 70) {
+
+/cast "Acquittal of the Tribunal III"
+/delay 1s
+
+}
+
+
+/delay 3
+/if (${Me.SpellReady[Breath of Nature II]}) {
+/cast "Breath of Nature II"
+/delay 1s
+}
+
+
+/assist ${Param0}
+
+/delay 3
+
+/if (${Me.SpellReady[Kiss of Antraygus III]} ) {
+
+/cast "Kiss of Antraygus III"
+
+/delay 1s
+
+}
+
+/if (${Me.SpellReady[Tigir's Insects]} ) {
+
+/cast "Tigir's Insects"
+
+/delay 1s
+
+}
+
+
+/varcalc count ${count} + 1
+/goto :loop
+
+/return
+ 
+
+
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/mqpause
+/return

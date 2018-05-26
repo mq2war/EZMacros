@@ -1,0 +1,14 @@
+#turbo 20
+
+sub main
+:start
+/echo ${SpawnCount[npc radius 100]}
+/if (${SpawnCount[npc radius 100]} > 1) {
+  /bct ${Param0}  //target npc radius 100
+  /bct ${Param0} //stick 1 uw
+  /bct ${Param0} //attack on
+  /delay 3s
+}
+/goto :start
+
+/return

@@ -1,0 +1,11 @@
+sub main
+
+/if (!${Me.Buff[Insane Goblin Blessing].ID}) { 
+/echo test    
+/useitem 2
+
+}
+
+
+
+/return

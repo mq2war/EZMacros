@@ -1,0 +1,10 @@
+sub main
+|return to guild instance in HoH
+/twist off 
+/delay 2s
+/itemnotify rightfinger rightmouseup
+/delay 35s
+/say enter Guild
+/delay 35s
+
+/return

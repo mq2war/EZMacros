@@ -1,0 +1,8 @@
+sub main
+
+/bct usurp //say enter raid usurp oldcommons
+/bct icanhealz //say enter raid usurp oldcommons
+/bct lamda //say enter raid usurp oldcommons
+/bct variable //say enter raid usurp oldcommons
+
+/return

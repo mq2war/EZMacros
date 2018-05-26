@@ -1,0 +1,103 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include anguish.inc
+#include buffs.inc
+
+Sub Main()
+
+
+|Instance rotation Raid, Guild, Solo
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+/declare count int local
+/varset count 0
+
+
+:start
+
+/plugin MQ2Doors unload
+/plugin MQ2Doors
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Anguish, the Fallen Palace]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/if (${count} == 0) {
+
+/say raid join ${Param0}
+/delay 20s
+/call KillFace 30
+
+/call repop ${Param0} ${Param1} raid
+
+}
+
+/if (${count} == 1) {
+
+/say enter guild
+/delay 20s
+/call KillFace 60
+/call repop ${Param0} ${Param1} guild
+
+}
+
+
+
+
+/varset count ${Math.Calc[${count} + 1]}
+
+/if (${count}==2) {
+
+/varset count 0
+
+}
+
+/goto :start
+
+/return
+
+
+sub repop 
+
+/call warbuff
+/call xpbuff
+/delay 10s
+/twist 11 12
+
+/bct ${Param0} //say enter ${Param2}
+/bct ${Param1} //say ${Param2} join ${Param0}
+/bct ${Param1} //say enter ${Param2}
+
+/delay 10s
+
+/toggledoors on
+
+/call ture ${Param1}
+
+/delay 20s
+/call KillFace 60
+
+/say leave instance
+
+
+/delay 5s
+/bct ${Param0} //say repop instance
+/delay 10s
+
+/return
+

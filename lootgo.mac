@@ -1,0 +1,28 @@
+#include EZCharmUpgrade.inc
+
+sub main
+/declare baseLocY int inner 0
+/declare baseLocX int inner 0
+/varset baseLocY ${Me.Y}
+/varset baseLocX ${Me.X}
+/call LoadIni
+/call SetLootVar
+
+/hidecorpse looted
+
+/gu ${FindItemCount[=Lesser Rainbow Crystal]}
+
+:loot
+/if (${SpawnCount[corpse radius ${Param0}]} > 0) { 
+
+/if (${Cursor.ID}) /autoinv
+
+/call LootIt ${Param0}
+
+} 
+
+/call InternalMoveTo ${baseLocY} ${baseLocX} 
+
+/gu done looting
+
+/return

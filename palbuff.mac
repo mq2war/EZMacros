@@ -1,0 +1,38 @@
+#turbo
+
+Sub Main
+
+/declare kaldar "Kaldar's Helping Hand"
+
+/echo Running Pal
+:loop
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) /cast "Focus of Healing"
+
+/delay 1s
+
+/if (${Me.SpellReady[Gift of the Avenger II]} && !${Me.Buff[Gift of the Avenger II].ID}) /cast "Gift of the Avenger II"
+
+/delay 3s
+
+|/if (${Me.Name.Equal[Submit]}) {
+
+/echo kaldar
+
+/if (${Me.SpellReady[Kaldar's Helping Hand II]} && !${Me.Buff[Kaldar's Helping Hand II].ID}) /cast "Kaldar's Helping Hand II"
+
+/delay 3s
+
+|} else {
+
+|/echo kaldarh1
+
+|/if (${Me.SpellReady[Kaldar's Helping Hand]} && !${Me.Buff[Kaldar's Helping Hand].ID}) /cast "Kaldar's Helping Hand"
+
+|}
+
+/return

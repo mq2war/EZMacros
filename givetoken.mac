@@ -1,0 +1,214 @@
+sub main
+| Used to give tokens to Observer in Plane of Sky
+| PARAM0  Token Name
+| Tokens in pack3
+/declare dark string local
+/declare light string local
+/declare ocean string local
+/declare face string local
+/declare h1n1 string local
+/declare tranq string local
+/declare split string local
+/declare hate string local
+/declare mother string local
+/declare prince string local
+/declare prime string local
+/declare plague string local
+/declare rain string local
+/declare war string local
+
+
+
+/declare mcp string local
+
+/varset dark The Prince of Darkness Quest Token
+/varset light The Lightbringer Quest Token
+/varset ocean The Oceanlord Quest Token
+/varset face The Faceless Quest Token
+/varset h1n1 H-One N-One Quest Token
+/varset tranq The Tranquil Quest Token
+/varset split Split Paw Quest Token
+/varset mcp The MCP Quest Token
+/varset hate The Prince of Hate Quest Token
+/varset prime The Prime Healer Quest Token
+/varset mother The Mother of All Quest Token
+/varset rain The Rainkeeper Quest Token
+/varset plague The Plaguebringer Quest Token
+/varset prince The Burning Prince Quest Token
+/varset war The Warlord Quest Token
+
+
+
+/if (!${Window[pack3].Open}) {
+/itemnotify pack3 rightmouseup
+/delay 2s
+}
+
+
+/target Observer of the Sky
+/if (${Target.ID}) {
+
+/stick 20 front
+/face fast nolook
+/keypress centerview
+/delay 1s
+
+/if (${FindItemCount[=${dark}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${dark}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${face}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${face}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${split}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${split}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+
+/if (${FindItemCount[=${ocean}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${ocean}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${tranq}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${tranq}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${light}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${light}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${h1n1}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${h1n1}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${hate}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${hate}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${prime}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${prime}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${mother}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${mother}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${rain}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${rain}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${plague}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${plague}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${prince}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${prince}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${war}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${war}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+
+/if (${FindItemCount[=${mcp}]} > 0) {
+
+
+
+/call givemcp
+}
+
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+:give
+
+/delay 1s
+/click left center
+/delay 3s
+
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+/stick off
+
+}
+
+
+
+
+/return
+
+sub givemcp
+
+/declare mcp string local
+/varset mcp The MCP Quest Token
+
+:givemcp
+
+|give item
+
+
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${mcp}].InvSlot} leftmouseup
+
+/delay 1s
+/click left center
+/delay 2s
+
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${mcp}].InvSlot} leftmouseup
+
+/delay 1s
+/click left center
+/delay 2s
+
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${mcp}].InvSlot} leftmouseup
+
+/delay 1s
+/click left center
+/delay 2s
+
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${mcp}].InvSlot} leftmouseup
+
+/delay 1s
+/click left center
+/delay 2s
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+
+/stick off
+
+
+/return

@@ -1,0 +1,91 @@
+sub main
+
+
+:start
+
+
+/target npc radius 120
+
+/if (${Target.ID}) {
+
+| To use from bag
+|/useitem 23 4
+
+
+|  If on hotkey  -  Use Scepter or War epic
+/keypress 8
+
+
+}
+
+|This loops fairly fast.   Would recommend making a key with //endmacro to spam and stop it.   Or up the delay.  
+
+/delay 7
+/goto :start
+
+/return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/return

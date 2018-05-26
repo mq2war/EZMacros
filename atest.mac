@@ -1,0 +1,67 @@
+sub main
+
+/declare belt string inner
+/declare beltcheck string inner
+/declare tooncount int inner
+/varset tooncount 8
+
+/declare toons[${tooncount}] string inner
+
+
+
+/varset belt goft,recluse,pellets,peign,ratio,submit,uberitis,usurp
+
+
+/ini beltcheck belt check "True"
+
+/varset beltcheck ${Ini[beltcheck.ini,belt,check]} 
+
+/echo ${beltcheck}
+    
+    /declare i                      int     local   0
+    
+    /for i 1 to ${tooncount}
+        /echo ${belt.Arg[${i},,]}
+        |/varset arString[${i}] ${myString.Mid[${i},1]}
+        |Adding to array  -  not needed but a good example
+        /varset toons[${i}] ${masked.Arg[${i},,]}
+        |/echo  ${toons[${i}]}
+        |call macro, check belt check, run check belt if 0 loot set ini value to True
+
+        /varset beltcheck ${Ini[beltcheck.ini,belt,check]} 
+
+
+    /next i
+
+
+
+/return
+
+
+
+sub beltcheck
+
+/if (${FindItemCount[Den Mother's Hide Belt]}>0)  {
+
+/goto :end
+
+
+}  else  {
+
+
+| update ini
+/ini beltcheck belt check "True"
+
+| call LootIt from loot.inc    -  should be included in macro   #include loot.inc
+
+
+
+
+
+}
+
+
+/return
+
+
+

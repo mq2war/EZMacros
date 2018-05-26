@@ -1,0 +1,16 @@
+sub main
+
+/bct Peign //cast "Call of the Void V"
+/bct Delegate //cast "Form of the Werewolf II"
+/bct Pellets //cast "Form of Ancient Spirits II"
+/bct Parameter //cast "Form of the Werewolf II"
+/bct Walkabout //cast "Form of Ancient Spirits II"
+/bct Lamda //cast "Form of the Werewolf II"
+
+
+/delay 6s
+/bct Peign //useitem 6
+
+/useitem 6
+/bct Peign //useitem 6
+/return

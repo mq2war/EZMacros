@@ -1,0 +1,20 @@
+sub main
+
+/corpse
+
+/delay 5
+
+/target corpse ${Me.Name}
+
+/delay 5
+
+/loot
+
+/delay 5
+
+/notify LootWnd LW_LootAllButton leftmouseup
+
+/return
+
+
+

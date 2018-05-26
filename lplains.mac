@@ -1,0 +1,64 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include lplains.inc
+#include buffs.inc
+
+Sub Main()
+
+| HoH Farming macro
+
+
+|{Param1} = instance repopper
+
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/twist 11
+/twist 12
+/twist 11 12
+/call xpbuff
+/call warbuff
+
+/delay 2s
+
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Loping Plains]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+
+/call entrance
+
+/bct ${Param0} //say repop instance
+
+
+/goto :start
+
+
+/return
+
+sub soa
+
+/if (${Me.Name.Equal[Maslow]}||${Me.Name.Equal[Usurp]}) {
+
+/itemnotify back rightmouseup
+
+}
+
+
+
+/return
+

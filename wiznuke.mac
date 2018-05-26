@@ -1,0 +1,138 @@
+#Event TooFar "Your target is out of range, get closer!"
+#event Death "You have been slain#*#"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/declare baseLocY int inner 0
+/declare baseLocX int inner 0
+/varset baseLocY ${Me.Y}
+/varset baseLocX ${Me.X}
+/varset count 0
+
+/gu starting nukes
+:start
+
+
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) { /cast "Focus of Healing"
+/delay 4
+}
+
+
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+/if (${Me.SpellReady[Defining Silence II]} && !${Me.Buff[Defining Silence II].ID}) {
+/cast "Defining Silence II"
+
+/delay 5
+}
+
+
+/cast "Curious Creation III"
+
+/delay 25
+
+
+
+|/target ${Param0}
+
+|/stick 20 behind
+
+|/stick off
+
+
+/if (${Zone.ShortName.Equal[sunderock]}) {
+
+/delay 5s
+
+}
+
+/if (!${Zone.ShortName.Equal[sunderock]} && !${Zone.ShortName.Equal[templeveeshan]}) {
+/call stickit ${Param0}
+
+}
+
+:nuke
+
+/stick off
+
+/if (${Me.SpellReady[Kaldar's Heavenly Fire III]}) {
+
+/target ${Param0}
+/delay 1
+/cast "Kaldar's Heavenly Fire III"
+/delay 1s
+
+
+|&& !${Zone.ShortName.Equal[sunderock]}
+}  else /if (${Me.SpellReady[Static Burst III]} ) {
+
+| get current loc
+
+|/target ${Param0} 
+|/stick 27 uw behind
+
+|/delay 26
+|/assist ${Param0}
+/attack off
+/cast "Static Burst III"
+/delay 6
+
+|/moveto loc ${baseLocY} ${baseLocX}
+|/delay 15
+|/stick off
+
+}
+
+/delay 3s
+
+/if (${Me.SpellReady[Yamakagi's Fiery Passion Inferno III]} && !${Me.SpellReady[Kaldar's Heavenly Fire III]} && !${Me.SpellReady[Static Burst III]}) {
+
+
+|/if (!${Zone.ShortName.Equal[sunderock]}) {
+|/call stickit ${Param0}
+
+|}
+
+/delay 1
+/stick off
+/assist ${Param0}
+/delay 1
+/cast "Yamakagi's Fiery Passion Inferno III"
+/delay 1s
+/target ${Param0}
+
+} 
+
+/delay 3
+
+/goto :nuke
+
+/return
+
+
+Sub Event_Death
+/bccmd quit
+/delay 1s
+/memspellset 1
+/bccmd connect
+/return
+
+sub stickit(string tank) 
+/echo in stickit
+/target ${tank}
+
+/stick 30 uw behind
+
+/delay 15
+
+/stick off
+
+/return
+

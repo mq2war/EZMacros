@@ -1,0 +1,15 @@
+#include hohfarm.inc
+#include EZCharmUpgrade.inc
+
+Sub Main()
+
+/call LoadIni
+/call SetLootVar
+
+/twist off
+/hidecorpse looted
+
+/call LootIt 100
+
+
+/return

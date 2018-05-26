@@ -1,0 +1,6 @@
+#include waypoint.inc
+Sub Main
+
+/call CreateInstance
+
+/return

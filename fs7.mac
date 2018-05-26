@@ -1,0 +1,148 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include fs7.inc
+#include utils.inc
+
+Sub Main()
+
+|  Parms:  Param0: first FWP holder  Param1: 2nd FWP holder
+/declare run int inner
+/deletevar * global
+/varset run 0
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+
+/moveto set dist 5
+/moveto set loose on
+
+/if (${Cursor.ID}) /autoinv
+
+
+/declare count int local
+/varset count 0
+
+|/if (${Param0.Equal[true]}) {
+|/call warbuff
+
+|/pet leave
+|}
+
+
+|TODO zone setup
+
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+/bct ${Param1} //say enter guild ${Param1} frozenshadow
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay 15s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Tower of Frozen Shadow]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 40s
+/endmacro
+}
+
+| If run count is 0 go to guild of first FWP holder
+/echo this is run: ${run}
+
+/if (${run} == 0) {
+
+/ini toggledoors KeyOne value1 0
+/say enter guild ${Param0} frozenshadow
+/delay 15s
+
+/call fs7 
+
+}
+
+| If run count is 0 go to guild of 2nd FWP holder
+|TODO make run call a method
+/if (${run} == 1) {
+/ini toggledoors KeyOne value1 1
+/say enter guild ${Param1} frozenshadow
+/delay 15s
+
+/call fs7
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 2) {
+
+/ini toggledoors KeyOne value1 0
+
+/say enter raid ${Param0} frozenshadow
+/delay 15s
+
+/bct ${Param0} //say repop instance
+/bct ${Param0} //say enter raid ${Param0} frozenshadow
+/bct ${Param1} //say repop instance
+/bct ${Param1} //say enter raid ${Param1} frozenshadow
+
+
+/call fs7 
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 3) {
+/ini toggledoors KeyOne value1 1
+/say enter raid ${Param1} frozenshadow
+/delay 15s
+
+/call fs7
+
+}
+
+
+/if (${run} == 4) {
+/ini toggledoors KeyOne value1 1
+/say enter solo ${Param0} frozenshadow
+/delay 15s
+
+/call fs7
+
+}
+
+/if (${run} == 5) {
+/ini toggledoors KeyOne value1 1
+/say enter solo ${Param1} frozenshadow
+/delay 15s
+
+/call fs7
+
+}
+
+
+
+
+| TODO zone function
+
+/varcalc run ${run} + 1
+
+/if (${run}==5) {
+/varset run 0
+
+/bct ${Param0} //say repop instance
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+/bct ${Param1} //say repop instance
+/bct ${Param1} //say enter guild ${Param1} frozenshadow
+
+}
+/goto :start
+
+
+/return

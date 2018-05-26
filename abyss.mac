@@ -1,0 +1,262 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include warriorbuff.inc
+Sub Main()
+
+|{Param0} = loot distance
+|{Param1} = true if go to T2
+|{Param2} = true if FWP is available
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Abyss]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/toggledoors on
+
+/delay 1s
+
+/call warbuff
+
+/delay 3s
+
+/itemnotify back rightmouseup
+/delay 1s
+
+/itemnotify rightwrist rightmouseup
+/delay 2s
+
+/twist 14
+/twist 11
+
+/twist 11 14
+
+/call InternalMoveTo -1974.15 717.21
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2047.31 580.33
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2111.63 500.05
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2176.76 416.99
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2002.33 644.83
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1934.01 592.52
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1808.28 494.70
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1759.16 457.33
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1778.46 433.22
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1750.37 480.44
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1626.76 406.83
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1642.93 388.69
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1590.43 344.51
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1457.86 394.35
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1595.66 341.43
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1693.59 238.56
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1760.10 106.46
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1780.23 5.26
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1781.05 9.44
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1820.38 -21.66
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1890.85 34.00
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1921.49 64.64
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1887.28 248.30
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1916.57 258.54
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1806.67 238.85
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -1957.62 32.17
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2035.10 84.08
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2011.11 71.57
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2007.32 72.09
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2069.38 -13.80
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2068.37 -69.85
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2061.70 -103.29
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2077.01 -141.60
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2089.84 -170.57
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2082.79 -252.12
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo -2056.58 -245.22
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2128.79 -273.56
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2207.84 -274.75
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2255.73 -255.09
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2272.60 -445.93
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2268.62 -549.27
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2184.44 -552.99
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2178.09 -528.20
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2178.87 -499.07
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2180.48 -532.04
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2033.47 -548.33
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2028.01 -696.09
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2070.14 -746.17
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2182.20 -745.02
+/call KillAllMobs 10 60
+/call LootIt 45
+
+/call InternalMoveTo  -2247.69 -747.67
+/call KillAllMobs 10 60
+/call LootIt 45
+
+
+/toggledoors off
+
+
+/bct <Toon with FWP> //keypress 9
+
+/delay 3s
+
+
+/say enter guild
+
+/delay 1m
+
+/goto :start
+
+/return
+

@@ -1,0 +1,27 @@
+sub main
+
+/bcaa //say enter guild ${Param0} nexus
+
+/delay 30s
+
+/bcaa //target Uni
+
+/bcaa //stick 2
+
+/delay 3s
+
+/bct g1 //say sunderock
+
+/delay 5s
+
+/bct g2 //say sunderock
+
+/delay 5s
+
+/bcaa //say sunderock
+
+/delay 15s
+
+/bca //say sunderock
+
+/return 

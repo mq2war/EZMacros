@@ -1,0 +1,105 @@
+#include EZCharmUpgrade.inc
+#include hohsolo.inc
+#include buffs.inc
+
+Sub Main()
+
+| HoH Farming macro
+
+
+|{Param0} = repopper
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/twist 11 12
+/if (${Me.Name.Equal[Maslow]}) {
+/call warbuff
+/call xpbuff
+} else {
+
+/itemnotify back rightmouseup
+}
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/call heavens 
+
+/call hate
+
+/call repop ${Param0}
+
+/call xroad
+
+/call abyss
+
+/call skies
+
+/if (${Me.Name.Equal[Maslow]}) {
+/call warbuff
+/call xpbuff
+} else {
+
+/itemnotify back rightmouseup
+}
+
+/delay 3m
+/call repop ${Param0}
+
+/call xroad
+
+/call north
+
+/call uw
+
+/call repop ${Param0}
+
+/call xroad
+
+/call valor
+
+/call repop ${Param0}
+
+/if (${Me.Name.Equal[Maslow]}) {
+/call warbuff
+/call xpbuff
+} else {
+
+/itemnotify back rightmouseup
+}
+/call xpbuff
+
+/call xroad
+
+/call south
+
+/call storms
+
+/call repop ${Param0}
+
+/goto :start
+
+
+/return
+
+
+sub repop
+
+/bct ${Param0} //say repop instance
+/delay 20s
+
+/return

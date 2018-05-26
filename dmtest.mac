@@ -1,0 +1,92 @@
+#include loot.inc
+#include combat.inc
+#include buffs.inc
+#include fs2.inc
+#include utils.inc
+#include dm.inc
+#include MoveUtility.inc
+
+Sub Main()
+
+
+/declare run int inner
+/varset run 0
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+
+
+/declare count int local
+/varset count 0
+
+
+/call warbuff
+
+/target clear
+
+|/if (${Param0.Equal[False]})  {
+
+ 
+ /call dmpull ${Param0}
+
+
+
+|}
+
+
+
+
+
+/return
+
+
+
+
+sub repop
+
+
+/if (${SpawnCount[pc]} == 2) {
+
+/bct ${Param0} //gu repopping instance
+/bct ${PARAM0} //say repop instance
+
+/bct ${Param1} //gu repopping instance
+/bct ${PARAM1} //say repop instance
+
+} else {
+
+/return 
+
+}
+
+
+
+
+
+/return
+
+
+
+sub stable
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Sunderock Springs]}) {
+
+/echo in zone ${Zone.Name}
+/bcaa //say enter guild maslow sunderock
+
+
+}
+
+
+/return

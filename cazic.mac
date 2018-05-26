@@ -1,0 +1,72 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+
+Sub Main()
+
+|{Param0} = loot distance
+|{Param1} = true if FWP is available
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/bccmd quit
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Accursed Temple of CazicThule]}) {
+/camp
+/delay 40s
+/endmacro
+
+}
+
+:entrance
+/call InternalMoveTo 77.30 -0.35
+/call InternalMoveTo 253.38 -4.67
+/call InternalMoveTo 262.50 -110.61
+/call InternalMoveTo 263.11 -127.38
+/call InternalMoveTo 295.46 -131.77
+/call InternalMoveTo 313.53 -124.55
+/call InternalMoveTo 324.85 -141.49
+/call InternalMoveTo 302.52 -184.22
+/call InternalMoveTo 317.51 -180.27
+/call InternalMoveTo 421.93 -228.10
+/call InternalMoveTo 444.85 -259.00
+/call InternalMoveTo 445.01 -300.93
+/call InternalMoveTo 502.32 -296.70
+/call InternalMoveTo 546.17 -316.14
+/call InternalMoveTo 596.87 -293.66
+/call InternalMoveTo 628.02 -280.88
+/call InternalMoveTo 661.61 -278.81
+/call InternalMoveTo 734.65 -278.99
+/call InternalMoveTo 735.41 -476.93
+/call InternalMoveTo 1171.47 -489.99
+/call InternalMoveTo 1163.49 -69.74
+/call InternalMoveTo 751.81 -72.85
+/call InternalMoveTo 1163.49 -69.74
+/call InternalMoveTo 1171.47 -489.99
+/call InternalMoveTo 735.41 -476.93
+/call InternalMoveTo 734.65 -278.99
+/call InternalMoveTo 661.61 -278.81
+/call InternalMoveTo 628.02 -280.88
+/call InternalMoveTo 596.87 -293.66
+/call InternalMoveTo 546.17 -316.14
+/call InternalMoveTo 502.32 -296.70
+/call InternalMoveTo 445.01 -300.93
+/call InternalMoveTo 444.85 -259.00
+/call InternalMoveTo 421.93 -228.10
+/call InternalMoveTo 317.51 -180.27
+/call InternalMoveTo 302.52 -184.22
+/call InternalMoveTo 324.85 -141.49
+/call InternalMoveTo 313.53 -124.55
+/call InternalMoveTo 295.46 -131.77
+/call InternalMoveTo 263.11 -127.38
+/call InternalMoveTo 262.50 -110.61

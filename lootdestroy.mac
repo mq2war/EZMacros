@@ -1,0 +1,31 @@
+#include loot.inc
+#include movement.inc
+
+sub main
+/declare baseLocY int inner 0
+/declare baseLocX int inner 0
+/varset baseLocY ${Me.Y}
+/varset baseLocX ${Me.X}
+/call LoadDestroy
+/call SetLootVar
+
+/hidecorpse looted
+
+/gu ${FindItemCount[=Lesser Rainbow Crystal]}
+
+:loot
+/if (${SpawnCount[corpse radius ${Param0}]} > 0) { 
+
+/if (${Cursor.ID}) /autoinv
+
+
+
+/call LootDestroy ${Param0}
+
+} 
+
+/call InternalMoveTo ${baseLocY} ${baseLocX} 
+
+/gu done looting
+
+/return

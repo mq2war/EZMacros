@@ -1,0 +1,18 @@
+sub main
+
+
+
+/if (${Me.SpellReady[Spirit of the Kraken II]} && !${Me.Buff[Spirit of the Kraken II].ID}) {
+
+/echo ready
+
+/cast "Spirit of the Kraken II"
+
+}
+
+
+|/if (${Me.SpellReady[Spirit of the Kraken II]} && !${Me.Buff[Spirit of the Kraken II].ID}) { /echo in kraken /cast "Spirit of the Kraken II"
+|/delay 2
+}
+
+/return

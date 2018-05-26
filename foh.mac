@@ -1,0 +1,13 @@
+sub main
+
+:start
+/bct <healer 1> //cast 1
+/bct <healer 2> //cast 6
+/bct <healer 3> //cast 1
+/bct <healer 4> //cast 8
+
+/delay 4s
+
+/goto :start
+
+/return

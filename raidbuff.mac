@@ -1,0 +1,27 @@
+sub main
+
+/bct delegate //keypress 9
+/delay 5
+/bct delegate //cast "Blessing of Ancient Oak III"
+/delay 3
+/bct timesink //keypress 9
+/delay 7
+/bct timesink //cast "Armor of the Crab III"
+/bct pellets //keypress 9
+/delay 5
+/bct pellets //itemnotify mainhand rightmouseup
+/bct peign //cast "Cloak of Anarchy II"
+/bct submit //cast 4
+/bct recluse //cast 6
+/delay 2s
+/bct recluse //cast 7
+/bct lateral //keypress 9
+/delay 7
+| Cast Kodiacs, dont feel like spelling that shit
+/bct lateral //cast 7
+/delay 2
+/bct recluse //keypress 3
+/delay 4
+/bct recluse //cast 2
+
+/return

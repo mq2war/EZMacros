@@ -1,0 +1,304 @@
+
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include dragons.inc
+#include combat.inc
+#include utils.inc
+Sub Main()
+
+/delete var *global
+/declare mex int global
+/declare mey int global
+/declare count int inner
+/varset count 0
+|{Param0} = loot distance
+|{Param1} = true if go to T2
+|{Param2} = true if FWP is available
+|${Param3} = nexus owner
+|${Param4} = instance owner
+
+/moveto set dist 5
+/moveto set loose on
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/bccmd quit
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Plane of Dragons]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/call storeweapon 8 8 
+
+
+/call RanInternalMoveTo 1176.29 -1167.71
+
+/call RanInternalMoveTo 1179.85 -1599.75
+
+
+/call RanInternalMoveTo 909.47 -1135.04
+
+/call RanInternalMoveTo 662.89 -1199.52
+
+/call RanInternalMoveTo 427.69 -1098.78
+
+
+
+/call RanInternalMoveTo 458.70 -1319.05
+
+/call RanInternalMoveTo 401.82 -1446.10
+
+
+/call RanInternalMoveTo 495.21 -1455.77
+
+/call RanInternalMoveTo 534.82 -1439.98
+
+
+
+/call RanInternalMoveTo 582.98 -1658.99
+
+
+
+/call RanInternalMoveTo 883.23 -1485.65
+
+/call RanInternalMoveTo 1445.59 -1277.01
+
+
+/call RanInternalMoveTo 1488.62 -1639.98
+
+
+
+
+/call RanInternalMoveTo 1583.26 -1794.99
+
+/call RanInternalMoveTo 1616.62 -1385.71
+
+
+/call RanInternalMoveTo 1793.55 -1666.32
+
+/call getitem 8 8 
+
+
+/call setloc
+
+/call KillFaceGlobal2 ${Param0}
+/call LootIt 60
+
+/call storeweapon 8 8
+
+/call RanInternalMoveTo 2084.14 -1481.86
+
+
+
+ 
+
+/call RanInternalMoveTo 2044.05 -1681.67
+
+
+/call RanInternalMoveTo 1992.20 -1283.60
+
+
+/call RanInternalMoveTo 1784.96 -1681.67
+
+
+/call RanInternalMoveTo 1786.68 -974.91
+
+
+
+/call RanInternalMoveTo 1995.96 -781.83
+
+/call RanInternalMoveTo 1851.51 -551.34
+
+/call RanInternalMoveTo 1757.70 -379.04
+
+
+/call RanInternalMoveTo 1947.71 -384.10
+
+/call RanInternalMoveTo 1770.60 -363.39
+
+/call getitem 8 8
+
+/call KillFaceGlobal2 ${Param0}
+
+/call LootIt 60
+
+/call storeweapon 8 8
+
+
+/call RanInternalMoveTo 1913.19 101.17
+
+
+/call RanInternalMoveTo 2025.58 134.78
+
+
+/call RanInternalMoveTo 2082.44 247.28
+
+/call RanInternalMoveTo 2011.15 410.62
+
+/call RanInternalMoveTo 2059.97 580.91
+
+
+/call RanInternalMoveTo 2199.16 942.45
+
+/call RanInternalMoveTo 1838.91 1226.45
+
+
+/call RanInternalMoveTo 1943.93 1394.07
+
+
+/call RanInternalMoveTo 1799.35 1115.44
+
+
+/call RanInternalMoveTo 1568.93 935.77
+
+
+/call RanInternalMoveTo 1451.31 813.61
+
+/call RanInternalMoveTo 1433.57 813.61
+
+
+/call RanInternalMoveTo 1440.85 813.61
+
+
+/call RanInternalMoveTo 1453.44 722.52
+
+
+/call RanInternalMoveTo 1796.32 716.09
+
+/call getitem 8 8
+
+/call setloc
+
+/call KillFaceGlobal2 ${Param0}
+/call LootIt 60
+
+
+ 
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+}
+
+/if (${Param1.Equal[true]}) {
+/echo Calling T2
+/call t2
+
+/call pod2
+} else {
+
+/gu not doing pod2
+/delay 4m
+/if (${Me.Name.Equal[Usurp]}||${Me.Name.Equal[Peign]}) {
+
+
+|ninja
+/useitem 22
+/call getitem 8 8
+
+
+
+/call KillFaceGlobal2 40
+/call LootIt 60
+
+/delay 10s
+
+/call KillFaceGlobal2 40
+/call LootIt 60
+/say Repop Instance
+/delay 30s
+
+/goto :start
+}
+
+
+}
+
+
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+/call KillAllMobs 10 60
+/call LootIt 60
+}
+
+/delay 1s
+
+
+
+
+}
+
+/if (${Param2.Equal[true]}) {
+
+/echo Param2 = true
+
+/echo Param2 value ${Param2}
+
+/call KillFaceGlobal2 40
+/call LootIt 60
+
+/delay 10s
+
+/call KillFaceGlobal2 40
+/call LootIt 60
+
+/useitem 22
+/say Repop Instance
+/delay 30s
+/goto :start
+}
+
+
+
+/call KillFaceGlobal2 40
+/call LootIt 60
+
+/say enter guild ${Param3} nexus
+/delay 30s
+
+/if (${count}==0) {
+/say enter raid ${Param4} postorms
+}
+
+/if (${count}==1) {
+/say enter solo ${Param4} postorms
+}
+
+/if (${count}==2) {
+/say enter guild ${Param4} postorms
+/varset count 0
+}
+
+/delay 30s
+
+/varcalc count ${count} + 1
+
+
+
+/goto :start
+
+/return
+
+
+
+

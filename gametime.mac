@@ -1,0 +1,25 @@
+#Event ReceivedTell      "Game Time:#1#"
+
+Sub Main
+
+/time
+
+/doevents
+
+/delay 4
+
+/doevents
+
+
+/return
+
+
+Sub Event_ReceivedTell(string Message)
+
+	|/echo ${Message}
+
+          /gu ${Message}
+      
+	  |/t maslow ${Message}
+  
+/return

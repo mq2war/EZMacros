@@ -1,0 +1,166 @@
+#include sharpgroup.inc
+#include MoveUtility.inc
+
+#Event Restart "#*#portal closed#*#"
+
+
+sub main
+|## These global variables will exist until deleted or MQ2 is restarted
+
+|## Delete global vars
+
+/deletevar * global
+
+/declare cleanse int outer
+/declare mage string global
+/declare runner string global
+/declare portloc int global
+/declare area int global
+/declare currentloc int local
+/varset mage variable
+
+
+/declare sides float outer
+/declare souths float outer
+/declare bandits float outer
+/declare wilds float outer
+
+
+
+/varset sides -198.00
+/varset souths -1540.63
+/varset bandits 1100.50
+/varset wilds 2526.63
+
+
+
+/declare sharpcount int global
+/varset sharpcount 0
+
+
+:newgroup
+/call groupport 
+/varset cleanse 0
+
+
+/echo this is portloc ${portloc}
+
+/varset currentloc ${portloc}
+
+/call setarea
+
+/echo ${area}
+
+/gu starting 
+
+:start
+
+
+/delay 3s
+
+|/gu checking events
+/doevents
+
+
+/if (${cleanse} == 1) {
+
+/goto :newgroup
+
+}
+
+/goto :start
+
+/return
+
+
+
+
+sub Event_restart
+
+/gu restarting
+/bct usurp //endmacro
+/bct ratio //endmacro
+/bct peign //endmacro
+/bct fraz //endmacro
+
+
+
+
+/call magecleanup
+
+
+/return
+
+
+sub magecleanup
+
+/gu in magecleanup
+
+/echo area is ${area}
+
+
+
+/if (${area}==3) {
+
+/call mage usurp
+ 
+
+}
+
+/if (${area}==1) {
+
+/call mage ratio
+ 
+
+}
+
+/if  (${area}==4) {
+
+/call mage peign
+ 
+
+}
+
+/if (${area}==2) {
+
+/call mage fraz
+ 
+
+}
+
+/delay 3s
+
+/varset cleanse 1
+/return
+
+sub setarea 
+
+/gu in set area
+
+/if (${Target.Y}==${sides}) {
+	
+    /gu side
+    /varset area 1
+    }
+
+/if (${Target.Y}==${souths}) {
+	
+    /gu south
+    /varset area 2
+    }
+
+/if (${Target.Y}==${bandits}) {
+	
+    /gu bandit
+    /varset area 3
+
+    }
+
+/if (${Target.Y}==${wilds}) {
+	
+    /gu wild
+    /varset area 4
+
+}
+
+/return

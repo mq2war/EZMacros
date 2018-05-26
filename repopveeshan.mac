@@ -1,0 +1,83 @@
+sub main
+
+
+/say enter guild usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter guild peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/say enter guild ekiir ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/say enter raid ekiir ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/say enter raid watchyoudie ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/say enter guild ishallnotdie ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/say enter solo peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter solo usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/gu done with repop
+
+/return 
+
+
+sub repop
+
+
+/say repop instance
+
+/delay 5s
+
+
+/return

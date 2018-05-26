@@ -1,0 +1,261 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include fs2.inc
+#include utils.inc
+
+Sub Main()
+
+|  Parms:  Param0: first FWP holder  Param1: 2nd FWP holder Param2: bag#  Param3: slot#  Param4:  looter
+/declare run int inner
+/varset run 0
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+
+
+/declare count int local
+/varset count 0
+
+|/if (${Param0.Equal[true]}) {
+|/call warbuff
+
+|/pet leave
+|}
+
+
+
+|TODO zone setup
+
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+/bct ${Param1} //say enter guild ${Param1} frozenshadow
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Tower of Frozen Shadow]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 110s
+/endmacro
+}
+
+| If run count is 0 go to guild of first FWP holder
+/echo this is run: ${run}
+
+/if (${run} == 0) {
+
+/echo ${Param0} Guild
+
+/bct ${Param4} //say enter guild ${Param0} frozenshadow
+/say enter guild ${Param0} frozenshadow
+/delay 30s
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+
+/bct ${Param4} //macro lootgo 100
+
+/delay 110s
+
+/call NewKillFace 40
+
+
+}
+
+| If run count is 0 go to guild of 2nd FWP holder
+|TODO make run call a method
+/if (${run} == 1) {
+/echo ${Param1} Guild
+
+/bct ${Param4} //say enter guild ${Param1} frozenshadow
+/say enter guild ${Param1} frozenshadow
+/delay 30s
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/bct ${Param4} //macro lootgo 100
+
+/delay 110s
+
+/call NewKillFace 40
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 2) {
+
+/echo ${Param0} RAID
+
+/bct ${Param4} //say enter raid ${Param0} frozenshadow
+/delay 3s
+/say enter raid ${Param0} frozenshadow
+/delay 45s
+
+/call repop
+
+/delay 10s
+
+
+/bct ${Param0} //say enter raid ${Param0} frozenshadow
+
+/bct ${Param1} //say enter raid ${Param1} frozenshadow
+
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+/bct ${Param4} //macro lootgo 100
+
+/delay 120s
+
+/call NewKillFace 40
+
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 3) {
+
+/echo ${Param1} RAID
+
+/bct ${Param4} //say enter raid ${Param1} frozenshadow
+/delay 3s
+/say enter raid ${Param1} frozenshadow
+/delay 30s
+/bct fs2 //say enter raid ${Param1} frozenshadow
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/bct ${Param4} //macro lootgo 100
+
+/delay 100s
+
+/call NewKillFace 40
+
+
+}
+
+
+/if (${run} == 4) {
+
+/echo ${Param1} SOLO
+
+/bct ${Param4} //say enter solo ${Param1} frozenshadow
+/delay 3s
+/bct ${Param4} //say enter solo ${Param1} frozenshadow
+/delay 2s
+/say enter solo ${Param1} frozenshadow
+/delay 30s
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/bct ${Param4} //macro lootgo 100
+
+/delay 100s
+
+/call NewKillFace 40
+
+
+}
+
+/if (${run} == 5) {
+
+/echo ${Param0} SOLO
+
+/bct ${Param4} //say enter solo ${Param0} frozenshadow
+/delay 3s
+/bct ${Param4} //say enter solo ${Param0} frozenshadow
+/delay 2s
+/say enter solo ${Param0} frozenshadow
+/delay 30s
+/bct fs2 //say enter solo ${Param0} frozenshadow
+
+/call fs2 ${Param2} ${Param3}
+/call NewKillFace 40
+/delay 1s
+
+/bct ${Param4} //macro lootgo 100
+
+/delay 100s
+
+/call NewKillFace 40
+
+
+}
+
+
+
+| TODO zone function
+
+
+
+
+
+/if (${run}==5) {
+/varset run 0
+
+/bct ${Param4} //say enter guild ${Param0} frozenshadow
+/say enter guild ${Param0} frozenshadow
+
+/call repop
+
+
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+
+
+/bct ${Param1} //say enter guild ${Param1} frozenshadow
+
+}
+
+/varcalc run ${run} + 1
+
+/goto :start
+
+
+/return
+
+
+sub repop
+
+
+/if (${SpawnCount[pc]} == 2) {
+
+/bct ${Param0} //gu repopping instance
+/bct ${PARAM0} //say repop instance
+
+/bct ${Param1} //gu repopping instance
+/bct ${PARAM1} //say repop instance
+
+} else {
+
+/return 
+
+}
+
+
+
+
+
+/return

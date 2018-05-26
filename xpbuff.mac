@@ -1,0 +1,32 @@
+sub main
+
+
+
+/windowstate InventoryWindow open
+/delay 1s
+
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 1s
+/itemnotify in pack1 9 leftmouseup
+/delay 2s
+/itemnotify pack4 leftmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/itemnotify pack4 rightmouseup
+/delay 2s
+/itemnotify pack4 leftmouseup
+/delay 1s
+/autoinv
+/delay 1s 
+/autoinv
+
+/if (${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+/windowstate InventoryWindow close
+
+
+/return 

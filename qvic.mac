@@ -1,0 +1,249 @@
+#Event TooFarAway "#*#You are too far away to loot that corpse#*#"
+#Event Repop "You already repop this zone within last 10 minutes."
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include dragons.inc
+
+Sub Main()
+/declare toggle local
+|{Param0} = loot distance
+|{Param1} = true FWP is available. 
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+
+/delay 3s
+/plugin MQ2Doors unload
+/delay 5
+/plugin MQ2Doors
+
+/toggledoors on
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} 
+
+
+/if (!${Zone.Name.Equal[Qvic, Prayer Grounds of Calling]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+
+
+
+
+/call RanInternalMoveTo -97.73 -802.51
+/target clear
+/call kill
+/target clear
+/call RanInternalMoveTo -106.43 -880.51
+/target clear
+/call RanInternalMoveTo -108.49 -964.22
+/target clear
+/call RanInternalMoveTo -445.70 -813.17
+/target clear
+
+
+/call RanInternalMoveTo -448.27 -995.43
+/call kill
+/target clear
+/call RanInternalMoveTo -376.26 -989.00
+/target clear
+/call kill
+/call RanInternalMoveTo -374.36 -989.11
+/target clear
+/call RanInternalMoveTo -450.61 -995.03
+/target clear
+/call RanInternalMoveTo -443.30 -697.65
+/target clear
+/call RanInternalMoveTo -914.66 -694.89
+/target clear
+/call RanInternalMoveTo -935.54 -712.58
+/target clear
+/call kill
+/call RanInternalMoveTo -909.38 -695.08
+/target clear
+/call RanInternalMoveTo -821.98 -696.15
+/target clear
+/call RanInternalMoveTo -679.15 -696.52
+/target clear
+/call RanInternalMoveTo -527.62 -697.21
+/target clear
+/call RanInternalMoveTo -418.88 -695.54
+/target clear
+/call RanInternalMoveTo -430.39 -591.23
+/target clear
+/call RanInternalMoveTo -202.22 -595.87
+/target clear
+/call kill
+/call RanInternalMoveTo -449.23 -589.45
+/target clear
+/call RanInternalMoveTo -585.45 -222.94
+/call RanInternalMoveTo -692.12 -294.97
+/call kill
+/call RanInternalMoveTo -506.62 -172.92
+/target clear
+/call RanInternalMoveTo -158.89 -245.15
+/call kill
+/call RanInternalMoveTo -15.10 -262.45
+/target clear
+/call RanInternalMoveTo -4.36 28.98
+/target clear
+/call RanInternalMoveTo -157.50 27.10
+/target clear
+/call RanInternalMoveTo -159.12 221.72
+/call kill
+/call RanInternalMoveTo -162.35 -2.65
+/target clear
+/call RanInternalMoveTo -37.45 11.20
+/target clear
+/call RanInternalMoveTo 145.50 -292.90
+/target clear
+/call RanInternalMoveTo 153.91 -635.56
+/target clear
+/call RanInternalMoveTo 205.76 -631.09
+/target clear
+/call kill
+/call RanInternalMoveTo 145.72 -628.56
+/target clear
+/call RanInternalMoveTo 150.50 -861.82
+/target clear
+/call RanInternalMoveTo 152.18 -960.52
+/target clear
+/call RanInternalMoveTo 161.10 -1020.65
+/target clear
+/call RanInternalMoveTo 82.90 -1008.06
+/target clear
+/call RanInternalMoveTo 92.31 -1058.60
+/call kill2
+/call RanInternalMoveTo 82.90 -1008.06
+/call kill2
+/target clear
+/call RanInternalMoveTo 161.10 -1020.65
+/call kill2
+/target clear
+/call RanInternalMoveTo 152.18 -960.52
+/call kill2
+/target clear
+/call RanInternalMoveTo 150.50 -861.82
+/call kill2
+/call RanInternalMoveTo -131.45 -994.10
+/call kill2
+
+
+
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+}
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+/call KillAllMobs 10 60
+/call LootIt 45
+}
+
+/if (${Param1.Equal[true]}) {
+
+/call ent
+
+}
+
+/goto :start
+
+
+/return
+
+
+
+Sub Event_TooFarAway 
+
+/hidecorpse all
+/hidecorpse looted
+
+/call main
+
+/return 
+
+sub kill
+
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 30
+
+/return 
+
+sub kill2
+
+/call KillAllMobs 10 25
+/delay 1s
+/call KillAllMobs 10 25
+/call LootIt 25
+
+/return 
+
+sub ent
+
+
+
+:start
+/say repop instance
+/delay 5
+/doevents
+/delay 30s
+/bccmd quit
+/echo IN ENTRANCE
+
+/if (${Me.Y} != 767.00) {
+/echo ${Me.Y}
+/delay 30s
+/goto :start
+
+} 
+
+/call RanInternalMoveTo 767.00 -2102.82
+/call RanInternalMoveTo 1159.44 -2003.42
+/call RanInternalMoveTo 1176.52 -1538.82
+/call RanInternalMoveTo 714.03 -1522.83
+/call RanInternalMoveTo 460.96 -1538.37
+/call RanInternalMoveTo 328.79 -1489.23
+/call RanInternalMoveTo -13.61 -1566.11
+/call RanInternalMoveTo -132.74 -1431.37
+/call RanInternalMoveTo -135.13 -1106.91
+/call RanInternalMoveTo -130.12 -1007.64
+/call RanInternalMoveTo -117.55 -1009.03
+
+
+
+/return
+
+
+Sub Event_Repop
+/echo In Repop Event
+
+/delay 4m
+/say repop instance
+/delay 20s
+/doevents flush
+
+/return 
+
+
+

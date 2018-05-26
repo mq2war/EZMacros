@@ -1,0 +1,8 @@
+#include buffs.inc
+
+
+sub main
+
+/call buffup
+
+/return

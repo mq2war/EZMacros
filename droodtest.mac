@@ -1,0 +1,12 @@
+#include healing.inc
+
+sub main
+
+/declare druid string local
+
+/varset druid delegate
+
+/call druidpostpull delegate
+
+
+/return

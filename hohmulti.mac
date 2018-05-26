@@ -1,0 +1,359 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include tokenfarm.inc
+#include utils.inc
+
+#Event Akk "Norrath rumbles as the Barbarian of the North appears..."
+
+Sub Main()
+
+|  Parms:  Param0: avatar type  Param1: 2nd avatar type  Param2:  looter
+/declare run int inner
+/varset run 0
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+/declare count int local
+/varset count 0
+/declare instance string local
+/declare owner string local
+
+
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 90s
+/endmacro
+}
+
+| If run count is 0 go to guild of first FWP holder
+/echo this is run: ${run}
+
+/if (${run} == 0) {
+
+
+
+/varset instance guild
+/varset owner peign
+
+
+
+/echo ${owner} Guild
+
+/if (${Defined[Param2]}) { 
+
+/echo looter defined
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+}
+
+/echo Done with Heaven
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+} else {
+
+/echo starting Storms
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+
+
+}
+
+/if (${run} == 1) {
+
+/echo ${Param0}
+/echo this is parm1 ${Param2}
+
+/varset instance raid
+/varset owner peign
+
+/echo ${owner} Raid
+
+/if (${Defined[Param2]}) { 
+
+/echo looter defined
+
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+}
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+/echo looter defined
+
+} else {
+
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+
+}
+
+/if (${run} == 2) {
+
+/echo ${Param0}
+/echo this is parm2 ${Param2}
+
+/varset instance solo
+/varset owner peign
+
+/echo ${owner} Solo
+
+/if (${Defined[Param2]}) { 
+
+/echo looter defined
+
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+}
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+
+}
+
+/if (${run} == 3) {
+
+/echo ${Param0}
+/echo this is parm2 ${Param2}
+
+/varset instance guild
+/varset owner usurp
+
+/echo ${owner} Guild
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+}
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+
+}
+
+/if (${run} == 4) {
+
+/echo ${Param0}
+/echo this is parm2 ${Param2}
+
+/varset instance raid
+/varset owner usurp
+
+/echo ${owner} Raid
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+}
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+}
+/if (${run} == 5) {
+
+/echo ${Param0}
+/echo this is parm2 ${Param2}
+
+/varset instance solo
+/varset owner usurp
+
+/echo ${owner} Solo
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param0} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param0}
+
+/varset run 0
+
+/bct ${owner}  //macro repopinstances hohonora
+
+/delay 30s
+
+/bct ${Param1} //say enter guild peign hohonora
+/say enter guild peign hohonora
+
+}
+
+/if (${Defined[Param2]}) { 
+
+/call doit ${instance} ${owner} ${Param1} ${Param2}
+
+} else {
+
+/call doit ${instance} ${owner} ${Param1}
+
+}
+
+/varset run 0
+
+}
+
+/varcalc run ${run} + 1
+
+
+
+/goto :start
+
+
+/return
+
+
+sub doit
+|Usage:  /call doit guild toonname storms toonname
+|Params: string instance, string instanceowner, string section, string looter
+
+
+/if (${Defined[Param3]}) { 
+/bct ${Param3} //say enter ${Param0} ${Param1} hohonora
+
+}
+
+/say enter ${Param0} ${Param1} hohonora
+
+/delay 30s
+
+/call ${Param2} 8 8
+
+
+
+
+/call NewKillFace 40
+/keypress 9
+/delay 10s
+/call NewKillFace 40
+/delay 2s
+
+/if (${Defined[Param3]}) { 
+
+/echo parm found
+
+/bct ${Param3} //macro lootgo 100
+
+/delay 120s
+
+}  else {
+
+/call LootIt 100
+
+}
+
+
+
+/call NewKillFace 40
+
+/bct ${Param3} //macro lootgo 100
+
+/delay 30s
+
+}  else {
+
+/call LootIt 100
+
+}
+
+
+/return
+
+
+sub lootsome
+
+/echo this is parm4 ${Param4}
+/echo this is parm4 condition ${Me.Name.Equal[${Param4}]}
+
+/if (${Me.Name.Equal[${Param4}]}) {
+
+/gu It's Me!
+/call LootIt 100
+
+} else {
+
+/gu It's You! 
+
+/bct ${Param4} //macro lootgo 100
+/delay 90s
+
+}
+
+/return
+
+sub Event_Akk
+
+/gu Akk here
+/delay 10m
+
+/return
+

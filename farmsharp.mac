@@ -1,0 +1,166 @@
+#Event Frenzy "#*#goes into a beserker frenzy#*#"
+
+#include utils.inc
+#include buffs.inc
+#include loot.inc
+
+sub main
+
+
+
+
+
+/declare fists int inner
+/declare uw int inner
+/declare zerk int inner
+/declare ninja int inner
+/declare nerf int inner
+/declare firsttime int inner
+/declare burn int inner
+/declare boom int inner
+/declare aoe int inner
+/declare pcount int inner
+/declare pcount2 int inner
+/declare ua2 int inner
+
+/varset fists 0
+/varset uw 0
+/varset zerk 0
+/varset ninja 0
+/varset nerf 0
+/varset firsttime 1
+/varset burn 0
+/varset boom 0
+/varset aoe 0
+/varset ua2 0
+
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+/call warbuff
+
+
+
+
+
+/bcaa //autoinv
+/bcaa //autoinv
+
+:start
+/target npc sharp
+
+/if (${Target.ID}) {
+
+
+/face fast
+/keypress 8
+
+/attack on
+
+/delay 2s
+
+/disc Savage Onslaught
+
+
+
+
+/delay 2s
+
+/bct sharp //target ID ${Target.ID}
+/bct ua //target ID ${Target.ID}
+/bct ua2 //target ID ${Target.ID}
+/bct sharp //stick 12 uw !front
+/bct sharp //attack on
+
+/if (${fists}==0) {
+
+/useitem 17
+/bct pellets //macro shaman maslow
+/bct ua //useitem 17
+/bct ua2 //useitem 17
+
+}
+
+/varcalc fists ${fists} + 1
+
+/delay 3s
+
+/goto :start
+
+
+} else {
+
+/bcaa //autoinv
+/bcaa //autoinv
+
+/bct malev //mqpause
+
+/bct pellets //endmacro
+
+
+}
+
+
+|  Call 2 loot scripts
+
+
+
+
+/call LootIt 60
+
+/bct ${Param0} //macro lootgo3 60
+
+
+/return
+
+
+
+sub Event_Frenzy
+
+|/gu in frenzy
+
+/bct submit //cast "Wave of Purity III"
+
+/bct timesink //itemnotify mainhand rightmouseup
+
+/bct fraz //cast "Wave of Purity III"
+
+/return
+
+
+
+sub rez
+
+/useitem 23 3
+
+/delay 2
+
+
+/bca //notify ConfirmationDialogBox Yes_Button leftmouseup
+
+|/call acceptrez
+
+
+/return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

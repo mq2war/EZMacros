@@ -1,0 +1,102 @@
+#Event TooFar "Your target is out of range, get closer!"
+#event Death "You have been slain#*#"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/declare baseLocY int inner 0
+/declare baseLocX int inner 0
+/varset baseLocY ${Me.Y}
+/varset baseLocX ${Me.X}
+/varset count 0
+
+/gu starting mage
+:start
+
+
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) { /cast "Focus of Healing"
+/delay 4
+}
+
+
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+
+
+:nuke
+
+/stick off
+
+
+/assist ${Param0}
+
+/delay 3
+
+/pet attack
+
+/target ${Param0}
+/delay 2
+
+/if (${Me.SpellReady[Rain of Jerikor]}) {
+
+/target ${Param0}
+/delay 1
+/cast "Rain of Jerikor"
+/delay 1s
+
+} 
+
+/delay 2s
+
+/if (${Me.SpellReady[Shylo's Bolt of Doom III]}) {
+
+
+|/if (!${Zone.ShortName.Equal[sunderock]}) {
+|/call stickit ${Param0}
+
+|}
+
+/delay 1
+/stick off
+/assist ${Param0}
+/delay 1
+/cast "Shylo's Bolt of Doom III"
+/delay 1s
+/target ${Param0}
+
+} 
+
+/delay 3
+
+/cast 4
+
+/goto :nuke
+
+/return
+
+
+Sub Event_Death
+/bccmd quit
+/delay 1s
+/memspellset 1
+/bccmd connect
+/return
+
+sub stickit(string tank) 
+/echo in stickit
+/target ${tank}
+
+/stick 30 uw behind
+
+/delay 15
+
+/stick off
+
+/return
+

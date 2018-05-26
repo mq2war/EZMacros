@@ -1,0 +1,17 @@
+sub main
+
+
+/target pc Maslow
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+
+/target pc Submit
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+
+/target pc Fraz
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+
+
+/return

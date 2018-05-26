@@ -1,0 +1,14 @@
+sub getback
+
+/target npc Uni
+/stick 1
+/delay 2s
+/say ${Param0}
+
+/delay 20s
+
+/say raid join ${Param1}
+/say enter ${Param1}
+
+
+/return

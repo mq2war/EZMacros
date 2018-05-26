@@ -1,0 +1,22 @@
+#Event ReceivedTell      "#1#Hunter tells you#2#"
+
+Sub Main
+
+:start
+
+/doevents
+
+/delay 10s
+
+/goto :start
+
+/return
+
+
+Sub Event_ReceivedTell(string Line, string FromName, string Message)
+    /beep
+	|/echo ${FromName}  ${Message}
+      
+	  /t maslow ${FromName} says ${Message}
+  
+/return

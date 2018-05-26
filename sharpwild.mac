@@ -1,0 +1,24 @@
+#include sharpgroup.inc
+#include MoveUtility.inc
+
+sub main
+|## These global variables will exist until deleted or MQ2 is restarted
+
+|## Delete global vars
+
+/deletevar * global
+
+/declare mage string global
+/declare runner string global
+/declare portloc int global
+/declare currentloc int local
+/varset mage variable
+
+/declare sharpcount int global
+/varset sharpcount 0
+
+
+/call wild 
+
+
+/return

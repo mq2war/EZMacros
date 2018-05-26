@@ -1,0 +1,7 @@
+Sub Main
+|| checks for loc in HoH to ensure you have zoned in. 
+/if (${Math.Distance[${Me.Y},${Me.X}:-338.00,-2710.00]}>10) {
+/itemnotify rightfinger rightmouseup
+}
+
+/return

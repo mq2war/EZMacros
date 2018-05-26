@@ -1,0 +1,543 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include dragons.inc
+
+Sub Main()
+
+|param0 = crystal type
+|param1 = pack number  example pack2
+
+/moveto set loose on
+/moveto set dist 5
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+/echo ${Param0}
+
+/if (${Param0.Equal[water]}) {
+/echo Calling Water
+/call water
+}
+
+/if (${Param0.Equal[fire]}) {
+/echo Calling Fire
+/call fire
+}
+
+
+/if (${Param0.Equal[earth]}) { 
+/echo Calling Earth
+/call earth 
+}
+
+/if (${Param0.Equal[ice]}) { 
+/call ice
+ }
+
+ /if (${Param0.Equal[newice]}) { 
+/call newice
+ }
+/return
+
+
+sub water
+
+/echo IN WATER
+
+/if (${FindItemCount[=Water Crystal]} > 0) {
+
+
+
+|/varset watercrystal ${FindItem[=Water Crystal].InvSlot.Name}
+
+/echo In Water
+:waterloop
+
+
+/target Emissary of Water
+/if (${SpawnCount[npc radius 30]} > 1) {
+
+/call KillFace 20
+/call LootIt 30
+
+
+}
+
+/delay 2s
+
+
+/if (!${Window[pack2].Open}) {
+/itemnotify pack2 rightmouseup
+/delay 1s
+}
+
+/target Emissary of Water
+/if (${Target.ID}) {
+
+/stick 25 front
+/face fast nolook
+/keypress centerview
+/delay 1s
+ /ctrlkey /itemnotify ${FindItem[=Water Crystal].InvSlot} leftmouseup
+/delay 1s
+/click left center
+/delay 2s
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+/if (!${Window[pack2].Open}) {
+/itemnotify pack2 rightmouseup
+/delay 1s
+}
+
+/delay 5
+
+/call KillFace 30
+/call LootIt 45
+
+/delay 4s
+
+/call KillFace 30
+/call LootIt 45
+
+/goto :waterloop
+
+} else { 
+/goto :waterloop
+}
+
+} else {
+  /popup No Water Crystals Asshat
+ /beep 
+}
+
+/return
+
+sub fire
+
+/echo IN FIRE
+
+/if (${FindItemCount[=Fire Crystal]} > 0) {
+
+
+
+|/varset watercrystal ${FindItem[=Water Crystal].InvSlot.Name}
+
+
+:fireloop
+
+/target Emissary of Fire
+
+/if (${SpawnCount[npc radius 30]} > 1) {
+
+/call KillFace 30
+/call LootIt 45
+/delay 3s
+
+/call KillFace 30
+}
+
+
+
+/delay 2s
+
+
+/if (!${Window[pack2].Open}) {
+/itemnotify pack2 rightmouseup
+/delay 1s
+}
+
+
+/target Emissary of Fire
+/if (${Target.ID}) {
+
+/stick 25 front
+/face fast nolook
+/keypress centerview
+/delay 1s
+ /ctrlkey /itemnotify ${FindItem[=Fire Crystal].InvSlot} leftmouseup
+/delay 1s
+/click left center
+/delay 2s
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+/if (!${Window[pack2].Open}) {
+/itemnotify pack2 rightmouseup
+/delay 1s
+}
+
+/delay 5
+
+/call KillFace 30
+/call LootIt 45
+
+/delay 6s
+
+/goto :fireloop
+
+} else { 
+/delay 3s
+/goto :fireloop
+}
+
+} else {
+  /popup No fire Crystals Asshat
+ /beep 
+}
+
+/return
+
+
+
+
+
+sub earth
+
+/echo IN Earth
+
+/if (${FindItemCount[=Earth Crystal]} > 0) {
+
+/echo In Earth
+:earthloop
+
+|cure
+
+/target ornate radius 30
+
+/if (${Target.ID}) {
+
+/stick 2
+
+/attack on
+
+/delay 2s
+
+/attack on
+
+}
+
+
+/bct pod //attack off
+/target clear
+/face heading 340
+/bct pod //stick ID ${Me.ID} behind
+/delay 1s
+/bca //stick off
+
+
+/target npc Kronos
+/if (${Target.ID} ) {
+
+/call PartyKillAllMobs 10 60 pod
+/call LootIt 45
+
+
+
+}
+
+:object
+/target ojbect radius 20
+
+/if (${Target.ID}) {
+
+/stick 12
+/attack on
+/goto :object
+}
+
+
+/target Emissary of Earth
+
+
+/if (${Target.ID}) {
+
+/stick front moveback 25
+/if (!${Window[pack3].Open}) {
+/itemnotify pack3 rightmouseup
+/delay 2s
+}
+
+/if (!${Window[pack3].Open}) {
+/itemnotify pack3 rightmouseup
+/delay 2s
+} else {
+ /target Emissary of Earth
+ /delay 1s
+}
+
+
+
+/stick front moveback 15
+/face fast nolook
+/keypress centerview
+/delay 1s
+ /ctrlkey /itemnotify ${FindItem[=Earth Crystal].InvSlot} leftmouseup
+/delay 1s
+/click left center
+/delay 3s
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+} else {
+
+/call PartyKillAllMobs 10 60 pod
+/call LootIt 45
+
+}
+
+/delay 2s
+
+/if (${SpawnCount[NPC radius 60]}) {
+/call PartyKillAllMobs 10 60 pod
+/call LootIt 45
+
+} 
+
+/delay 3s
+
+/goto :earthloop
+
+} else { 
+
+/goto :earthloop
+}
+
+} else {
+  /popup No Earth Crystals Asshat
+ /beep 
+}
+
+
+/return
+
+sub ice 
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Plane of Dragons]}) {
+/camp
+/bca //q
+/delay 40s
+/endmacro
+
+}
+/echo IN Ice
+
+/if (${FindItemCount[=Ice Crystal]} > 0) {
+
+/echo In Ice
+:iceloop
+
+|cure
+/delay 1s
+/bct pod //attack off
+/target clear
+/bct pod //stick ID ${Me.ID} behind
+/delay 1s
+/bct pod //stick off
+
+/tar clear
+
+/target ornate radius 30
+
+/if (${Target.ID}) {
+
+/stick 2
+
+/attack on
+
+/delay 2s
+
+/attack on
+
+}
+
+
+/if (${SpawnCount[npc radius 30]} > 1) {
+
+/call PartyKillAllMobs 10 40 pod
+/delay 1s
+/call PartyKillAllMobs 10 40 pod
+/call LootIt 45
+
+}
+
+
+
+:object
+/target object radius 20
+
+/if (${Target.ID}) {
+
+/stick front moveback 15
+/attack on
+/goto :object
+}
+
+/delay 1s
+
+/if (!${Window[pack3].Open}) {
+/itemnotify pack3 rightmouseup
+/delay 3
+}
+
+
+
+
+/target Emissary of Ice
+/if (${Target.ID}) {
+
+/stick front moveback 15
+/bct pod //target ${Me.ID}
+/bct pod //stick 25 behind
+/delay 1s
+/face fast nolook
+/keypress centerview
+/delay 4
+ /ctrlkey /itemnotify ${FindItem[=Ice Crystal].InvSlot} leftmouseup
+/delay 4
+/click left center
+/delay 5
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+/delay 1s
+/target clear
+
+
+/call PartyKillAllMobs 10 50 pod
+/delay 1s
+/call PartyKillAllMobs 10 50 pod
+/call LootIt 45
+
+
+/target npc Kronos
+
+
+/if (${Target.CleanName.Equal[Kronos]}) {
+/beep
+
+
+/call PartyKillAllMobs 10 40 pod
+/delay 5
+/call PartyKillAllMobs 10 40 pod
+/call LootIt 45
+
+}
+
+/call PartyKillAllMobs 10 50 pod
+/delay 5
+/call PartyKillAllMobs 10 50 pod
+/call LootIt 45
+
+
+/goto :iceloop
+
+} else { 
+/goto :iceloop
+}
+
+} else {
+  /popup No Earth Crystals Asshat
+ /beep 
+}
+
+/return
+
+sub newice 
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Plane of Dragons]}) {
+/camp
+/bca //q
+/delay 40s
+/endmacro
+
+}
+/echo IN Ice
+
+/if (${FindItemCount[=Ice Crystal]} > 0) {
+
+/echo In Ice
+:iceloop
+
+/if (${Target.CleanName.Equal[Emissary of Ice]}) {
+
+/tar clear
+
+/delay 3
+
+}
+
+/delay 1s
+/bct pod //target id ${Me.ID}
+/delay 5
+/bct pod //stick 20 behind
+/delay 1s
+
+/if (!${Window[pack3].Open}) {
+/itemnotify pack3 rightmouseup
+/delay 1s
+}
+
+/target Emissary of Ice
+/if (${Target.ID}) {
+
+/stick 30 front
+/face fast nolook
+/keypress centerview
+/delay 3
+/ctrlkey /itemnotify ${FindItem[=Ice Crystal].InvSlot} leftmouseup
+/delay 3
+/click left center
+/delay 3
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+
+/call PartyKillAllMobs 10 50 pod
+/delay 5
+/call PartyKillAllMobs 10 50 pod
+/call LootIt 45
+
+/goto :iceloop
+
+} else { 
+/goto :iceloop
+}
+
+} else {
+  /popup No Earth Crystals Asshat
+ /beep 
+}
+
+/return

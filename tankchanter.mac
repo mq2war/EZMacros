@@ -1,0 +1,21 @@
+sub main
+
+/declare masked string inner
+/declare tank string inner
+
+/varset tank maslow,usurp
+
+/target pc ${tank.Arg[1,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 4s
+/cast "Irrational Irritation III"
+/delay 4s
+
+/target pc ${tank.Arg[2,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 4s
+
+
+/macro chanter
+
+/return

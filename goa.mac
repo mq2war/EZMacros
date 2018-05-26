@@ -1,0 +1,29 @@
+sub main
+
+/bccmd quit
+
+/target pc ${Param0}
+/delay 2
+/target pc ${Param0}
+/if (${Me.SpellReady[Gift of Annihilation]} && ${Target.Name.Equal[${Param0}]}) {
+/cast "Gift of Annihilation"
+} else {
+
+/t ${Param0} Target is ${Target.Name}
+/t ${Param0} GoA is not ready. 
+/target pc ${Param0}
+}
+
+/if (${Me.SpellReady[Gift of Annihilation]} && ${Target.Name.Equal[${Param0}]}) {
+/cast "Gift of Annihilation"
+} else {
+
+/t ${Param0} Target is ${Target.Name}
+/t ${Param0} GoA is not ready 2nd Try 
+/target ${Param0}
+}
+
+
+/bccmd connect
+/delay 2
+/return

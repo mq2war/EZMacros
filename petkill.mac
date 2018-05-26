@@ -1,0 +1,19 @@
+sub main
+
+:loop
+
+/target npc radius 500
+
+/if (${Target.CleanName.Equal[Trick or Treat]}) {
+   /keypress esc
+   /target death
+}
+
+/pet attack
+
+/delay 5s
+
+
+/goto :loop
+
+/return

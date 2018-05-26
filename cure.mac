@@ -1,0 +1,9 @@
+sub main
+
+:start
+
+/keypress 0
+/delay 2s
+/goto :start
+
+/return

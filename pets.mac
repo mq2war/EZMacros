@@ -1,0 +1,7 @@
+#include buffs.inc
+
+Sub Main
+
+/call pets
+
+/return

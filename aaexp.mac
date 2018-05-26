@@ -1,0 +1,63 @@
+#turbo 10
+
+sub main
+/declare runtime timer outer 300
+
+:start
+/echo ${runtime.Value}
+
+/if (${SpawnCount[npc radius 300]} > 1) {
+/bct  //target npc radius 300
+/bct  //stick 50 uw
+/bct  //keypress 1
+/bct   //target npc radius 300
+/bct  //stick 1 uw
+/bct  //attack on
+/delay 6s
+/echo ${runtime.Value}
+/if (${runtime.Value.String} == 0) {
+/echo Evaluated True
+/goto :move
+}
+/goto :start
+}
+/else {
+/declare movetime timer outer 1500
+/bct  //stick off
+/bct  //stick off
+/bct  //moveto loc 1223.88 -1327.72
+/bct  //moveto loc 1223.88 -1327.72
+/delay 20s
+/if (${SpawnCount[npc radius 500]}) > 1 {
+/bct  //target npc radius 500
+/bct  //stick 50
+/bct  //keypress 1
+/bct   //target npc radius 500
+/bct  //stick 1
+/bct  //attack on
+/delay 6s
+/goto :start
+}
+
+/delay 120s
+/goto :start
+
+ }
+
+:move
+/bct  //stick off
+/bct  //stick off
+/bct  //moveto loc 1223.88 -1327.72
+/bct  //moveto loc 1223.88 -1327.72
+/delay 20s
+/goto :settimer
+
+:settimer
+/varset runtime 3000
+/goto :start
+
+:setmovetime
+//varset movetime 1500
+/goto :start
+
+/return

@@ -1,0 +1,79 @@
+#Event TooFar "Your target is out of range, get closer!"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/declare count1 int inner
+/varset count 0
+/varset count1 0
+/gu I has teh healz
+
+:start
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+/if (${Me.SpellReady[Amplify Healing]} && !${Me.Buff[Amplify Healing].ID}) {
+/cast "Amplify Healing"
+}
+/stick off
+/delay 2
+/target pc ${Param0}
+
+/if (${Me.SpellReady[Tower of Vie III]} && ${count1}>7)  {
+
+/cast "Tower of Vie III"
+
+/delay 2
+
+/varset count1 0
+
+}
+
+|/echo ${Target.PctHPs}
+
+|| access group members
+|/if (${Target.PctHPs} < 50 || ${Target.PctHPs} > 100 && ${Me.SpellReady[Over Raided Healing II]} ) {
+
+/if (${Target.PctHPs} < 80 && ${Me.SpellReady[Over Raided Healing II]} && ${count}>=2) {
+/cast "Over Raided Healing II"
+/delay 15
+
+
+}
+
+
+
+/delay 1
+
+/echo ${count}
+
+/if (${Me.SpellReady[Word of Vivification II]} && ${count}>=4) {
+
+/cast "Word of Vivification II" 
+
+/varset count 0
+
+}
+
+
+/delay 7
+
+/varcalc count ${count} + 1
+
+/varcalc count1 ${count1} + 1
+
+/goto :start
+
+/return
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+

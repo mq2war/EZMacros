@@ -1,0 +1,46 @@
+#turbo
+
+Sub Main
+/declare count int inner 0
+/varset count 0
+
+:loop
+
+
+/stick off
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) /cast "Focus of Healing"
+
+
+/if (${Me.PctHPs} < 60 && ${Me.SpellReady[Elysian Water III]}) {
+
+/target ${Me.ID}
+/cast "Elysian Water III"
+/delay 5
+
+}
+
+
+/delay 5
+/goto :loop
+
+/return
+ 
+
+
+
+
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+
+
+
+

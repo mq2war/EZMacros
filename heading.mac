@@ -1,0 +1,30 @@
+sub main
+
+/if (!${Me.Heading.ShortName.Equal[N]} && !${Me.Heading.ShortName.Equal[S]}) {
+/echo Facing South
+/face heading 180
+} else {
+/echo Facing East
+/face heading 270
+}
+
+
+/return
+
+Sub Event_ToggleVariable(string heading) 
+
+/if (${heading.Equal[W]}) {
+/echo Chakakhan
+
+}
+
+/if (${Command.Equal[malo]} && ${DoMalo}==0) { 
+/varset DoMalo TRUE 
+/echo Do Malo: ${DoMalo} 
+} else /if (${Command.Equal[malo]}) { 
+/varset DoMalo FALSE 
+/echo Do Malo: ${DoMalo} 
+} 
+
+
+

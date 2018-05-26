@@ -1,0 +1,18 @@
+sub main
+/declare baseLocY int inner 0
+/declare baseLocX int inner 0
+
+/varset baseLocY ${Me.Y}
+/varset baseLocX ${Me.X}
+
+/echo ${Me.Loc}
+/echo ${Me.Loc.Arg[0,,]}
+/echo ${Me.Y}
+
+/moveto loc 293.02 21.00
+
+/delay 3s
+
+/moveto loc ${baseLocY} ${baseLocX}
+
+/return 

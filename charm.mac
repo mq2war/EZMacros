@@ -1,0 +1,181 @@
+sub main
+
+:start
+
+/declare bag int outer
+/declare charmtype outer
+/declare box int outer
+/declare guard outer
+/declare sorc outer
+/declare orc outer
+/declare brawl outer
+
+/varset bag 1
+/varset box 8
+/varset guard Guardian's
+/varset sorc Sorcer's
+/varset orc Oracle's
+/varset brawl Brawler's
+
+
+|open bag 1
+
+/windowstate InventoryWindow open
+/delay 1s
+
+/if (!${Window[pack${bag}].Open}) {
+/itemnotify pack${bag} rightmouseup
+/delay 2s
+}
+
+|Loot Based
+
+|/call Guardian
+
+|/call Sorc
+
+|/call Oracle
+
+/call Brawler
+
+
+
+|close bag 1
+
+/windowstate ContainerWindow close
+
+
+/return
+
+Sub MagicBox
+
+|open magic box
+
+/if (!${Window[pack${box}].Open}) {
+/itemnotify pack${box} rightmouseup
+/delay 2s
+/if (!${Window[pack${box}].Open}) {
+/itemnotify pack${box} rightmouseup
+/delay 2s
+}
+}
+
+|put item in box
+
+/itemnotify in pack${box} 1 leftmouseup
+
+|combine logic
+
+|Combine
+|perform combine
+/delay 2s
+
+/if (${charmtype.Equal[guardian]}) {
+/itemnotify in pack${box} 1 leftmouseup
+/delay 2s
+/echo Charm is ${charmtype}
+/itemnotify in pack${bag} 1 leftmouseup
+}
+/if (${charmtype.Equal[sorc]}) {
+/itemnotify ${FindItem[Sorcer's].InvSlot} leftmouseup
+/delay 2s
+/echo Charm is ${charmtype}
+/itemnotify charm leftmouseup
+}
+/if (${charmtype.Equal[brawler]}) {
+/itemnotify in pack${box} 1 leftmouseup
+/delay 2s
+/echo Charm is ${charmtype}
+/itemnotify in pack${bag} 2 leftmouseup
+}
+/if (${charmtype.Equal[oracle]}) {
+/itemnotify in pack${box} 1 leftmouseup
+/delay 2s
+/echo Charm is ${charmtype}
+/itemnotify in pack${bag} 3 leftmouseup
+}
+
+/return 
+
+Sub Guardian
+
+|find charm
+
+|define charm
+/varset charmtype guardian
+
+
+/itemnotify ${FindItem[Guardian's].InvSlot} leftmouseup
+/delay 2s
+
+|check item on cursor
+
+/if (${Cursor.Name.Left[10].Equal[${guard}]}) {
+/echo Guardians found
+
+/call MagicBox
+
+}
+
+/return
+
+Sub Sorc
+
+|define charm
+/varset charmtype sorc
+
+|find charm
+/itemnotify ${FindItem[Sorcer's].InvSlot} leftmouseup
+/delay 2s
+
+|check item on cursor
+
+/if (${Cursor.Name.Left[8].Equal[${sorc}]}) {
+/echo Sorc found
+
+/call MagicBox
+
+}
+
+/return
+
+Sub Oracle
+
+|define charm
+/varset charmtype oracle
+
+|find charm
+/itemnotify ${FindItem[Oracle's].InvSlot} leftmouseup
+/delay 2s
+
+|check item on cursor
+
+/echo ${Cursor.Name.Left[8].Equal[${orc}]}
+/if (${Cursor.Name.Left[8].Equal[${orc}]}) {
+/echo Oracle found
+
+/call MagicBox
+
+}
+
+/return
+
+Sub Brawler
+|define charm
+/varset charmtype brawler
+
+|find charm
+/itemnotify ${FindItem[Brawler's].InvSlot} leftmouseup
+/delay 2s
+
+|check item on cursor
+
+/if (${Cursor.Name.Left[9].Equal[${brawl}]}) {
+/echo brawler found
+
+/call MagicBox
+
+}
+
+/return
+

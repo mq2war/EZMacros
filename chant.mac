@@ -1,0 +1,36 @@
+sub main 
+
+
+/keypress 9
+
+/cast "Masked Strength III"
+
+/delay 3s
+
+/target pc maslow
+
+/cast 3
+
+/delay 4s
+
+/cast 9
+
+/delay 4s
+
+/target pc peign
+
+/cast 3
+
+/target pc timesink
+
+/cast 3
+
+/target pc icanhealz
+
+/cast 3
+
+/target pc lastride
+
+/cast 3
+
+/return

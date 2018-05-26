@@ -1,0 +1,19 @@
+#include sharpraid.inc
+#include MoveUtility.inc
+
+sub main
+|## These global variables will exist until deleted or MQ2 is restarted
+
+|## Delete global vars
+
+/deletevar * global
+
+/declare mage string global
+/declare runner string global
+/declare portloc int global
+/varset mage variable
+
+
+/call runport true
+
+/return

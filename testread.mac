@@ -1,0 +1,49 @@
+sub main
+
+/declare locnum int local
+
+/varset locnum 0
+
+
+
+:start
+
+
+/if (${locnum} == 0) {
+/ini uber.ini instance type raid
+|/varset locnum ${Math.Calc[${locnum} + 1]}
+
+/echo ${Ini[uber.ini,instance,type]} 
+
+}
+
+/if (${locnum}==1) {
+/ini uber.ini instance type2 guild
+
+|/varset locnum ${Math.Calc[${locnum} + 1]}
+
+/echo ${Ini[uber.ini,instance,type2]} 
+
+}
+
+/if (${locnum}==2) {
+/ini uber.ini instance type3 solo
+
+
+/echo ${Ini[uber.ini,instance,type3]} 
+
+}
+
+/varset locnum ${Math.Calc[${locnum} + 1]}
+
+/if (${locnum}==3) {
+
+/varset locnum 0
+
+}
+
+/delay 2s 
+/goto :start
+
+
+/return

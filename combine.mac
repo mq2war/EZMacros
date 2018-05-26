@@ -1,0 +1,123 @@
+|112921 - 112927 - T3 IDs
+|112931 - 112937 - T4 IDs
+#turbo 40
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||| Place A Magic Box in the 8th bag slot (bottom right)          ||||
+|||| Any loss of tokens is not my fault Kappa                      ||||
+|||| Written By: Natedog                                           ||||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+Sub Main
+	/if (!${Defined[MagicBoxSlot]}) /declare MagicBoxSlot string outer
+	/varset MagicBoxSlot ${FindItem[=A Magic Box].InvSlot.Name}
+	
+	||Lets open all bags!
+	/if (!${Defined[bag]}) /declare bag int local 0
+	/if (!${Defined[packnum]}) /declare packnum int 1
+	/if (!${Defined[tokenid]}) /declare tokenid int 112921
+	/if (!${Defined[T]}) /declare T int 1
+	/if (!${Defined[CurrentID]}) /declare CurrentID int outer
+	/if (!${Defined[ItemName]}) /declare ItemName string outer
+	/if (!${Defined[TokenItemCount]}) /declare TokenItemCount int outer
+	
+	/for bag 1 to 8
+		/if (!${Window[pack${bag}].Open} && ${InvSlot[pack${bag}].Item.Container}) /nomodkey /itemnotify pack${bag} rightmouseup
+	/next bag
+	
+	/for tokenid 112927 downto 112921
+		:retrycombine
+			/for packnum 1 to 8
+				/if (!${Window[pack${packnum}].Open} && ${InvSlot[pack${packnum}].Item.Container}) {
+					/itemnotify pack${packnum} rightmouseup
+					/delay 6
+				}
+				
+				/if (${Window[pack${packnum}].Open} && ${InvSlot[pack${packnum}].Item.Container}) {
+					/for T 1 to 10
+						|Find the item by ID...
+						/if (${InvSlot[pack${packnum}].Item.Item[${T}].ID} == ${tokenid}) {
+							/varset CurrentID ${InvSlot[pack${packnum}].Item.Item[${T}].ID}
+							/varset ItemName ${InvSlot[pack${packnum}].Item.Item[${T}].Name}
+							/varset TokenItemCount ${FindItemCount[${ItemName}]}
+
+							/if (${TokenItemCount} < 2) {
+								|/echo Skipping ID.. ${CurrentID} - ${InvSlot[pack${packnum}].Item.Item[${T}].Name}
+								/goto :dont_upgrade
+								/echo Item skipped.. if we got here.. something is WRONG
+							} else {
+								|/echo We have .. ${AugmentItemCount} of this item.. ${InvSlot[pack${packnum}].Item.Item[${T}].Name}
+								/ctrlkey /itemnotify in pack${packnum} ${T} leftmouseup
+								/delay 6
+								/call CombineHoHToken
+								/call FindNextToken
+								/goto :retrycombine
+							}
+						}
+					/next T
+				}	
+			/next packnum
+		:dont_upgrade
+	/next tokenid
+	
+	|Close our bags back up...
+	/for bag 1 to 8
+		/if (${Window[pack${bag}].Open} && ${InvSlot[pack${bag}].Item.Container}) /nomodkey /itemnotify pack${bag} rightmouseup
+	/next bag
+
+/return
+
+sub FindNextToken
+	/if (!${Defined[P]}) /declare P int 1
+	/if (!${Defined[packnum2]}) /declare packnum2 int 1
+	/for packnum2 1 to 8
+		/if (!${Window[pack${packnum2}].Open} && ${InvSlot[pack${packnum2}].Item.Container}) {
+			/itemnotify pack${packnum2} rightmouseup
+			/delay 6
+		}
+		
+		/if (${Window[pack${packnum2}].Open} && ${InvSlot[pack${packnum2}].Item.Container}) {
+			/for P 1 to 10
+				/if (${InvSlot[pack${packnum2}].Item.Item[${P}].ID} == ${CurrentID}) {
+					/ctrlkey /itemnotify in pack${packnum2} ${P} leftmouseup
+					/delay 6
+					/call CombineHoHToken
+					/return
+				}
+			/next P
+		}
+	/next packnum2
+
+/return
+
+Sub CombineHoHToken
+	|Make sure bag is open.. (it should be...)
+	/if (!${Window[${MagicBoxSlot}].Open} && ${InvSlot[${MagicBoxSlot}].Item.Container}) /nomodkey /itemnotify ${MagicBoxSlot} rightmouseup
+	/if (!${Defined[slot]}) /declare slot int 0
+	/varset slot ${Math.Calc[${FindItem[A Magic Box].Items}+1]}
+	/if (${slot} > 2) {
+		/autoinventory
+		/declare fixit int 1
+		:fixbox
+		/for fixit 1 to 10
+			/delay 5
+			/shiftkey /itemnotify in ${MagicBoxSlot} ${fixit} leftmouseup
+			/delay 5
+			/autoinventory
+		/next fixit
+		/if (${FindItem[A Magic Box].Items} > 0) {
+			/goto :fixbox
+		} else {
+			/goto :endcombine
+		}
+	}
+	/itemnotify in ${MagicBoxSlot} ${slot} leftmouseup
+	/delay 6
+	
+	/if (${slot} == 2) {
+		/combine ${MagicBoxSlot}
+		/delay 1s
+		/autoinventory
+		/delay 15
+	}
+	:endcombine
+/return

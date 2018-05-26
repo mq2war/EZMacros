@@ -1,0 +1,19 @@
+#Event Who "[#*#] #1# #*#"
+sub main
+:loop
+/doevents
+/delay 5s
+/goto :loop
+/return
+
+sub Event_Who(string line, string name)
+
+/if (${name.Equal[Hateborne]}) {
+/echo true
+} else {
+
+/echo false
+
+} 
+/doevents flush
+/return

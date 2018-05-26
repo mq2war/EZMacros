@@ -1,0 +1,43 @@
+#include EZCharmUpgrade.inc
+#include fs.inc
+#include utils.inc
+
+Sub Main()
+
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+/declare count int local
+/varset count 0
+
+/plugin MQ2Doors unload
+/plugin MQ2Doors
+
+/toggledoors on
+
+
+:start
+
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Tower of Frozen Shadow]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 40s
+/endmacro
+}
+
+/call fs3 {$Param0}
+/call buffup
+
+/goto :start
+
+
+/return

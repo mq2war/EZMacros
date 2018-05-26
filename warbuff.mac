@@ -1,0 +1,117 @@
+sub main
+
+/declare petloc string local
+/declare epicloc string local
+
+:sw
+/itemnotify back rightmouseup
+/delay 5
+/itemnotify mainhand rightmouseup
+/delay 1s
+
+/windowstate InventoryWindow open
+/delay 1s
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 1s
+
+/call pet
+
+
+/target ${Me.Pet}
+/delay 2
+/face
+/say buffs
+
+/if (!${Me.Song[Warrior's Defense VIII].ID} && ${Me.Name.Equal[Maslow]} ) /goto :sw
+/if (!${Me.Song[Warrior's Defense VIII].ID} && ${Me.Name.Equal[Usurp]} ) /goto :sw
+
+/if (!${Me.Song[Ancient Stonewall XII].ID} && ${Me.Name.Equal[Maslow]}) /goto :sw
+/if (!${Me.Song[Ancient Stonewall XII].ID} && ${Me.Name.Equal[Usurp]}) /goto :sw
+
+
+
+/windowstate InventoryWindow close
+
+:end
+
+/if (${Cursor.ID}) {
+/echo item still on cursor
+/itemnotify pack4 leftmouseup
+}
+/delay 5
+/echo Final Auto Inv
+
+
+/if (${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+
+/return
+
+
+
+
+sub pet 
+
+/declare petloc string local
+
+
+:pet
+
+
+/varset petloc ${FindItem[=Insane Goblin Familiar (Halloween Reward)].InvSlot}
+/itemnotify ${petloc} rightmouseup
+/delay 3
+|put pet in pack4 inv slot
+|/itemnotify pack4 leftmouseup
+|/delay 1s
+|summon pet
+|/itemnotify pack4 rightmouseup
+|/delay 4s
+|/itemnotify pack4 leftmouseup
+|/delay 2s
+|/nomodkey /ctrlkey /itemnotify ${petloc} leftmouseup
+
+
+/return
+
+sub epic
+/declare epicloc string local
+
+/if (!${Window[pack1].Open}) {
+/itemnotify pack1 rightmouseup
+}
+/delay 2s
+
+/delay 1s
+/varset epicloc ${FindItem[=Kreljnok's Sword of Defense Epic 7.0].InvSlot}
+/nomodkey /ctrlkey /itemnotify ${epicloc} leftmouseup
+
+/delay 2s
+/if (!${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 7.0]}) {
+/echo in first !
+/itemnotify ${epicloc} leftmouseup
+}
+/delay 1s
+/itemnotify pack4 leftmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 2s
+/itemnotify pack4 rightmouseup
+/delay 1s
+
+/itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 7.0].InvSlot} leftmouseup
+/if (${Cursor.Name.Equal[Kreljnok's Sword of Defense Epic 7.0]}) {
+/delay 2s
+} else {
+/itemnotify ${FindItem[=Kreljnok's Sword of Defense Epic 7.0].InvSlot} leftmouseup
+}
+/delay 2s
+/nomodkey /ctrlkey /itemnotify ${epicloc} leftmouseup
+ 
+
+/return 
+
+

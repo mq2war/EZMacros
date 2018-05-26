@@ -1,0 +1,113 @@
+#turbo 20
+#Event cantseetarget "#*#You cannot see your target#*#" 
+
+sub main
+|Param0 = name of toon
+|Start timer at 30 seconds
+
+
+/declare runtime timer outer 300
+/declare engage timer outer 200
+
+:start
+
+/if (${Window[LargeDialogWindow].Open} && ${Window[LargeDialogWindow].Child[LDW_TextBox].Text.Find[Are you still active?]}) /nomodkey /notify LargeDialogWindow LDW_YesButton leftmouseup
+/if (${Time.Time24.Equal[01:00:00]}) {
+/goto :camp
+}
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+
+
+|Make this a function
+/if (${SpawnCount[npc radius 1000]}) {
+|Paremeterize toon name
+   /target npc radius 1000
+   /keypress 8
+   /stick 1 uw
+   /attack on
+  /delay 2s
+   /if (${engage.Value} == 0 && ${Target.Distance} > 20) {
+/echo Evaluated True
+/goto :correct
+}
+} else {
+  /echo ${SpawnCount[npc radius 1500]}
+  /if (${SpawnCount[npc radius 1500]} > 1) {
+  /target npc radius 1500
+  /keypress 8
+   /stick 1 uw
+   /attack on
+  /delay 2s
+   /twist 10
+  /if (${Me.PctHPs} < 50) {
+/goto :move
+}
+/if (${engage.Value} == 0 && ${Target.Distance} > 20) {
+/echo Evaluated True
+/goto :correct
+}
+}
+}
+/delay 6s
+/if (${engage.Value} == 0 && ${Target.Distance} < 30) {
+/echo Evaluated True
+/goto :correct
+}
+
+
+/goto :start
+}
+:move
+/echo In Move Fucker
+|Parameterize loc
+/keypress esc
+/keypress back 
+/delay 10s
+/if (${Me.PctHPs} < 50) {
+/varset runtime 400
+/goto :correct
+}
+/delay 30s
+/goto :settime
+
+:correct
+/echo you are stuck, correcting
+ /stick off
+|back up
+ /face away
+|move forward
+/keypress forward hold 
+/delay 3s
+/keypress back
+
+/if (!${Me.Heading.ShortName.Equal[N]} && !${Me.Heading.ShortName.Equal[S]}) {
+/echo Facing South
+/face heading 180
+/keypress forward hold
+/delay 3s
+/keypress back
+} else {
+/echo Facing East
+/face heading 270
+/keypress forward hold
+/delay 3s
+/keypress back
+}
+
+/varset engage 200
+/goto :start
+
+:settime
+|Set timer to 5 min
+/varset runtime 3000
+/delay 30s
+/goto :start
+
+
+
+
+/return
+

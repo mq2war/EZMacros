@@ -1,0 +1,17 @@
+sub main
+
+
+:start
+
+/if (${SpawnCount[npc thunder]} > 0) {
+
+/beep
+ }
+
+
+/delay 30s
+
+/goto :start
+
+/return
+

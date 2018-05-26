@@ -1,0 +1,42 @@
+sub main
+
+/declare count int outer 0 
+
+:start
+/if (${SpawnCount[npc barrel radius 35]} > 0) {
+
+/target barrel
+/face nolook
+/cast 3
+/delay 4s
+/autoinv
+}  else {
+
+/delay 2m
+/if (${SpawnCount[npc barrel radius 35]} > 0) /goto :start
+
+/varset count ${Math.Calc[${count} + 1]}
+
+/say leave instance
+/delay 20s
+
+
+/if (${count} == 1) /say raid join Usurp
+/if (${count} == 2) /say raid join Peign
+/if (${count} == 3) /say solo join Usurp
+/if (${count} == 4) /say solo join Peign
+/if (${count} == 5) {
+ /say enter guild
+ 
+ /varset count 0
+ }
+
+/
+
+
+}
+
+/goto :start
+
+/return
+

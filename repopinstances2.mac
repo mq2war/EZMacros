@@ -1,0 +1,40 @@
+sub main
+
+
+/say enter guild kathina ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter guild keyon ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid kathina ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid keyon ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+
+
+/return 
+
+
+sub repop
+
+
+/say repop instance
+
+
+/return

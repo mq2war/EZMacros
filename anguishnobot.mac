@@ -1,0 +1,137 @@
+#include EZCharmUpgrade.inc
+#include buffs.inc
+#include utils.inc
+#include anguish.inc
+#Event FG "You have entered Illsalin Marketplace."
+
+| ${PARAM0} repopper
+| ${PARAM1} looter
+| ${PARAM2} true if no looter
+Sub Main
+
+/declare run int inner
+/declare instance int inner
+/varset run 0
+/varset instance 0
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 5m
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Anguish, the Fallen Palace]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+:start
+
+/echo ${instance}
+
+/if (${instance} > 2) {
+
+/bct ${Param0} //say enter guild
+/delay 2s
+/say enter guild
+/delay 25s
+/varset instance 0
+}
+
+| Possibly enter raid
+
+
+/call buffit
+
+
+/if (${run}==0) {
+
+/call solo ${Param1} ${Param2}
+/call gren ${Param1} ${Param2}
+
+/delay 5s
+/varset run 1 
+
+}  else {
+
+/call anguish2 ${Param1} ${Param2}
+/varset run 0
+
+}
+
+:repop
+
+/if (${instance}<=1) {
+
+
+/if (${Zone.Name.Equal[Anguish, the Fallen Palace]} && ${SpawnCount[${Param0}]} > 0)  {
+/bct ${Param0} //say repop instance
+
+/delay 20s
+
+
+/echo ${Me.Y}
+
+/if (${Me.Y} != -2466.00) {
+
+/delay 30s
+/goto :repop
+
+} 
+
+/varcalc instance ${instance} + 1
+} else {
+
+/endmacro 
+
+}
+
+} else {
+
+/call succor
+/delay 2s
+/bct ${Param0} //say enter raid
+/delay 2s
+/say raid join ${Param0}
+/delay 35s
+/varset instance 0
+/bct ${Param0} //say repop instance
+/varcalc instance ${instance} + 1
+}
+
+/goto :start
+
+
+/return
+
+sub Event_FG
+
+
+/beep
+/beep
+
+/camp
+
+/return
+
+
+sub buffit
+
+/twist off
+/delay 2s
+/call warbuff
+/delay 2s
+/call xpbuff
+/delay 2s
+
+/twist 11
+
+/pet leave
+
+
+/return

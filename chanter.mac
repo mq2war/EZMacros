@@ -1,0 +1,133 @@
+sub main
+
+/declare masked string inner
+
+
+
+/varset masked goft,recluse,manifesto,timesink,delegate,pellets,peign,ratio,submit,lateral,fraz,pennance,diatribe,soliloquy,uberitis,lalique,lastride,walkabout,icanhealz,warhorse,imeltface,walkabout
+
+
+
+
+/target pc ${masked.Arg[1,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+/cast "Masked Strength III"
+/delay 5s
+
+
+
+/target pc ${masked.Arg[2,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[3,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+
+/target pc ${masked.Arg[4,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[5,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+/target pc ${masked.Arg[6,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+/target pc ${masked.Arg[7,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[8,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+/cast "Masked Strength III"
+/delay 5s
+
+
+
+/target pc ${masked.Arg[9,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[10,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[11,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+
+/target pc ${masked.Arg[12,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+
+/target pc ${masked.Arg[13,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+
+
+/target pc ${masked.Arg[14,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 3s
+/cast "Masked Strength III"
+/delay 5s
+
+
+
+
+/call tank
+
+/gu done with buffs
+
+/gu Switching to Atisa
+/switchchar atisa
+
+
+/return
+
+
+sub tank
+
+/declare tank string local
+
+/varset tank maslow,usurp
+
+/bct ${tank.Arg[1,,]} //notify BuffWindow buff${Math.Calc[${Me.Buff[Masked Strength III].ID}-1].Int} leftmouseup
+/target pc ${tank.Arg[1,,]}
+/cast "Ancient: Vampiric Thunder"
+/delay 4s
+
+/cast "Irrational Irritation III"
+/delay 4s
+
+/bct ${tank.Arg[2,,]} //notify BuffWindow buff${Math.Calc[${Me.Buff[Masked Strength III].ID}-1].Int} leftmouseup
+/target pc ${tank.Arg[2,,]}
+/cast "Ancient: Vampiric Thunder"
+
+
+
+/return

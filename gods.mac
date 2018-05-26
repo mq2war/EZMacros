@@ -1,0 +1,68 @@
+#Event TooFarAway "#*#You are too far away to loot that corpse#*#"
+
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+
+
+
+Sub Main()
+
+|param0 = turn in toon name
+
+/moveto set dist 5
+
+/moveto set loose on
+
+/declare random int inner
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+:start
+
+/varset random ${Math.Rand[10]}
+
+
+
+/echo This is random:  ${random}
+
+
+
+/bct ${Param0} //macro givetoken
+/delay 5s
+
+
+/call PartyKillAllMobs 10 60 gods
+/call LootIt 45
+/delay 1s
+/call PartyKillAllMobs 10 60 gods
+/call LootIt 45
+
+/delay ${random}s
+
+
+}
+
+
+
+/goto :start
+
+
+
+/return
+
+Sub Event_TooFarAway 
+
+/hidecorpse all
+/hidecorpse looted
+/stick 1
+/attack on
+
+
+/return 

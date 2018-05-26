@@ -1,0 +1,12 @@
+#include hoh.inc
+#include fight.inc
+#include EZCharmUpgrade.inc
+
+Sub Main()
+/hidecorpse all
+/hidecorpse looted
+/call SetupLDONvar
+/call CheckCharms
+/if (${Zone.ID}==211) /call hoh ${Param1}
+
+/return

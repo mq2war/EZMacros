@@ -1,0 +1,53 @@
+#include sharpraid.inc
+#include MoveUtility.inc
+
+Sub Main
+
+
+/deletevar * global
+
+/declare mage string global
+/declare runner string global
+/declare portloc int global
+/declare sharpcount int global
+/varset mage variable
+
+
+
+/declare size int local
+/declare x int local
+
+:start
+/varset size ${Raid.Members}
+
+/for x 0 to ${size} {
+
+    /if (${Me.Name.Equal[${Raid.Member[${x}].Name}]}) {
+
+        /next x
+    }
+    
+    /if (${Raid.Member[${x}].Name.Equal[Variable]}) {
+
+        /next x
+    }
+    
+    /bct ${Raid.Member[${x}].Name} //macro sharprun
+    /bct ${Raid.Member[${x}].Name} //gu ${Raid.Member[${x}].Name}
+
+    /delay 8s
+    
+
+    
+    }
+	
+    
+ /next x
+
+ /gu Done
+ /keypress 9
+
+ /delay 3s
+
+ /goto :start
+ /return

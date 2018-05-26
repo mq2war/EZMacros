@@ -1,0 +1,68 @@
+sub main
+/declare rock string local
+/declare corn string local
+/declare apple string local
+/declare pumpkin string local
+
+/varset rock Sweetened Rock Candy
+/varset corn Candy Corn
+/varset apple Haunted Candy Apples
+/varset pumpkin Pumpkin Candy
+
+:start
+
+
+/target Trick or Treat
+/if (${Target.ID}) {
+
+/stick 20 front
+/face fast nolook
+/keypress centerview
+/delay 1s
+
+/if (${FindItemCount[=${rock}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${rock}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${corn}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${corn}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+/if (${FindItemCount[=${apple}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${apple}].InvSlot} leftmouseup
+/goto :give
+} else {
+
+
+/if (${FindItemCount[=${pumpkin}]} > 0) {
+/nomodkey /ctrlkey /itemnotify ${FindItem[=${pumpkin}].InvSlot} leftmouseup
+/goto :give
+}
+}
+}
+}
+:give
+
+/delay 1s
+/click left center
+/delay 3s
+
+
+|give item
+
+/if (${Window[GiveWnd].Open}) {
+/notify GiveWnd GVW_Give_Button leftmouseup
+}
+
+
+}
+
+/delay 1s
+
+/autoinv
+/goto :start
+
+/return
+

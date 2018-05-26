@@ -1,0 +1,70 @@
+#Event agony "You hear a loud scream of agony echo in the distance"
+#Event pain "Echoes of eternal pain wallow through the valleys"
+#Event realm "The realm feels as if it is pulling apart"
+#Event realm "You hear a shriek in the distance..."
+
+
+sub main
+
+/gu starting
+:start
+/delay 10s
+
+/doevents
+
+/echo events done
+/goto :start
+
+
+/return
+
+
+
+
+
+
+
+Sub Event_agony
+
+/gu Agony!
+
+/t maslow Agony!
+
+
+
+
+/return
+
+
+Sub Event_pain
+
+/gu Pain!
+
+/t Maslow Pain!
+
+
+
+/return
+
+
+Sub Event_realm
+
+/gu Realm!
+
+/t Maslow Realm!
+
+
+
+
+/return
+
+Sub Event_shriek
+
+/gu Shriek!
+
+/t Maslow shriek!
+
+
+
+
+/return

@@ -1,0 +1,68 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include hohfarm.inc
+Sub Main()
+
+|{Param0} = instance type
+
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/bccmd quit
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/call soa
+
+/call uwround
+
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 45
+
+/say leave instance
+
+/delay 35s
+
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 45
+
+/call CreateInstance
+
+/delay 40s
+
+/bccmd quit
+
+
+/goto :start
+
+
+/return
+
+sub soa
+
+/if (${Me.Name.Equal[LickIt]}||${Me.Name.Equal[SuckIt]}) {
+
+/itemnotify back rightmouseup
+
+}
+
+/return

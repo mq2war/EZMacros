@@ -1,0 +1,394 @@
+#Event TooFarAway "#*#You are too far away to loot that corpse#*#"
+#include EZCharmUpgrade.inc
+
+Sub Main
+
+|{Param0} fwp owner
+|{Param1} = looter
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+
+
+
+/delay 3s
+
+:start
+
+
+/plugin MQ2Doors unload
+/plugin MQ2Doors
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Qvic, Prayer Grounds of Calling]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+
+
+/call InternalMoveTo -105.95 -909.36
+
+
+/call InternalMoveTo -104.05 -828.27
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+/delay 10s
+
+/call InternalMoveTo -104.05 -828.27
+
+/call InternalMoveTo -106.46 -926.32
+
+
+/call InternalMoveTo -107.26 -955.05
+
+/call InternalMoveTo -225.28 -952.14
+/call KillAllMobs 10 60
+/delay 1s
+
+/call InternalMoveTo -350.10 -844.46
+/call KillAllMobs 10 60
+/delay 1s
+
+
+/call InternalMoveTo -445.79 -843.28
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+
+/call InternalMoveTo -451.22 -990.96
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -372.31 -989.98
+
+/call InternalMoveTo -376.40 -1028.45
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -372.31 -989.98
+
+/call InternalMoveTo -451.22 -990.96
+
+/call InternalMoveTo -449.78 -816.02
+/call KillAllMobs 10 60
+/delay 1s
+
+
+
+/call InternalMoveTo -448.05 -837.51
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+
+
+/call InternalMoveTo -436.33 -701.45
+/call KillAllMobs 10 60
+/delay 1s
+
+
+
+/call InternalMoveTo -908.86 -694.25
+
+/call InternalMoveTo -940.75 -712.28
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -911.81 -695.36
+
+/call InternalMoveTo -436.33 -701.45
+
+/call InternalMoveTo -454.87 -592.54
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -193.74 -594.05
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call coh
+/bct ${Param1} //macro lootgo 
+
+/call InternalMoveTo -454.87 -592.54
+
+
+
+/call InternalMoveTo -531.88 -466.30
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -571.92 -229.98
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -647.42 -242.13
+
+/call InternalMoveTo -684.51 -288.47
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -647.42 -242.13
+
+
+/call InternalMoveTo -403.39 -189.96
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -172.34 -262.49
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo -509.00 -250.21
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo -536.25 -33.11
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo -314.56 46.62
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo -190.12 22.71
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo -162.55 214.17
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo -23.48 -2.73
+
+/call InternalMoveTo 11.85 -70.82
+
+
+/call InternalMoveTo 125.45 -202.52
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+/call InternalMoveTo 147.69 -421.47
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 150.24 -629.55
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 215.34 -628.42
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 150.24 -629.55
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 146.69 -846.39
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 154.25 -899.60
+
+/call InternalMoveTo 152.98 -947.77
+
+/call InternalMoveTo 156.00 -969.20
+
+/call InternalMoveTo 155.33 -939.56
+
+/call InternalMoveTo 156.58 -1045.21
+/call KillAllMobs 10 60
+/delay 1s
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 156.04 -1009.65
+
+/call InternalMoveTo 81.12 -1010.57
+/call KillAllMobs 10 60
+/delay 3s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 84.45 -1010.77
+
+/call InternalMoveTo 154.78 -1010.01
+
+/call InternalMoveTo 156.04 -1009.65
+
+/call InternalMoveTo 156.58 -1045.21
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+/call InternalMoveTo 154.78 -1010.01
+
+/call InternalMoveTo 159.70 -846.54
+
+/call InternalMoveTo -126.81 -1012.06
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+
+
+
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+}
+
+/delay 1s
+
+/if (${SpawnCount[npc radius 60]} > 1) {
+  /target npc radius 60
+  /stick 1 uw
+  /attack on
+/call KillAllMobs 10 60
+/call coh
+/call loot ${Param1}
+}
+
+
+/varset count ${Math.Calc[${count} + 1]}
+
+/if (${count} == 1)
+{
+  /say enter raid
+  /delay 30s
+  /bct ${Param1}  //say raid join ${Param0}
+ 
+}
+
+/if (${count} == 2)
+{
+  /say enter solo
+  /delay 30s
+  /bct ${Param1}  //say solo join ${Param0}
+ 
+}
+
+/if (${count} == 3) {
+ /say enter guild
+ /delay 30s
+ /bct ${Param1}  //say enter guild ${Param0}
+ 
+ /varset count 0
+ }
+
+
+/goto :start
+
+/return
+
+Sub Event_TooFarAway 
+
+/hidecorpse all
+/hidecorpse looted
+
+/return 
+
+sub loot 
+
+/bct ${Param0}  //macro lootgo 60
+/delay 10s
+
+/return
+
+sub coh
+
+
+/echo "CoH"
+/delay 2s
+/itemnotify ammo rightmouseup
+/delay 3s
+/itemnotify ammo rightmouseup
+/delay 2s
+
+/return
+

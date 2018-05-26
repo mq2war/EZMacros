@@ -1,0 +1,183 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include fs7.inc
+#include utils.inc
+
+Sub Main()
+
+|  Parms:  Param0: first FWP holder Param1: bottom runner
+/declare run int inner
+/deletevar * global
+/varset run 0
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+
+
+
+/moveto set dist 5
+/moveto set loose on
+
+/if (${Cursor.ID}) /autoinv
+
+
+/declare count int local
+/varset count 0
+
+/declare fwp2 string local
+/varset fwp2 usurp
+
+
+
+|TODO zone setup
+
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/echo GM here
+/delay10s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Tower of Frozen Shadow]}) {
+
+/echo in zone ${Zone.Name}
+/camp
+/delay 40s
+/endmacro
+}
+
+| If run count is 0 go to guild of first FWP holder
+/echo this is run: ${run}
+
+/if (${run} == 0) {
+
+/ini toggledoors KeyOne value1 0
+
+/bct ${Param1} //say enter guild ${Param0} frozenshadow
+/say enter guild ${Param0} frozenshadow
+/delay 10s
+
+/call buff
+/call farmcall ${Param1}
+
+}
+
+| If run count is 0 go to guild of 2nd FWP holder
+|TODO make run call a method
+/if (${run} == 1) {
+/ini toggledoors KeyOne value1 1
+/bct ${Param1} //say enter guild ${fwp2} frozenshadow
+/say enter guild ${fwp2} frozenshadow
+/delay 10s
+
+/call buff
+
+/call farmcall ${Param1}
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 2) {
+
+/ini toggledoors KeyOne value1 0
+
+
+/bct ${Param1} //say enter raid ${Param0} frozenshadow
+
+/say enter raid ${Param0} frozenshadow
+/delay 10s
+
+/bct ${Param0} //say repop instance
+/bct ${Param0} //say enter raid ${Param0} frozenshadow
+
+
+/call buff
+/call farmcall ${Param1} 
+
+
+}
+
+| If run count is 0 go to raid of first FWP holder
+
+/if (${run} == 3) {
+/ini toggledoors KeyOne value1 1
+/bct ${Param1} //say enter raid ${fwp2} frozenshadow
+/say enter raid ${fwp2} frozenshadow
+/delay 10s
+
+/call buff
+/call farmcall ${Param1}
+
+}
+
+
+/if (${run} == 4) {
+/ini toggledoors KeyOne value1 1
+/bct ${Param1} //say enter solo ${Param0} frozenshadow
+
+/say enter solo ${Param0} frozenshadow
+/delay 10s
+
+/call buff
+
+/call farmcall ${Param1}
+
+}
+
+/if (${run} == 5) {
+/ini toggledoors KeyOne value1 1
+/bct ${Param1} //say enter solo ${fwp2} frozenshadow
+/say enter solo ${fwp2} frozenshadow
+/delay 10s
+
+/call buff
+/call farmcall ${Param1}
+
+
+}
+
+
+
+
+| TODO zone function
+
+/varcalc run ${run} + 1
+
+/if (${run}==5) {
+/varset run 0
+
+/bct ${Param0} //say repop instance
+/bct ${Param0} //say enter guild ${Param0} frozenshadow
+
+
+}
+/goto :start
+
+
+/return
+
+
+sub farmcall 
+
+/bct ${Param0} //macro fs7farmtest maslow
+/delay 65s
+/call farmit
+/call topsecond
+/delay 12s
+
+
+/return
+
+sub buff
+
+/useitem 8
+/useitem 13
+
+/return

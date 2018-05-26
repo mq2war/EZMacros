@@ -1,0 +1,51 @@
+#turbo 20
+
+sub main
+/declare runtime timer outer 30
+:start
+/echo ${runtime.Value}
+
+/if (${SpawnCount[npc radius 300]} > 1) {
+/bct <Enter Name> //target npc radius 300
+/bct <Enter Name> //stick 50 uw
+/bct <Enter Name> //keypress 1
+/bct <Enter Name>  //target npc radius 300
+/bct <Enter Name> //stick 1 uw
+/bct <Enter Name> //attack on
+/delay 6s
+/timed 3000 /bct <Enter Name> //moveto loc 1223.88 -1327.72
+/timed 3000 /bct <Enter Name> //moveto loc 1223.88 -1327.72
+/if (${runtime.Value.String} == 0) {
+/echo Evaluated True
+/goto :move
+}
+/goto :start
+}
+/else {
+/bct <Enter Name> //moveto loc 1223.88 -1327.72
+/bct <Enter Name> //moveto loc 1223.88 -1327.72
+/delay 20s
+/if (${SpawnCount[npc radius 600]}) > 1 {
+/bct <Enter Name> //target npc radius 600
+/bct <Enter Name> //stick 50
+/bct <Enter Name> //keypress 1
+/bct <Enter Name>  //target npc radius 600
+/bct <Enter Name> //stick 1
+/bct <Enter Name> //attack on
+/delay 6s
+/goto :start
+}
+/delay 60s
+/goto :start
+
+ }
+
+:move
+/bct <Enter Name> //stick off
+/bct <Enter Name> //stick off
+/bct <Enter Name> //moveto loc 1223.88 -1327.72
+/bct <Enter Name> //moveto loc 1223.88 -1327.72
+/delay 20s
+/varset runtime 30
+goto :start
+/return

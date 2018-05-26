@@ -1,0 +1,15 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include fs7.inc
+#include utils.inc
+
+sub main
+
+/useitem 8
+/delay 1s
+/useitem 13
+
+/call bottomfarm maslow
+
+/return

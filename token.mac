@@ -1,0 +1,19 @@
+sub main()
+:loop
+/if (${Cursor.ID}) /autoinv
+/delay 5
+/if (${Cursor.ID}) /autoinv
+/ctrlkey /itemnotify in pack2 7 leftmouseup
+/delay 5s ${Cursor.ID}
+/nomodkey /itemnotify in pack7 1 leftmouseup
+/delay 5s !${Cursor.ID}
+ /ctrlkey /itemnotify in pack2 7 leftmouseup
+/delay 5s ${Cursor.ID}
+/nomodkey /itemnotify in pack7 2 leftmouseup
+/delay 5s !${Cursor.ID}
+/combine pack7
+/delay 2s
+/if (${Cursor.ID}) /autoinv
+/autoinventory
+/goto :loop
+/return

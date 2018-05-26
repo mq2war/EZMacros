@@ -1,0 +1,8 @@
+sub main
+
+/gu ${FindItemCount[=Foxy's Gambling Coin]}
+
+/return
+
+
+

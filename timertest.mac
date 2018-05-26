@@ -1,0 +1,20 @@
+#turbo 10
+
+sub main
+/declare runtime timer outer 30
+
+:start
+/echo ${runtime.Value}
+
+/if (${runtime.Value} == 0) {
+/echo Evaluated True
+/goto :move
+}
+
+/goto :start
+
+:move
+/echo In Move
+
+
+/return

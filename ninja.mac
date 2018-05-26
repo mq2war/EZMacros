@@ -1,0 +1,31 @@
+#Event TooFar "Your target is out of range, get closer!"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/varset count 0
+
+:start
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+/itemnotify ammo rightmouseup
+/bct ninja //itemnotify ammo rightmouseup
+/bct Recluse //itemnotify powersource rightmouseup
+
+
+/delay 30s
+/goto :start
+
+/return
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+

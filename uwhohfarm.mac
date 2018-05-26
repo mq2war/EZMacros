@@ -1,0 +1,126 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include uwhohfarm.inc
+#include warriorbuff.inc
+Sub Main()
+
+|{Param0} = instance type
+
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/bccmd quit
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/echo core ${Param0}
+
+/call soa
+
+/call hate
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+/call soa
+
+/call xroad
+
+/call soa
+
+/call abyss
+
+
+/call guildreturn ${Param0}
+
+
+/bccmd quit
+
+/call xroad
+
+/call soa
+
+/call north
+
+/call skies
+
+/bccmd quit
+
+/call guildreturn ${Param0}
+
+/call xroad
+
+/call soa
+
+/call north
+
+/call uw
+
+/call KillAllMobs 10 30
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 45
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+
+/call xroad
+
+/call soa
+
+/call valor
+
+/call KillAllMobs 10 40
+/delay 1s
+/call KillAllMobs 10 40
+/call LootIt 45
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+/call xroad
+
+/call south
+
+/call soa
+
+/call storms
+
+/call guildreturn ${Param0}
+
+/bccmd quit
+
+
+/goto :start
+
+
+/return
+
+sub soa
+
+/if (${Me.Name.Equal[LickIt]}||${Me.Name.Equal[SuckIt]}) {
+
+/itemnotify back rightmouseup
+
+}
+
+/return

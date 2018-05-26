@@ -1,0 +1,34 @@
+sub main
+
+:start
+
+/if (${SpawnCount[npc dune]} > 0) {
+/target npc dune
+/attack on
+/stick 15
+/keypress esc
+/target npc dune
+/stick 15
+} else {
+
+/target npc terror 
+/attack on
+/stick 15
+/keypress esc
+/target npc terror
+/stick 15
+}
+
+
+
+/delay 2s
+
+/if (${SpawnCount[npc Terrorantula]} > 0 )  { 
+/beep
+/gu Terror is up
+
+}
+/goto :start
+
+
+/return

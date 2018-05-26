@@ -1,0 +1,132 @@
+#Event TooFar "Your target is out of range, get closer!"
+#event Death "You have been slain#*#"
+
+sub main
+/declare size int local
+/declare x int local
+/declare count int inner
+/varset count 0
+
+/gu boom
+:start
+
+
+
+/if (${Me.SpellReady[Skin of the Drake IV]}) { 
+
+/stick off
+/target pc ${Param0}
+/if (${Target.Name.Equal[${Param0}]}) {
+
+/casting "Skin of the Drake IV"
+
+/delay 2s
+} else {
+
+/target ${Param0}
+/casting "Skin of the Drake IV"
+/delay 2s
+/cast "Breath of Nature II"
+}
+}
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+/if (${Me.SpellReady[Timeless: Pack Regeneration V]} && !${Me.Buff[Timeless: Pack Regeneration V].ID}) {
+/cast "Timeless: Pack Regeneration V"
+}
+
+/target pc ${Param0}
+
+|/stick 80
+
+|/echo ${Target.PctHPs}
+
+|| access group members
+
+
+
+
+
+/target pc ${Param0}
+|/if (${Target.PctHPs} < 70 || ${Target.PctHPs} > 100 && ${Me.SpellReady[Timeless: Chlorobon II]}) {
+
+/if (${Me.SpellReady[Timeless: Chlorobon II]}) {
+/cast "Timeless: Chlorobon II"
+/delay 5
+
+}  else {
+
+/if (${Me.SpellReady[Timeless: Tempest Wind III]}) {
+
+|/assist ${Param0}
+/delay 2
+/cast "Timeless: Tempest Wind III"
+/delay 1s
+/target pc ${Param0}
+}
+}
+
+/if (${Me.SpellReady[Breath of Nature II]} ) {
+
+/cast "Breath of Nature II"
+/delay 1s
+
+}
+
+/if (${Me.SpellReady[Harbinger of the Sun IV]} ) {
+
+/assist ${Param0}
+/delay 2
+/cast "Harbinger of the Sun IV"
+/delay 1s
+
+}
+
+/keypress esc
+/target pc ${Param0}
+
+
+|Size of group established
+
+|/varset size ${Group.Members}
+
+|/for x 0 to ${size}
+|	/if (${Group.Member[${x}].PctHPs} < 78 && ${Me.SpellReady[Breath of Nature II]} ) {
+		
+|		/cast 1
+|		/delay 1
+
+|	}
+|/next x
+
+||## Experimental Epic ##
+|/assist ${Param0}
+|/delay 1
+|/cast "Ancient Ent Guard"
+|/itemnotify mainhand rightmouseup
+|/delay 2s
+
+
+|/assist ${Param0}
+|/delay 1
+|/itemnotify mainhand rightmouseup
+|/delay 1
+
+/delay 2s 
+
+/goto :start
+
+/return
+
+
+Sub Event_Death
+/bccmd quit
+/delay 1s
+/memspellset 1
+/bccmd connect
+/return
+

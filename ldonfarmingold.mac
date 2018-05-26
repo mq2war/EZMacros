@@ -1,0 +1,2243 @@
+#include EZCharmUpgrade.inc
+Sub Main()
+/hidecorpse all
+/hidecorpse looted
+/call SetupLDONvar
+/call CheckCharms
+/if (${Zone.ID}==248) /call ldon2
+/if (${Zone.ID}==246) /call ldon3
+/if (${Zone.ID}==269) /call ldon4
+/if (${Zone.ID}==229) /call ldon5
+/if (${Zone.ID}==267) /call ldon6
+/return
+                |** LDON2 **|
+sub ldon2
+/keypress togglecam
+/keypress P
+/keypress centerview
+:3boss
+/call InternalMoveTo -656 -235
+/call InternalMoveTo -648 -197
+/call InternalMoveTo -649 -145
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -647 -119
+/call InternalMoveTo -647 -87
+/call InternalMoveTo -678 -48
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -606 -80
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -575 -32
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -565 -32
+/call InternalMoveTo -527 -31
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -483 -45
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -421 -40
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -379 -32
+/call InternalMoveTo -357 -31
+/call InternalMoveTo -324 -7
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -297 2
+/call InternalMoveTo -297 49
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -297 78
+/call InternalMoveTo -297 110
+/call InternalMoveTo -294 166
+/echo DEBUG [-+-] First Boss Room [-+-]
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -294 153
+/call InternalMoveTo -295 115
+/call InternalMoveTo -296 55
+/call InternalMoveTo -297 3
+/call InternalMoveTo -290 -48
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -315 -71
+/call InternalMoveTo -348 -101
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -316 -103
+/call InternalMoveTo -318 -141
+/call InternalMoveTo -314 -157
+/call InternalMoveTo -297 -152
+/call InternalMoveTo -291 -152
+/call Doors
+/call InternalMoveTo -270 -151
+/call InternalMoveTo -222 -159
+/call InternalMoveTo -181 -161
+/call InternalMoveTo -159 -183
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -138 -148
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -170 -174
+/call InternalMoveTo -192 -154
+/call InternalMoveTo -195 -125
+/call Doors
+/call InternalMoveTo -195 -108
+/call InternalMoveTo -194 -45
+/call InternalMoveTo -195 11
+/call Doors
+/call InternalMoveTo -195 40
+/call InternalMoveTo -194 46
+/call InternalMoveTo -173 45
+/call Doors
+/call InternalMoveTo -152 45
+/call InternalMoveTo -123 73
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -104 77
+/call InternalMoveTo -81 78
+/call InternalMoveTo -58 102
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -43 113
+/call InternalMoveTo -43 157
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -43 192
+/call InternalMoveTo -43 223
+/call InternalMoveTo -43 247
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -42 227
+/call InternalMoveTo -42 182
+/call InternalMoveTo -43 114
+/call InternalMoveTo -42 67
+/call InternalMoveTo -6 47
+/call InternalMoveTo 1 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 0 6
+/call InternalMoveTo 1 -40
+/call InternalMoveTo 32 -76
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 8 -51
+/call InternalMoveTo 0 -12
+/call InternalMoveTo 0 29
+/call InternalMoveTo 0 76
+/call InternalMoveTo 22 101
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 3 93
+/call InternalMoveTo -1 122
+/call InternalMoveTo 1 140
+/call InternalMoveTo 24 141
+/call InternalMoveTo 27 178
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 35 183
+/call InternalMoveTo 86 186
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 90 130
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 89 182
+/call InternalMoveTo 89 257
+/call InternalMoveTo 90 299
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 75 322
+/call InternalMoveTo 25 355
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 85 361
+/delay 17
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 115 361
+/call Doors
+/call InternalMoveTo 139 361
+/call InternalMoveTo 214 378
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 202 334
+/call InternalMoveTo 198 292
+/call InternalMoveTo 195 248
+/call KillAllMobs 10 35
+/call LootIt 45
+/echo DEBUG [-+-] Alucard Room [-+-]
+/call InternalMoveTo 196 274
+/call InternalMoveTo 196 308
+/call InternalMoveTo 162 312
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 140 350
+/call InternalMoveTo 125 361
+/call Doors
+/call InternalMoveTo 102 360
+/call InternalMoveTo 60 360
+/call InternalMoveTo 75 398
+/call InternalMoveTo 89 452
+/call Doors
+/call InternalMoveTo 92 470
+/call InternalMoveTo 99 503
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 64 510
+/delay 25
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 58 527
+/call InternalMoveTo 40 558
+/call InternalMoveTo 41 591
+/call Doors
+/call InternalMoveTo 42 615
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 36 639
+/call InternalMoveTo 33 685
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 33 685
+/call InternalMoveTo 34 698
+/call InternalMoveTo 34 744
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 71 742
+/call InternalMoveTo 116 740
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 71 740
+/call InternalMoveTo 30 739
+/call InternalMoveTo 34 698
+/call InternalMoveTo 33 630
+/call InternalMoveTo -3 631
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 42 630
+/call InternalMoveTo 41 596
+/call Doors
+/call InternalMoveTo 41 571
+/call InternalMoveTo 63 527
+/call InternalMoveTo 91 493
+/call InternalMoveTo 89 457
+/call Doors
+/call InternalMoveTo 89 437
+/call InternalMoveTo 80 407
+/call InternalMoveTo 82 346
+/call InternalMoveTo 89 276
+/call InternalMoveTo 89 217
+/call InternalMoveTo 88 185
+/call InternalMoveTo 53 184
+/call InternalMoveTo 28 184
+/call InternalMoveTo 26 146
+/call InternalMoveTo 4 138
+/call InternalMoveTo -7 103
+/call InternalMoveTo -59 87
+/call InternalMoveTo -103 73
+/call InternalMoveTo -142 44
+/call InternalMoveTo -163 46
+/call Doors
+/call InternalMoveTo -185 44
+/call InternalMoveTo -196 34
+/call InternalMoveTo -196 19
+/call Doors
+/call InternalMoveTo -196 -7
+/call InternalMoveTo -195 -62
+/call InternalMoveTo -195 -120
+/call Doors
+/call InternalMoveTo -195 -147
+/call InternalMoveTo -206 -160
+/call InternalMoveTo -243 -158
+/call InternalMoveTo -287 -152
+/call Doors
+/call InternalMoveTo -306 -151
+/call InternalMoveTo -319 -149
+/call InternalMoveTo -318 -122
+/call InternalMoveTo -323 -32
+/call InternalMoveTo -366 -31
+/call InternalMoveTo -435 -43
+/call InternalMoveTo -491 -53
+/call InternalMoveTo -546 -30
+/call InternalMoveTo -609 -33
+/call InternalMoveTo -648 -72
+/call InternalMoveTo -649 -122
+/call InternalMoveTo -648 -191
+/call InternalMoveTo -660 -253
+/call InternalMoveTo -679 -271
+/call InternalMoveTo -677 -267
+/delay 2s
+/goto :3boss
+/return
+                |** LDON3 **|
+sub ldon3
+/call InternalMoveTo -613 -67
+/call InternalMoveTo -568 -66
+/delay 20
+/if (${Math.Distance[${Me.Y},${Me.X},0:-559,-67,0]}>5) {
+        /keypress forward hold
+        /delay 5
+        /keypress forward
+        /if (${Math.Distance[${Me.Y},${Me.X},0:-559,-67,0]}<=2) /goto :L3first
+        /if (${Math.Distance[${Me.Y},${Me.X},0:-559,-67,0]}>2) /call OpenDoors
+}
+/delay 20
+:L3first
+/call InternalMoveTo -470 -105
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -440 -111
+/call InternalMoveTo -365 -111
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -307 -110
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -261 -110
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -224 -110
+/call InternalMoveTo -156 -109
+/call InternalMoveTo -150 -139
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -193 -156
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -149 -136
+/call InternalMoveTo -94 -137
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -34 -138
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -28 -85
+/call InternalMoveTo -24 -33
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 11 -37
+/call InternalMoveTo 57 -38
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 111 -38
+/call InternalMoveTo 174 -38
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 197 -38
+/call InternalMoveTo 264 -39
+/delay 15
+/call KillAllMobs 10 40
+/call LootIt 50
+/call InternalMoveTo 278 -69
+/call InternalMoveTo 278 -103
+/call InternalMoveTo 278 -159
+/call InternalMoveTo 321 -167
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 349 -178
+/call InternalMoveTo 386 -176
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 446 -204
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 388 -178
+/call InternalMoveTo 359 -177
+/call InternalMoveTo 285 -176
+/call InternalMoveTo 277 -210
+/call InternalMoveTo 277 -230
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 251 -230
+/call InternalMoveTo 186 -230
+/call InternalMoveTo 139 -230
+/delay 1s
+/call KillAllMobs 10 30
+/call LootIt 30
+/call InternalMoveTo 198 -230
+/call InternalMoveTo 278 -229
+/call InternalMoveTo 279 -171
+/call InternalMoveTo 276 -91
+/call InternalMoveTo 278 -40
+/call InternalMoveTo 278 -10
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 278 15
+/call InternalMoveTo 277 61
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 246 112
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 245 144
+/call InternalMoveTo 244 161
+/call InternalMoveTo 238 198
+/call InternalMoveTo 170 189
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 146 189
+/call InternalMoveTo 90 185
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 90 226
+/call InternalMoveTo 89 271
+/call InternalMoveTo 117 284
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 69 322
+/call InternalMoveTo 47 297
+/call InternalMoveTo 19 297
+/call InternalMoveTo -36 289
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -14 226
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -75 257
+/call InternalMoveTo -116 253
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -164 273
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -136 267
+/call InternalMoveTo -165 225
+/call InternalMoveTo -240 229
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -309 234
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -267 278
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -307 256
+/call InternalMoveTo -350 254
+/call InternalMoveTo -398 254
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -466 253
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -499 253
+/call InternalMoveTo -579 253
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -612 242
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -661 255
+/call InternalMoveTo -705 257
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -757 224
+/delay 1s
+/call KillAllMobs 10 25
+/call LootIt 25
+/call InternalMoveTo -728 216
+/call InternalMoveTo -727 155
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -712 127
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -727 183
+/call InternalMoveTo -733 240
+/call InternalMoveTo -774 301
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -773 341
+/call InternalMoveTo -773 383
+/call InternalMoveTo -801 372
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -770 398
+/call InternalMoveTo -722 395
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -710 455
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -758 477
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -798 434
+/call InternalMoveTo -840 438
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -865 437
+/call InternalMoveTo -900 437
+/call InternalMoveTo -893 385
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -893 361
+/call InternalMoveTo -958 359
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -979 358
+/call InternalMoveTo -1030 358
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1044 363
+/call InternalMoveTo -1046 438
+/call InternalMoveTo -1066 436
+/call InternalMoveTo -1155 436
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1223 436
+/call InternalMoveTo -1247 379
+/call InternalMoveTo -1277 381
+/call InternalMoveTo -1300 399
+/call InternalMoveTo -1313 420
+/call InternalMoveTo -1314 448
+/call InternalMoveTo -1300 474
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1281 492
+/call InternalMoveTo -1247 496
+/call InternalMoveTo -1217 483
+/call InternalMoveTo -1200 457
+/call InternalMoveTo -1196 424
+/call InternalMoveTo -1211 396
+/call InternalMoveTo -1255 377
+/call InternalMoveTo -1291 391
+/call InternalMoveTo -1313 424
+/call InternalMoveTo -1310 443
+/call InternalMoveTo -1307 469
+/call InternalMoveTo -1276 488
+/call InternalMoveTo -1254 493
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1219 483
+/call InternalMoveTo -1202 455
+/call InternalMoveTo -1203 435
+/call InternalMoveTo -1114 438
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1165 437
+/call InternalMoveTo -1203 436
+/call InternalMoveTo -1208 476
+/call InternalMoveTo -1240 492
+/call InternalMoveTo -1278 493
+/call InternalMoveTo -1304 468
+/call InternalMoveTo -1315 435
+/call InternalMoveTo -1300 404
+/call InternalMoveTo -1282 382
+/call InternalMoveTo -1246 379
+/call InternalMoveTo -1224 385
+/call InternalMoveTo -1201 410
+/call InternalMoveTo -1199 447
+/call InternalMoveTo -1214 478
+/call InternalMoveTo -1253 496
+/call InternalMoveTo -1287 488
+/call InternalMoveTo -1317 450
+/call InternalMoveTo -1305 405
+/call InternalMoveTo -1262 374
+/call InternalMoveTo -1238 384
+/call InternalMoveTo -1224 449
+/delay 23s
+/call InternalMoveTo -1170 433
+/call InternalMoveTo -1077 436
+/call InternalMoveTo -1045 437
+/call InternalMoveTo -1048 510
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -1040 515
+/call InternalMoveTo -973 513
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -966 513
+/call InternalMoveTo -898 513
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -894 500
+/call InternalMoveTo -893 434
+/call InternalMoveTo -814 435
+/call InternalMoveTo -764 436
+/call InternalMoveTo -770 376
+/call InternalMoveTo -773 302
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -749 284
+/call InternalMoveTo -707 290
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -689 231
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -680 256
+/call InternalMoveTo -630 256
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -599 298
+/call InternalMoveTo -597 349
+/call InternalMoveTo -568 415
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -570 454
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -569 450
+/call InternalMoveTo -597 375
+/call InternalMoveTo -597 305
+/call InternalMoveTo -558 251
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -532 254
+/call InternalMoveTo -474 256
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -447 255
+/call InternalMoveTo -400 255
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -359 254
+/call InternalMoveTo -314 254
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -253 280
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -278 261
+/call InternalMoveTo -247 225
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -218 228
+/call InternalMoveTo -160 229
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -108 255
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -100 255
+/call InternalMoveTo -68 255
+/call InternalMoveTo -42 257
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -11 221
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -11 294
+/call InternalMoveTo 25 298
+/call InternalMoveTo 62 298
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 114 283
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 88 257
+/call InternalMoveTo 89 222
+/call InternalMoveTo 90 165
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 92 197
+/call InternalMoveTo 139 189
+/call InternalMoveTo 172 188
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 263 192
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 244 170
+/call InternalMoveTo 245 133
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 286 70
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 277 29
+/call InternalMoveTo 278 -16
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 243 -35
+/call InternalMoveTo 218 -39
+/call InternalMoveTo 166 -39
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 127 -39
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 61 -39
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo 36 -38
+/call InternalMoveTo -10 -36
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -28 -68
+/call InternalMoveTo -29 -136
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -80 -136
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -111 -136
+/call InternalMoveTo -159 -136
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -209 -160
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -175 -130
+/call InternalMoveTo -222 -107
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -245 -109
+/call InternalMoveTo -301 -110
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -351 -110
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -410 -111
+/call InternalMoveTo -489 -109
+/call KillAllMobs 10 35
+/call LootIt 50
+/call InternalMoveTo -544 -67
+/delay 30s
+/goto :L3first
+/return
+                |** LDON4 **|
+sub ldon4
+:looper
+/call InternalMoveTo -1777 966
+/call InternalMoveTo -1778 1089
+/call InternalMoveTo -1779 1205
+/call InternalMoveTo -1836 1206
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1774 1204
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1784 1315
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1779 1351
+/call InternalMoveTo -1780 1390
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1780 1390
+/call InternalMoveTo -1780 1463
+/call InternalMoveTo -1812 1493
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1793 1521
+/call InternalMoveTo -1820 1564
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1789 1484
+/call InternalMoveTo -1777 1437
+/call InternalMoveTo -1782 1372
+/call InternalMoveTo -1777 1203
+/call InternalMoveTo -1709 1189
+/call InternalMoveTo -1648 1201
+/call InternalMoveTo -1580 1201
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1533 1264
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1505 1287
+/call InternalMoveTo -1509 1322
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1510 1302
+/call InternalMoveTo -1420 1302
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1348 1303
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1292 1303
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1248 1358
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1250 1409
+/call InternalMoveTo -1251 1482
+/call InternalMoveTo -1251 1541
+/call InternalMoveTo -1232 1581
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1248 1554
+/call InternalMoveTo -1248 1471
+/call InternalMoveTo -1248 1394
+/call InternalMoveTo -1244 1335
+/call InternalMoveTo -1199 1301
+/call InternalMoveTo -1135 1302
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1063 1300
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -999 1303
+/call InternalMoveTo -936 1303
+/call InternalMoveTo -889 1300
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -839 1293
+/call InternalMoveTo -782 1303
+/call InternalMoveTo -724 1305
+/call InternalMoveTo -702 1305
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -659 1286
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -627 1260
+/call InternalMoveTo -629 1219
+/call InternalMoveTo -630 1170
+/call InternalMoveTo -630 1098
+/delay 1s
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -627 1061
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -630 1061
+/call InternalMoveTo -630 1006
+/call InternalMoveTo -627 923
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -627 859
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -628 789
+/call InternalMoveTo -705 789
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -763 790
+/call InternalMoveTo -824 790
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -862 768
+/call InternalMoveTo -860 687
+/call InternalMoveTo -873 649
+/call InternalMoveTo -898 586
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -887 555
+/call InternalMoveTo -866 509
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -848 457
+/call InternalMoveTo -850 395
+/call InternalMoveTo -832 371
+/call InternalMoveTo -857 357
+/call InternalMoveTo -863 334
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -876 266
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -911 285
+/call InternalMoveTo -964 314
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -970 312
+/call InternalMoveTo -922 340
+/call InternalMoveTo -851 384
+/call InternalMoveTo -849 427
+/call InternalMoveTo -850 461
+/call InternalMoveTo -878 526
+/call InternalMoveTo -900 586
+/call InternalMoveTo -875 650
+/call InternalMoveTo -858 694
+/call InternalMoveTo -859 775
+/call InternalMoveTo -824 788
+/call InternalMoveTo -797 789
+/call InternalMoveTo -724 791
+/call InternalMoveTo -621 791
+/call InternalMoveTo -566 790
+/call InternalMoveTo -501 791
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -446 790
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -434 830
+/call InternalMoveTo -422 876
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -422 869
+/call InternalMoveTo -367 872
+/call InternalMoveTo -365 898
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -330 831
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -329 855
+/call InternalMoveTo -290 859
+/call InternalMoveTo -229 859
+/call InternalMoveTo -160 859
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -119 888
+/call InternalMoveTo -98 902
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -83 859
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -125 848
+/call InternalMoveTo -126 805
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -126 767
+/call InternalMoveTo -126 687
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -174 620
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -154 573
+/call InternalMoveTo -135 532
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -118 497
+/call InternalMoveTo -118 460
+/call InternalMoveTo -118 408
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -118 333
+/call InternalMoveTo -118 264
+/call InternalMoveTo -118 189
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -120 172
+/call InternalMoveTo -189 106
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -172 86
+/call InternalMoveTo -170 42
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -129 77
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -144 124
+/call InternalMoveTo -116 178
+/call InternalMoveTo -117 215
+/call InternalMoveTo -118 269
+/call InternalMoveTo -119 345
+/call InternalMoveTo -116 370
+/call InternalMoveTo -64 371
+/call InternalMoveTo 6 370
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 73 371
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 131 373
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 179 373
+/call InternalMoveTo 184 454
+/call InternalMoveTo 182 369
+/call InternalMoveTo 181 269
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 182 369
+/call InternalMoveTo 182 373
+/call InternalMoveTo 287 372
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 371 373
+/call InternalMoveTo 420 374
+/call InternalMoveTo 514 374
+/call InternalMoveTo 548 373
+/call InternalMoveTo 537 412
+/call InternalMoveTo 530 452
+/call InternalMoveTo 531 498
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 546 541
+/call InternalMoveTo 556 573
+/call InternalMoveTo 538 647
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 541 691
+/call InternalMoveTo 542 723
+/call InternalMoveTo 544 762
+/call InternalMoveTo 570 784
+/call InternalMoveTo 623 804
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 624 883
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 655 854
+/call InternalMoveTo 679 854
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 649 852
+/call InternalMoveTo 622 807
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 583 787
+/call InternalMoveTo 542 771
+/call InternalMoveTo 542 694
+/call InternalMoveTo 544 577
+/call InternalMoveTo 536 507
+/call InternalMoveTo 533 460
+/call InternalMoveTo 544 375
+/call InternalMoveTo 544 371
+/call InternalMoveTo 680 371
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 537 371
+/call InternalMoveTo 460 372
+/call InternalMoveTo 406 373
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 337 370
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 250 373
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 183 372
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 183 274
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 182 326
+/call InternalMoveTo 183 401
+/call InternalMoveTo 184 456
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 185 397
+/call InternalMoveTo 181 372
+/call InternalMoveTo 127 371
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo 75 369
+/call InternalMoveTo 13 370
+/call InternalMoveTo -22 370
+/call InternalMoveTo -102 371
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -119 416
+/call InternalMoveTo -119 478
+/call InternalMoveTo -126 526
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -132 535
+/call InternalMoveTo -178 608
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -135 683
+/call InternalMoveTo -124 720
+/call InternalMoveTo -126 782
+/call InternalMoveTo -125 810
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -109 853
+/call InternalMoveTo -84 866
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -136 921
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -124 891
+/call InternalMoveTo -140 858
+/call InternalMoveTo -173 857
+/call InternalMoveTo -236 859
+/call InternalMoveTo -319 859
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -328 839
+/call InternalMoveTo -355 785
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -370 783
+/call InternalMoveTo -436 780
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -457 791
+/call InternalMoveTo -513 789
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -627 789
+/call InternalMoveTo -710 791
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -625 791
+/call InternalMoveTo -627 857
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -631 919
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -631 930
+/call InternalMoveTo -630 1001
+/call InternalMoveTo -630 1059
+/call InternalMoveTo -631 1106
+/call InternalMoveTo -631 1117
+/call InternalMoveTo -631 1176
+/call InternalMoveTo -631 1219
+/call InternalMoveTo -631 1264
+/call InternalMoveTo -656 1286
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -685 1291
+/call InternalMoveTo -713 1306
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -708 1304
+/call InternalMoveTo -745 1304
+/call InternalMoveTo -790 1303
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -803 1298
+/call InternalMoveTo -835 1289
+/call InternalMoveTo -889 1297
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -921 1306
+/call InternalMoveTo -973 1310
+/call InternalMoveTo -1011 1306
+/call InternalMoveTo -1069 1296
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1101 1303
+/call InternalMoveTo -1131 1307
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1145 1303
+/call InternalMoveTo -1206 1302
+/call InternalMoveTo -1235 1289
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1279 1279
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1301 1303
+/call InternalMoveTo -1347 1303
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1408 1303
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1421 1302
+/call InternalMoveTo -1444 1302
+/call InternalMoveTo -1506 1301
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1508 1296
+/call InternalMoveTo -1522 1267
+/call InternalMoveTo -1575 1210
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1585 1201
+/call InternalMoveTo -1614 1201
+/call InternalMoveTo -1655 1200
+/call InternalMoveTo -1736 1195
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -1775 1195
+/call InternalMoveTo -1776 1115
+/call InternalMoveTo -1777 1026
+/goto :looper
+/return
+                |** LDON5 **|
+sub ldon5
+/echo Starting LDON5 Run
+:L51
+/call InternalMoveTo -837 45
+/call InternalMoveTo -838 -1
+/call InternalMoveTo -836 -68
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -827 -111
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -892 -124
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -834 -108
+/call InternalMoveTo -777 -85
+/call KillAllMobs 10 35
+/call LootIt 45
+/echo at -777 -85
+/call InternalMoveTo -775 -113
+/call InternalMoveTo -770 -156
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -741 -150
+/call InternalMoveTo -700 -149
+/echo at -700 -149
+/call InternalMoveTo -641 -149
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -639 -184
+/echo at -639 -184
+/call InternalMoveTo -622 -186
+/call InternalMoveTo -600 -187
+/call KillAllMobs 10 27
+/call LootIt 45
+/call InternalMoveTo -584 -187
+/call InternalMoveTo -581 -211
+/call InternalMoveTo -554 -214
+/call InternalMoveTo -546 -212
+/delay 15
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -549 -240
+/call InternalMoveTo -537 -245
+/call InternalMoveTo -472 -250
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -479 -237
+/call InternalMoveTo -499 -210
+/call InternalMoveTo -517 -187
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -517 -185
+/call InternalMoveTo -487 -185
+/call InternalMoveTo -485 -145
+/call InternalMoveTo -489 -113
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -487 -84
+/call InternalMoveTo -524 -31
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -563 -44
+/call InternalMoveTo -605 -56
+/call InternalMoveTo -635 -44
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -596 -50
+/call InternalMoveTo -528 -48
+/call InternalMoveTo -484 -47
+/call InternalMoveTo -488 2
+/call InternalMoveTo -489 41
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -489 -3
+/call InternalMoveTo -483 -41
+/call InternalMoveTo -425 -40
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -410 -42
+/call InternalMoveTo -374 -44
+/call InternalMoveTo -349 -45
+/call InternalMoveTo -351 -31
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -343 -19
+/call InternalMoveTo -322 -19
+/call InternalMoveTo -325 -1
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -314 -15
+/call InternalMoveTo -303 -20
+/call InternalMoveTo -245 -25
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -238 -1
+/call InternalMoveTo -213 1
+/call InternalMoveTo -212 30
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -208 31
+/call InternalMoveTo -174 29
+/call InternalMoveTo -125 28
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -90 28
+/call InternalMoveTo -63 28
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -24 64
+/call InternalMoveTo -28 79
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 12 81
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 25 66
+/call InternalMoveTo 66 18
+/call KillAllMobs 10 35
+/call LootIt 45
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -2 40
+/call InternalMoveTo 0 12
+/call InternalMoveTo 1 -30
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -6 -39
+/call InternalMoveTo -28 -42
+/call InternalMoveTo -29 -64
+/call InternalMoveTo -39 -65
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 3 -72
+/call InternalMoveTo 67 -75
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 32 -78
+/call InternalMoveTo 12 -86
+/call InternalMoveTo 23 -115
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 41 -137
+/call InternalMoveTo 53 -162
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 40 -137
+/call InternalMoveTo 38 -116
+/call InternalMoveTo 68 -116
+/call InternalMoveTo 99 -116
+/call InternalMoveTo 162 -117
+/call InternalMoveTo 189 -118
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 232 -126
+/call InternalMoveTo 265 -166
+/call InternalMoveTo 297 -186
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 315 -180
+/call InternalMoveTo 353 -177
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 364 -179
+/call InternalMoveTo 365 -201
+/call InternalMoveTo 401 -214
+/call InternalMoveTo 390 -230
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 405 -182
+/call InternalMoveTo 413 -155
+/call InternalMoveTo 448 -159
+/call InternalMoveTo 444 -126
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 459 -136
+/call InternalMoveTo 495 -136
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 454 -137
+/call InternalMoveTo 439 -107
+/call InternalMoveTo 441 -66
+/call InternalMoveTo 440 -14
+/call InternalMoveTo 441 21
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 441 27
+/call InternalMoveTo 416 26
+/call InternalMoveTo 423 75
+/call InternalMoveTo 430 124
+/call InternalMoveTo 445 122
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 451 121
+/call InternalMoveTo 452 92
+/call InternalMoveTo 485 94
+/call InternalMoveTo 531 97
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 524 121
+/call InternalMoveTo 525 199
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 526 151
+/call InternalMoveTo 526 139
+/call InternalMoveTo 594 144
+/call InternalMoveTo 641 146
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 649 124
+/call InternalMoveTo 653 105
+/call InternalMoveTo 672 105
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 677 105
+/call InternalMoveTo 676 75
+/call InternalMoveTo 675 49
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 692 -7
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 692 10
+/call InternalMoveTo 729 9
+/call InternalMoveTo 777 9
+/call InternalMoveTo 818 9
+/call KillAllMobs 10 28
+/call LootIt 45
+/call InternalMoveTo 820 39
+/call InternalMoveTo 852 38
+/call InternalMoveTo 854 7
+/call KillAllMobs 10 28
+/call LootIt 45
+/call InternalMoveTo 880 6
+/call InternalMoveTo 879 -18
+/call InternalMoveTo 909 -15
+/call InternalMoveTo 904 -63
+/call InternalMoveTo 906 -148
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 905 -92
+/call InternalMoveTo 903 -49
+/call InternalMoveTo 903 -11
+/call InternalMoveTo 873 -12
+/call InternalMoveTo 875 32
+/call InternalMoveTo 914 33
+/call InternalMoveTo 957 33
+/call InternalMoveTo 1000 34
+/call KillAllMobs 10 43
+/call LootIt 45
+/call InternalMoveTo 1011 16
+/call InternalMoveTo 1048 13
+/call InternalMoveTo 1047 -19
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 1042 57
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 1098 75
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 1093 9
+/call InternalMoveTo 1126 -25
+/call KillAllMobs 10 34
+/call LootIt 45
+/call InternalMoveTo 1118 -12
+/call InternalMoveTo 1153 -13
+/call InternalMoveTo 1214 -13
+/call InternalMoveTo 1267 -13
+/call InternalMoveTo 1275 -13
+/call KillAllMobs 10 30
+/call LootIt 45
+/call InternalMoveTo 1204 -12
+/call InternalMoveTo 1127 -11
+/call InternalMoveTo 1045 14
+/call InternalMoveTo 998 20
+/call InternalMoveTo 980 36
+/call InternalMoveTo 922 32
+/call InternalMoveTo 882 32
+/call InternalMoveTo 861 94
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 888 69
+/call InternalMoveTo 837 34
+/call InternalMoveTo 815 31
+/call InternalMoveTo 816 1
+/call InternalMoveTo 782 7
+/call InternalMoveTo 694 8
+/call InternalMoveTo 673 48
+/call InternalMoveTo 678 112
+/call InternalMoveTo 649 107
+/call InternalMoveTo 647 150
+/call InternalMoveTo 601 144
+/call InternalMoveTo 524 143
+/call InternalMoveTo 523 96
+/call InternalMoveTo 454 94
+/call InternalMoveTo 446 123
+/call InternalMoveTo 429 126
+/call InternalMoveTo 425 159
+/call InternalMoveTo 403 201
+/delay 2s
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 403 198
+/call InternalMoveTo 374 199
+/call InternalMoveTo 380 271
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 379 309
+/call InternalMoveTo 379 351
+/call InternalMoveTo 393 359
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 434 358
+/call InternalMoveTo 476 359
+/call InternalMoveTo 487 360
+/call InternalMoveTo 487 378
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 488 413
+/call InternalMoveTo 491 456
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 457 470
+/call InternalMoveTo 404 474
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 454 475
+/call InternalMoveTo 488 454
+/call InternalMoveTo 490 407
+/call InternalMoveTo 490 363
+/call InternalMoveTo 469 358
+/call InternalMoveTo 430 359
+/call InternalMoveTo 386 357
+/call InternalMoveTo 375 345
+/call InternalMoveTo 379 304
+/call InternalMoveTo 380 258
+/call InternalMoveTo 379 198
+/call InternalMoveTo 382 198
+/call InternalMoveTo 408 198
+/call InternalMoveTo 405 184
+/call InternalMoveTo 386 157
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 382 150
+/call InternalMoveTo 375 123
+/call InternalMoveTo 381 113
+/call InternalMoveTo 405 99
+/call InternalMoveTo 420 64
+/call InternalMoveTo 417 23
+/call InternalMoveTo 414 35
+/call InternalMoveTo 442 16
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 446 17
+/call InternalMoveTo 444 -48
+/call InternalMoveTo 443 -107
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 442 -136
+/call InternalMoveTo 497 -134
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 465 -138
+/call InternalMoveTo 450 -141
+/call InternalMoveTo 425 -158
+/call InternalMoveTo 397 -162
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 398 -190
+/call InternalMoveTo 394 -216
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 380 -206
+/call InternalMoveTo 357 -203
+/call InternalMoveTo 362 -179
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 362 -177
+/call InternalMoveTo 301 -180
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 268 -173
+/call InternalMoveTo 236 -131
+/call InternalMoveTo 198 -119
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 166 -118
+/call InternalMoveTo 106 -118
+/call InternalMoveTo 61 -118
+/call InternalMoveTo 44 -121
+/call KillAllMobs 10 44
+/call LootIt 45
+/call InternalMoveTo 42 -121
+/call InternalMoveTo 45 -167
+/call InternalMoveTo 7 -180
+/call InternalMoveTo 7 -189
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 13 -168
+/call InternalMoveTo 42 -151
+/call InternalMoveTo 44 -128
+/call InternalMoveTo 19 -108
+/call InternalMoveTo 17 -72
+/call InternalMoveTo 46 -77
+/call InternalMoveTo 66 -75
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 38 -76
+/call InternalMoveTo 2 -75
+/call InternalMoveTo -44 -70
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -29 -62
+/call InternalMoveTo -26 -37
+/call InternalMoveTo -2 -39
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -1 -6
+/call InternalMoveTo 0 41
+/call InternalMoveTo 56 32
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 9 76
+/call InternalMoveTo 18 92
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo 6 66
+/call InternalMoveTo -30 95
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -16 64
+/call InternalMoveTo -59 33
+/call KillAllMobs 10 40
+/call LootIt 45
+/call InternalMoveTo -86 28
+/call InternalMoveTo -125 26
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -177 27
+/call InternalMoveTo -214 28
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -208 24
+/call InternalMoveTo -213 1
+/call InternalMoveTo -228 0
+/call InternalMoveTo -244 -22
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -252 -26
+/call InternalMoveTo -310 -20
+/call InternalMoveTo -325 14
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -330 -19
+/call InternalMoveTo -355 -23
+/call InternalMoveTo -349 -50
+/call InternalMoveTo -406 -47
+/call InternalMoveTo -421 -45
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -457 -48
+/call InternalMoveTo -524 -22
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -509 -60
+/call InternalMoveTo -487 -105
+/call InternalMoveTo -487 -115
+/call KillAllMobs 10 30
+/call LootIt 45
+/call InternalMoveTo -479 -192
+/call InternalMoveTo -514 -186
+/call InternalMoveTo -516 -187
+/call InternalMoveTo -516 -197
+/call InternalMoveTo -518 -213
+/call InternalMoveTo -525 -225
+/call InternalMoveTo -546 -223
+/call InternalMoveTo -566 -213
+/call InternalMoveTo -582 -214
+/call InternalMoveTo -588 -187
+/call InternalMoveTo -586 -183
+/call InternalMoveTo -615 -186
+/call InternalMoveTo -644 -186
+/call InternalMoveTo -641 -148
+/call InternalMoveTo -650 -149
+/call InternalMoveTo -697 -150
+/call InternalMoveTo -756 -149
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -774 -129
+/call InternalMoveTo -779 -81
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -781 -103
+/call InternalMoveTo -834 -67
+/call KillAllMobs 10 35
+/call LootIt 45
+/call InternalMoveTo -839 -67
+/call InternalMoveTo -838 -6
+/call InternalMoveTo -839 74
+/call InternalMoveTo -839 71
+/goto :L51
+/return
+                |** LDON6 **|
+sub ldon6
+/call InternalMoveTo 104 -577
+/call InternalMoveTo 102 -649
+/call InternalMoveTo 50 -647
+/call InternalMoveTo 52 -662
+/call KillAllMobs 10 30
+/call LootIt 45
+/call InternalMoveTo 53 -644
+/call InternalMoveTo -14 -647
+/call InternalMoveTo -18 -663
+/call KillAllMobs 10 30
+/call LootIt 45
+/call InternalMoveTo -16 -642
+/call InternalMoveTo -67 -641
+/call InternalMoveTo -67 -626
+/call KillAllMobs 10 30
+/call LootIt 45
+/call InternalMoveTo -67 -639
+/call InternalMoveTo -79 -649
+/call InternalMoveTo -84 -668
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -80 -640
+/call InternalMoveTo -105 -644
+/call InternalMoveTo -106 -622
+/call InternalMoveTo -134 -603
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -107 -611
+/call InternalMoveTo -108 -579
+/call InternalMoveTo -78 -575
+/call InternalMoveTo -78 -558
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -77 -579
+/call InternalMoveTo -30 -579
+/call InternalMoveTo 5 -578
+/call KillAllMobs 10 50
+/call LootIt 45
+/call InternalMoveTo 27 -600
+/call InternalMoveTo 57 -604
+/call InternalMoveTo 54 -561
+/call InternalMoveTo 53 -517
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 52 -486
+/call InternalMoveTo 52 -450
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 52 -404
+/call InternalMoveTo 32 -372
+/call InternalMoveTo 17 -336
+/call InternalMoveTo 18 -311
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 18 -305
+/call InternalMoveTo 28 -275
+/call InternalMoveTo 57 -257
+/call InternalMoveTo 83 -290
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 69 -267
+/call InternalMoveTo 50 -236
+/call InternalMoveTo 52 -214
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 52 -184
+/call InternalMoveTo 51 -144
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 51 -123
+/call InternalMoveTo 24 -107
+/call InternalMoveTo 26 -63
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 29 -63
+/call InternalMoveTo 1 -60
+/call InternalMoveTo 0 -20
+/call InternalMoveTo 0 25
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 0 67
+/call InternalMoveTo -34 106
+/call InternalMoveTo -34 142
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -34 175
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -14 204
+/call InternalMoveTo 18 208
+/call InternalMoveTo 35 175
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 20 199
+/call InternalMoveTo -1 226
+/call InternalMoveTo 0 249
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 0 288
+/call InternalMoveTo 0 318
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 23 323
+/call InternalMoveTo 28 349
+/call InternalMoveTo 28 392
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 28 426
+/call InternalMoveTo 28 451
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 32 456
+/call InternalMoveTo 61 459
+/call InternalMoveTo 57 508
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 45 580
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -9 585
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -10 544
+/call InternalMoveTo -10 494
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -9 546
+/call InternalMoveTo -10 594
+/call InternalMoveTo -71 593
+/call InternalMoveTo -74 575
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -77 591
+/call InternalMoveTo -118 590
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -156 590
+/call InternalMoveTo -201 591
+/call InternalMoveTo -243 591
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -262 575
+/call InternalMoveTo -273 555
+/call InternalMoveTo -270 521
+/call InternalMoveTo -236 513
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -259 510
+/call InternalMoveTo -304 507
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -329 508
+/call InternalMoveTo -400 507
+/call InternalMoveTo -418 503
+/call InternalMoveTo -429 490
+/call KillAllMobs 10 33
+/call LootIt 45
+:L6Marker
+/call InternalMoveTo -438 443
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -439 405
+/call InternalMoveTo -439 383
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -430 365
+/call InternalMoveTo -397 343
+/call InternalMoveTo -362 317
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -353 273
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -354 234
+/call InternalMoveTo -330 225
+/call InternalMoveTo -333 187
+/call InternalMoveTo -359 188
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -354 173
+/call InternalMoveTo -353 141
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -354 102
+/call InternalMoveTo -354 60
+/call InternalMoveTo -353 24
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -346 19
+/call InternalMoveTo -307 -3
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -287 -7
+/call InternalMoveTo -250 -7
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -249 -21
+/call InternalMoveTo -236 -39
+/call InternalMoveTo -233 -50
+/call InternalMoveTo -234 -79
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -232 -96
+/call InternalMoveTo -232 -125
+/call InternalMoveTo -268 -149
+/call InternalMoveTo -276 -164
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -266 -170
+/call InternalMoveTo -260 -247
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -230 -256
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -231 -284
+/call InternalMoveTo -233 -332
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -233 -373
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -233 -416
+/call InternalMoveTo -260 -412
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -243 -413
+/call InternalMoveTo -209 -417
+/call InternalMoveTo -180 -426
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -203 -420
+/call InternalMoveTo -236 -401
+/call InternalMoveTo -234 -368
+/call InternalMoveTo -234 -317
+/call InternalMoveTo -233 -269
+/call InternalMoveTo -233 -252
+/call InternalMoveTo -250 -222
+/call InternalMoveTo -258 -189
+/call InternalMoveTo -252 -149
+/call InternalMoveTo -234 -119
+/call InternalMoveTo -234 -86
+/call InternalMoveTo -234 -44
+/call InternalMoveTo -235 -28
+/call InternalMoveTo -265 -12
+/call InternalMoveTo -279 -5
+/call InternalMoveTo -308 -2
+/call InternalMoveTo -344 17
+/call InternalMoveTo -358 28
+/call InternalMoveTo -354 63
+/call InternalMoveTo -354 96
+/call InternalMoveTo -354 132
+/call InternalMoveTo -354 182
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -334 200
+/call InternalMoveTo -330 207
+/call InternalMoveTo -331 226
+/call InternalMoveTo -355 247
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -355 275
+/call InternalMoveTo -357 315
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -386 338
+/call InternalMoveTo -424 369
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -438 380
+/call InternalMoveTo -438 427
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -437 469
+/call InternalMoveTo -464 482
+/call InternalMoveTo -451 493
+/call InternalMoveTo -480 480
+/call InternalMoveTo -508 478
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -543 479
+/call InternalMoveTo -567 479
+/call InternalMoveTo -557 536
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -539 557
+/call InternalMoveTo -516 583
+/call InternalMoveTo -521 603
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -536 641
+/call InternalMoveTo -553 630
+/call InternalMoveTo -569 597
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -560 616
+/call InternalMoveTo -554 645
+/call InternalMoveTo -579 657
+/call InternalMoveTo -596 644
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -616 630
+/call InternalMoveTo -625 595
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -631 567
+/call InternalMoveTo -638 532
+/call InternalMoveTo -639 489
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -659 501
+/call InternalMoveTo -684 533
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -691 562
+/call InternalMoveTo -694 603
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -663 622
+/call InternalMoveTo -663 650
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -664 675
+/call InternalMoveTo -666 712
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -665 753
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -664 764
+/call InternalMoveTo -697 798
+/call InternalMoveTo -699 842
+/call InternalMoveTo -695 887
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -665 902
+/call InternalMoveTo -633 892
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -660 912
+/call InternalMoveTo -664 909
+/call InternalMoveTo -665 950
+/call InternalMoveTo -664 999
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -663 1040
+/call InternalMoveTo -691 1060
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -729 1089
+/call InternalMoveTo -747 1107
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -748 1148
+/call InternalMoveTo -749 1174
+/call InternalMoveTo -759 1198
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -784 1228
+/call InternalMoveTo -791 1238
+/call InternalMoveTo -792 1283
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -791 1295
+/call InternalMoveTo -823 1326
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -785 1354
+/call InternalMoveTo -788 1385
+/call InternalMoveTo -790 1413
+/call InternalMoveTo -831 1432
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -840 1454
+/call InternalMoveTo -845 1492
+/call InternalMoveTo -849 1525
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -807 1540
+/call InternalMoveTo -782 1547
+/call InternalMoveTo -749 1581
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -737 1555
+/call InternalMoveTo -737 1515
+/call InternalMoveTo -736 1488
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -710 1501
+/call InternalMoveTo -673 1500
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -638 1501
+/call InternalMoveTo -614 1502
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -583 1527
+/call InternalMoveTo -555 1533
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -514 1526
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -503 1483
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -470 1501
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -428 1502
+/call InternalMoveTo -394 1502
+/call InternalMoveTo -351 1495
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -334 1466
+/call InternalMoveTo -331 1431
+/call InternalMoveTo -332 1395
+/call InternalMoveTo -334 1359
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -333 1339
+/call InternalMoveTo -313 1317
+/call InternalMoveTo -266 1317
+/call InternalMoveTo -231 1318
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -214 1318
+/call InternalMoveTo -176 1317
+/call InternalMoveTo -138 1317
+/call InternalMoveTo -112 1317
+/call InternalMoveTo -83 1316
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -50 1315
+/call InternalMoveTo -23 1316
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 9 1357
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 22 1336
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 26 1265
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo 6 1305
+/call InternalMoveTo -49 1317
+/call InternalMoveTo -104 1318
+/call InternalMoveTo -153 1317
+/call InternalMoveTo -193 1317
+/call InternalMoveTo -226 1317
+/call InternalMoveTo -266 1316
+/call InternalMoveTo -302 1317
+/call InternalMoveTo -339 1325
+/call InternalMoveTo -334 1376
+/call InternalMoveTo -333 1433
+/call InternalMoveTo -335 1483
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -366 1498
+/call InternalMoveTo -404 1500
+/call InternalMoveTo -445 1501
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -491 1502
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -503 1502
+/call InternalMoveTo -542 1532
+/call InternalMoveTo -576 1526
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -597 1513
+/call InternalMoveTo -628 1500
+/call InternalMoveTo -664 1500
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -702 1500
+/call InternalMoveTo -728 1500
+/call InternalMoveTo -737 1482
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -745 1562
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -753 1588
+/call InternalMoveTo -837 1584
+/call InternalMoveTo -838 1535
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -838 1498
+/call InternalMoveTo -838 1446
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -824 1420
+/call InternalMoveTo -791 1406
+/call InternalMoveTo -788 1391
+/call InternalMoveTo -786 1360
+/call InternalMoveTo -822 1325
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -760 1296
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -809 1268
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -788 1253
+/call InternalMoveTo -791 1221
+/call InternalMoveTo -764 1202
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -748 1165
+/call InternalMoveTo -747 1125
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -746 1095
+/call InternalMoveTo -706 1072
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -667 1044
+/call InternalMoveTo -662 1015
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -664 982
+/call InternalMoveTo -664 956
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -664 916
+/call InternalMoveTo -635 889
+/call InternalMoveTo -630 877
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -629 851
+/call InternalMoveTo -634 802
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -668 769
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -665 744
+/call InternalMoveTo -664 700
+/call InternalMoveTo -664 663
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -664 618
+/call InternalMoveTo -691 611
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -694 586
+/call InternalMoveTo -689 548
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -669 499
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -617 483
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -562 479
+/call InternalMoveTo -520 479
+/call KillAllMobs 10 33
+/call LootIt 45
+/call InternalMoveTo -442 480
+/call InternalMoveTo -439 501
+/goto :L6Marker
+/return

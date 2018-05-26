@@ -1,0 +1,141 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include dragons.inc
+
+Sub Main()
+
+
+|param0 = true if party
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+/call tacvi ${Param0}
+
+/return
+
+sub tacvi(string party)
+
+/declare count int local
+/varset count 0
+|/declare type string outer
+
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[Tacvi, The Broken Temple]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/echo ${party}
+
+|cure
+/keypress 0
+
+/call InternalMoveTo -171.71 486.64
+
+/delay 2s
+
+/if (${party.Equal[true]}) {
+
+/bca //stick ID ${Me.ID}
+
+/call PartyKillAllMobs 10 60
+/delay 1s
+/call PartyKillAllMobs 10 60
+/call LootIt 60
+
+/delay 3s
+
+/call PartyKillAllMobs 10 60
+/delay 1s
+/call PartyKillAllMobs 10 60
+/call LootIt 60
+
+/call InternalMoveTo -167.64 524.10
+
+/delay 1m
+
+/call CreateInstanceParty
+
+} else {
+
+/bccmd quit
+
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call LootIt 60
+
+/delay 3s
+
+/call KillAllMobs 10 60
+/delay 1s
+/call KillAllMobs 10 60
+/call LootIt 60
+
+/call InternalMoveTo -167.64 524.10
+
+/if (${count} == 0) {
+/ini tacvi.ini instance type raid
+|/varset locnum ${Math.Calc[${locnum} + 1]}
+
+/echo ${Ini[tacvi.ini,instance,type]} 
+
+}
+
+/if (${count}==1) {
+/ini tacvi.ini instance type guild
+
+|/varset locnum ${Math.Calc[${locnum} + 1]}
+
+/echo ${Ini[tacvi.ini,instance,type]} 
+
+}
+
+/if (${count}==2) {
+/ini tacvi.ini instance type solo
+
+
+/echo ${Ini[tacvi.ini,instance,type]} 
+
+}
+
+/varset count ${Math.Calc[${count} + 1]}
+
+/if (${count}==3) {
+
+/varset count 0
+
+}
+
+
+
+
+
+/call CreateTacviInstance
+
+
+
+
+
+/bccmd quit
+
+}
+
+/goto :start
+
+/return
+

@@ -1,0 +1,111 @@
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include partyhohfarm.inc
+
+Sub Main()
+
+|{Param0} = instance type
+|{Param1} = looter
+
+
+
+/hidecorpse all
+/hidecorpse looted
+
+/call LoadIni
+/call SetLootVar
+
+:start
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+/if (!${Zone.Name.Equal[The Halls of Honor]}) {
+/camp
+/delay 40s
+/endmacro
+}
+
+/echo core ${Param0}
+
+/call soa ${Param1}
+
+/call hate ${Param1}
+
+/call partyguildreturn ${Param0}
+
+/call soa 
+
+/call xroad
+
+/call soa
+
+/call abyss ${Param1}
+
+/call partyguildreturn ${Param0}
+/bct ${Param1} //macro hohloot
+
+/call xroad ${Param1}
+
+/call soa
+
+/call north ${Param1}
+
+/call skies ${Param1}
+
+/call partyguildreturn ${Param0}
+
+/call xroad ${Param1}
+
+/call soa
+
+/call north ${Param1}
+
+/call uw ${Param1}
+
+/call HoHKillAllMobs 10 30
+/delay 1s
+/call HoHKillAllMobs 10 30
+/bct ${Param1} //macro hohloot
+
+/call partyguildreturn ${Param0}
+
+/call xroad ${Param1}
+
+/call soa
+
+/call valor ${Param1}
+
+/call KillAllMobs 10 40
+/delay 1s
+/call KillAllMobs 10 40
+/bct ${Param1} //macro hohloot
+
+
+/call partyguildreturn ${Param0}
+
+/call xroad ${Param1}
+
+/call south ${Param1}
+
+/call soa
+
+/call storms ${Param1}
+
+/call partyguildreturn ${Param0}
+
+/goto :start
+
+
+/return
+
+sub soa
+
+/if (${Me.Name.Equal[Maslow]}) {
+
+/itemnotify back rightmouseup
+
+}
+
+/return

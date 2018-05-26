@@ -1,0 +1,11 @@
+
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include tokenfarm.inc
+
+sub main()
+
+/call underworld
+
+/return
+

@@ -1,0 +1,11 @@
+sub main
+
+:start
+
+/casting 0230
+/delay 3s
+/casting 0348
+/delay 6s
+/goto :start
+
+/return

@@ -1,0 +1,24 @@
+#turbo 20
+
+sub main
+
+:start
+
+/if (${SpawnCount[npc radius 30]} > 1) {
+  /target barrel radius 30
+  /stick 1 uw
+  /delay 1s
+  /attack on
+  /delay 20s
+  /if (${Cursor.ID}) {
+    /autoinv
+}
+  /moveto loc 30.66 -397
+
+  
+} 
+
+/delay 90s
+/goto :start
+
+/return

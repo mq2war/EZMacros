@@ -1,0 +1,43 @@
+sub main
+
+
+| usage:  /macro basiccleric <tank>
+
+:start
+
+
+|  Ensure Amplify healing is up
+/if (${Me.SpellReady[Amplify Healing]} && !${Me.Buff[Amplify Healing].ID}) {
+/cast "Amplify Healing"
+}
+
+/stick off
+/delay 2
+
+| Target your tank
+/target pc ${Param0}
+
+| Hit him with Vie
+/if (${Me.SpellReady[Tower of Vie III]} && !${Target.Buff[Tower of Vie III].ID})  {
+
+/cast "Tower of Vie III"
+
+/delay 2
+
+}
+
+
+|  Target HP < 80% and Overraided Healing 2 is ready
+
+/if (${Target.PctHPs} < 80 && ${Me.SpellReady[Over Raided Healing II]} ) {
+
+/cast "Over Raided Healing II"
+
+/delay 15
+
+}
+
+/goto :start
+
+
+/return 

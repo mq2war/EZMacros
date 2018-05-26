@@ -1,0 +1,7 @@
+#include utils.inc
+sub main
+
+/call succor
+
+/return
+

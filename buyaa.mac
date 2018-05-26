@@ -1,0 +1,27 @@
+Sub Main
+	:loop
+	/if (${AltAbility[${Window[AAWindow].Child[List1].List[1]}].ID}==NULL && ${AltAbility[${Window[AAWindow].Child[List2].List[1]}].ID}==NULL && ${AltAbility[${Window[AAWindow].Child[List3].List[1]}].ID}==NULL) /endmacro
+	/if (${Me.AAPoints}>=25) {
+		/call BuyAA
+		/goto :loop
+	}
+/return
+
+Sub BuyAA
+	/declare a int local
+	/if (!${Window[AAWindow].Open}) {
+		/windowstate AAWindow open
+	}
+	/if (!${Window[AAWindow].Child[CanPurchaseFilter].Checked}) /nomodkey /notify AAWindow CanPurchaseFilter leftmouseup
+	/for a 3 downto 1
+		/if (!${AltAbility[${Window[AAWindow].Child[List${a}].List[1]}].ID}==NULL) {
+			/nomodkey /notify AAWindow AAW_Subwindows tabselect ${a}
+			/nomodkey /notify AAWindow List${a} listselect 1
+			/nomodkey /notify AAWindow List${a} leftmouse 1
+			/delay 1
+			/nomodkey /notify AAWindow TrainButton leftmouseup
+			/delay 1
+			/return
+		}
+	/next a
+/return

@@ -1,0 +1,145 @@
+#Event TooFarAway "#*#You are too far away to loot that corpse#*#"
+
+sub main
+
+
+/hidecorpse looted
+
+:start
+/g woot
+
+/if (${SpawnCount[GM]} > 0) {
+/delay 30s
+/goto :start
+} else {
+
+/target npc wisp
+
+/g targetted wisp
+/g woot woot
+
+/if (${Target.ID} && !${Target.Type.Equal[CORPSE]}) {
+
+/goto :combat
+
+
+} else /if (${Target.Type.Equal[CORPSE]}) {
+/attack off
+/delay 5s
+/call loot
+} else {
+/delay 30s
+/goto :start
+}
+}
+
+:combat
+
+/stick 15
+/attack on
+/delay 10s
+
+/if (${Target.PctHPs} == 0) {
+/keypress esc
+/attack off
+/delay 3s
+/call loot
+
+/goto :start
+} else {
+/keypress esc
+/delay 1s
+/target npc wisp
+/stick 15
+/delay 5s
+/goto :combat
+
+
+/return
+
+sub loot
+
+/echo IN LOOT LOOP
+/attack off
+
+|- Loot Loop 
+/declare LootTotal int local -1 
+/declare LootSlot int local 
+
+|- Get NPC corpse on target and continue if possible 
+/target corpse
+/stick 1
+/delay 4s
+/loot
+/delay 3s
+
+|- Get item count accurately 
+:LootLag 
+/if (${LootTotal}!=${Corpse.Items}) { 
+/echo In Loot Lag
+/varset LootTotal ${Corpse.Items} 
+/delay 5 
+/goto :LootLag 
+} 
+/if (!${LootTotal}) { 
+/echo Empty Corpse
+/target corpse
+/stick 1
+/loot
+/goto :DoneLooting 
+} 
+
+/for LootSlot 1 to ${LootTotal} 
+|- Check for full inventory 
+/if (!${Me.FreeInventory}) { 
+/beep 
+/goto :DoneLooting 
+} 
+|- Loot item if we should, skip it if not 
+/if (${Corpse.Item[${LootSlot}].ID}) { 
+/echo ${Corpse.Item[${LootSlot}].Name}
+/if (!${Corpse.Item[${LootSlot}].Name.Equal[Greater Lightstone]}) {
+/goto :SkipIt
+} else {
+/goto :LootItem
+} 
+
+|/if (${verbosity}>=1) /${channel} ** Skipping Item: ${Corpse.Item[${LootSlot}].Name} 
+|/goto :SkipIt 
+:LootItem 
+/itemnotify loot${LootSlot} rightmouseup 
+/delay 3 
+/if (${Corpse.Item[${LootSlot}].ID}) { 
+/delay 2 
+/goto :LootItem 
+} 
+:SkipIt 
+/next LootSlot 
+|/if (${verbosity}>=1) /${channel} ** Done looting ${Target.CleanName} 
+
+:DoneLooting 
+/delay 5 
+/notify LootWnd DoneButton leftmouseup 
+/delay 5 
+/if (${Target.Type.Equal[CORPSE]}) {
+/echo Cannot Loot Corpse - hiding corpses
+/hidecorpse all
+/hidecorpse looted
+} 
+
+/return
+
+
+Sub Event_TooFarAway 
+
+/hidecorpse all
+/hidecorpse looted
+/target wisp
+/stick 1
+/attack on
+/call main
+
+/return 
+
+
+

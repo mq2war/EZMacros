@@ -1,0 +1,27 @@
+Sub Main
+
+/call GroupHeal
+
+
+/return
+
+Sub GroupHeal
+/declare x int local
+
+|Size of group established
+/declare size int local
+/varset size ${Group.Members}
+
+/for x 0 to ${size}
+
+/echo ${Group.Member[${x}].PctHPs}
+	/if (${Group.Member[${x}].PctHPs}<70) {
+		/target pc ${Group.Member[${x}].Name}
+		/delay 1
+		
+
+	}
+/next x
+/return
+
+

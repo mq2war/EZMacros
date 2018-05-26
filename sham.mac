@@ -1,0 +1,101 @@
+#turbo
+
+Sub Main
+
+
+:loop
+
+/stick off
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+
+/if (${Me.SpellReady[Ancestral Grudge]} ) {
+ /cast 9
+}
+
+/delay 4
+
+/target pc ${Param0}
+
+/if (${Target.PctHPs} < 50 || ${Target.PctHPs} > 100 && ${Me.SpellReady[Acquittal of the Tribunal III]} ) {
+
+/cast "Acquittal of the Tribunal III"
+/delay 1s
+/cast 1
+
+}
+
+/call GroupHeal2
+/call GroupHeal
+
+
+/target pc ${Param0}
+
+/if (!${Target.Buff[Spirit of the Kraken II]}) /cast "Spirit of the Kraken II"
+
+/delay 2s
+
+/if (!${Target.Buff[Champion]} ) /cast "Champion"
+
+
+/goto :loop
+
+/return
+ 
+
+
+Sub GroupHeal
+/declare x int local
+
+|Size of group established
+/declare size int local
+/varset size ${Group.Members}
+
+/for x 0 to ${size}
+|/echo ${Group.Member[${x}].PctHPs}
+
+/if (${Me.PctHPs}<70 && ${Me.SpellReady[Acquittal of the Tribunal III]}) {
+/target ${Me}
+/cast "Acquittal of the Tribunal III"
+}
+	/if (${Group.Member[${x}].PctHPs}<70 && ${Me.SpellReady[Acquittal of the Tribunal III]}) {
+		/target pc ${Group.Member[${x}].Name}
+		/echo Casting on ${Target.Name}
+		/delay 1
+		/cast "Acquittal of the Tribunal III"
+
+	}
+/next x
+/return
+
+
+Sub GroupHeal2
+/declare x int local
+
+|Size of group established
+/declare size int local
+/varset size ${Group.Members}
+
+/for x 0 to ${size}
+	/if (${Group.Member[${x}].PctHPs}<90 && ${Me.SpellReady[Breath of Nature II]}) {
+
+		/cast "Breath of Nature II"
+
+	}
+/next x
+/return
+
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+
+
+
+

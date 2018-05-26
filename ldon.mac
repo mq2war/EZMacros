@@ -1,0 +1,64 @@
+Sub Main
+
+#include level6.inc
+
+
+/if (${SpawnCount[npc radius 50]} == 0) {
+/moveto loc ${loc}
+/delay 1s
+/face heading 180
+/delay 1s
+/call Combat
+} else {
+/call Combat
+}
+/if (${SpawnCount[npc radius 50]} == 0) {
+/moveto loc ${loc1}
+/delay 1s
+/call Combat
+} else {
+/call Combat
+}
+/if (${SpawnCount[npc radius 50]} == 0) {
+/moveto loc ${loc2}
+/delay 1s
+/call Combat 
+} else {
+/call Combat
+}
+/if (${SpawnCount[npc radius 50]} == 0) {
+/moveto loc ${loc3}
+/delay 1s
+/call Combat
+} else {
+/call Combat
+}
+/if (${SpawnCount[npc radius 50]} == 0) {
+/moveto loc ${loc4}
+/delay 1s
+/call Combat
+} else {
+/call Combat
+}
+
+
+
+
+/returnw
+
+Sub Combat
+
+/echo ${SpawnCount[npc radius 50]}
+
+
+/if (${SpawnCount[npc radius 50]} > 0) {
+|Paremeterize toon name
+  /bct ${Param0} //target npc radius 50
+  /bct ${Param0} //face
+  /bct ${Param0} //stick 1
+  /bct ${Param0} //attack on
+  /delay 3s
+  }
+
+
+/return

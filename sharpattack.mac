@@ -1,0 +1,369 @@
+#Event Frenzy "#*#goes into a beserker frenzy#*#"
+
+#include utils.inc
+
+sub main
+
+
+
+/declare fists int inner
+/declare uw int inner
+/declare zerk int inner
+/declare ninja int inner
+/declare nerf int inner
+/declare firsttime int inner
+/declare burn int inner
+/declare boom int inner
+/declare aoe int inner
+/declare pcount int inner
+/declare pcount2 int inner
+/declare ua2 int inner
+
+/varset fists 0
+/varset uw 0
+/varset zerk 0
+/varset ninja 0
+/varset nerf 0
+/varset firsttime 1
+/varset burn 0
+/varset boom 0
+/varset aoe 0
+/varset ua2 0
+
+
+/varset pcount ${SpawnCount[PC radius 200]}
+
+
+/target npc radius 30
+/attack on
+/delay 1
+/keypress 2
+
+
+
+/if (${Target.ID}) {
+
+/itemnotify charm rightmouseup
+
+/disc Cyclone Blade
+/attack on
+/delay 1
+
+/keypress 2
+/delay 1
+/bct sharp //target ID ${Target.ID}
+/bct rog //target ID ${Target.ID}
+/bct sharp //stick 12 uw !front
+/bct rog //stick 12 uw behind
+/delay 1
+/bct sharp //attack on
+/bct rog //attack on
+/delay 2
+
+
+
+} else {
+
+/target npc radius 30
+/attack on
+/delay 1
+/keypress 2
+
+}
+
+/attack on
+/disc Commanding Voice
+/delay 1
+/itemnotify rightfinger rightmouseup
+
+
+/bct ua //useitem 17
+
+
+/bct recluse //itemnotify powersource rightmouseup
+/delay 1
+/bct recluse //cast "Gale Force III"
+|/delay 2
+|/bct lateral //pet attack
+
+/useitem 23 4
+/delay 1s
+
+/bct wiz //itemnotify mainhand rightmouseup
+
+
+
+:start
+
+
+/bct pet //pet attack
+
+/doability kick
+|/bct g1 //doability kick
+
+/useitem 23 4
+| add code to check health and tell cleric to healme
+/attack on
+/if (${Target.ID}) {
+
+/attack on
+/delay 1
+
+
+/bct sharp //target ID ${Target.ID}
+
+/bct rog //target ID ${Target.ID}
+
+
+/delay 1
+/bct rog //stick 12 uw behind
+
+/bct sharp //stick 15 uw !front
+/delay 1
+/bct sharp //attack on
+
+/bct rog //attack on
+
+|/bct variable //target ID ${Target.ID}
+|/bct variable //cast 1
+|/bct variable //pet attack
+
+} else {
+
+/target npc radius 30
+/attack on
+/delay 1
+/keypress 2
+
+
+}
+
+
+
+
+
+/attack on
+
+
+
+
+/if (${firstime}==1) {
+
+
+
+
+
+/bct recluse //itemnotify rsharped rightmouseup
+
+
+/delay 5
+
+/bct recluse //cast 9
+/bct peign //cast "Blood Ablaze IV"
+/bct zerk //itemnotify mainhand rightmouseup
+
+
+/bct ninja //itemnotify ammo rightmouseup
+/bct recluse //itemnotify powersource rightmouseup
+/bct undermine //target ID ${Target.ID}
+/delay 1
+/bct undermine //cast 6
+
+
+}
+
+
+/varcalc uw ${uw} + 1
+/varcalc zerk ${zerk} + 1
+/varcalc ninja ${ninja} + 1
+/varcalc burn ${burn} + 1
+/varcalc boom ${boom} + 1
+/varcalc aoe ${aoe} + 1
+/varcalc ua2 ${ua2} + 1
+/varcalc firsttime ${firsttime} + 1
+
+
+| Boom
+
+/if (${boom}==2) {
+
+
+
+|/delay 2
+|/bct lateral //cast "Insanity VI"
+|/bct peign //cast "Blood Ablaze IV"
+|/delay 3
+|/varset boom 0
+}
+
+/if (${ua2}==2) {
+
+/bct ua2 //useitem 17
+
+}
+
+
+
+
+
+|  Fists
+/if (${fists}==6) {
+/bct recluse //cast 9
+
+/delay 2
+/bct recluse //itemnotify rsharped rightmouseup
+/bct goft //disc Fists of Wu
+/bct uberitis //disc Fists of Wu
+/disc Commanding Voice
+/bct undermine //target ID ${Target.ID}
+/delay 1
+/bct undermine //cast 3
+/varset fists 0
+}
+
+/if (${burn}==25) {
+
+
+/bct recluse //cast "Burning Tinder III"
+/delay 15
+/bct recluse //cast "Gale Force III"
+
+/bct ua //useitem 17
+
+
+/varset burn 0
+
+
+}
+
+/if (${ua2}==27) {
+
+/bct ua2 //useitem 17
+
+/varset ua2 3
+
+}
+
+|| Zerk Weapon
+
+/if (${nerf}==3) {
+/bct zerk //itemnotify mainhand rightmouseup
+
+/varset nerf 0
+/delay 2
+
+
+}
+
+
+|| Zerk Chest
+/if (${zerk}==4) {
+
+/varset zerk 0
+/delay 4
+
+
+/bct drood //mqpause
+/delay 1
+|/bct drood //target ID ${Target.ID}
+/bct drood //itemnotify mainhand rightmouseup
+/delay 1
+
+/bct drood //target ${Me.ID}
+/bct drood //mqpause
+
+}
+
+|| Ninja
+/if (${ninja}==15) {
+
+/bct ninja //itemnotify ammo rightmouseup
+/bct recluse //itemnotify powersource rightmouseup
+/varset ninja 0
+/delay 2
+
+/itemnotify rightfinger rightmouseup
+
+/bct undermine //target ID ${Target.ID}
+/delay 1
+/bct undermine //cast 6
+
+
+}
+
+
+|/echo Ninja Count:  ${ninja}
+/delay 8
+
+
+/attack on
+/delay 4
+
+
+/varcalc fists ${fists} + 1
+/varcalc nerf ${nerf} + 1
+
+/varset pcount2 ${SpawnCount[PC radius 200]}
+
+
+/if (${pcount2} < ${pcount}) {
+
+/call rez
+
+}
+
+/doevents
+
+/goto :start
+
+/return
+
+
+
+sub Event_Frenzy
+
+|/gu in frenzy
+
+/bct submit //cast "Wave of Purity III"
+
+/bct timesink //itemnotify mainhand rightmouseup
+
+/bct fraz //cast "Wave of Purity III"
+
+/return
+
+
+
+sub rez
+
+/useitem 23 3
+
+/delay 2
+
+
+/bca //notify ConfirmationDialogBox Yes_Button leftmouseup
+
+|/call acceptrez
+
+
+/return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

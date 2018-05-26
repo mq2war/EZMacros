@@ -1,0 +1,29 @@
+#include utils.inc
+#include newfear.inc
+#include EZCharmUpgrade.inc
+
+sub main
+/declare killtime timer local 600s
+
+:start
+/call fear
+
+:kill
+/if (${killtime.Value} > 0) {
+
+  /target npc radius 1000
+  /keypress 8
+  /stick 1 uw
+  /attack on
+  /delay 2s
+  /keypress 8
+  /goto :kill
+
+}
+
+/bct ${Param0} //say repop instance
+/delay 30s
+/goto :start
+
+
+/return 

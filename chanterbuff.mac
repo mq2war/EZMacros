@@ -1,0 +1,75 @@
+sub main
+
+/declare masked string inner
+
+
+
+/varset masked goft,recluse,manifesto,timesink,delegate,pellets,peign,ratio,submit,lateral,fraz,pennance,diatribe,soliloquy,uberitis,lalique
+
+
+
+
+/target pc peign
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+/cast "Masked Strength III"
+/delay 5s
+
+/target pc maslow
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+/cast "Masked Strength III"
+/delay 5s
+
+/target pc fraz
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+/cast "Masked Strength III"
+/delay 5s
+
+/target pc lateral
+/cast "Timeless: Vampiric Thunder II"
+/delay 5s
+/cast "Masked Strength III"
+/delay 5s
+
+
+/call tank
+
+/gu done with buffs
+
+/gu Switching to Atisa
+
+/delay 3
+
+/switchchar atisa
+
+/delay 3
+
+/switchchar atisa
+
+
+/return
+
+
+sub tank
+
+/declare tank string local
+
+/varset tank maslow,usurp
+
+/bct ${tank.Arg[1,,]} //notify BuffWindow buff${Math.Calc[${Me.Buff[Masked Strength III].ID}-1].Int} leftmouseup
+/target pc ${tank.Arg[1,,]}
+/cast "Timeless: Vamipiric Thunder II"
+/delay 4s
+
+/cast "Irrational Irritation III"
+/delay 4s
+
+/bct ${tank.Arg[2,,]} //notify BuffWindow buff${Math.Calc[${Me.Buff[Masked Strength III].ID}-1].Int} leftmouseup
+/target pc ${tank.Arg[2,,]}
+/cast "Timeless: Vampiric Thunder II"
+
+
+
+/return

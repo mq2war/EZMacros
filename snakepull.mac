@@ -1,0 +1,93 @@
+sub main
+
+|/bct delegate //twist 1
+|/bct timesink //twist 1
+
+:start
+
+|param group  true or false
+
+
+/target npc snake radius 100
+
+/if (${Target.ID}) {
+
+|/stick 11 front
+|/face nolook
+|/attack on
+|/keypress 2
+/keypress 8
+|/bct timesink //cast 4
+
+
+}
+
+/delay 1S
+/goto :start
+
+/return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/return

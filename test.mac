@@ -1,0 +1,11 @@
+#event testpan "[MQ2] test"
+#include EZCharmUpgrade.inc
+#include waypoint.inc
+#include hohfarm.inc
+
+ 
+Sub Main
+
+/call guildreturn ${Param0}
+ 
+/return

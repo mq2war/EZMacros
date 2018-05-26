@@ -1,0 +1,16 @@
+sub main
+
+:loop
+
+/target npc radius 500
+
+
+
+/pet attack
+
+/delay 5s
+
+
+/goto :loop
+
+/return

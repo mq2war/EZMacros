@@ -1,0 +1,74 @@
+#turbo
+
+Sub Main
+
+/declare count int inner
+
+/varset count 0
+
+/if (${Me.SpellReady[Yaulp X]}) /cast "Yaulp X"
+
+/itemnotify mainhand rightmouseup
+
+/echo Running Pal
+/if (${Me.SpellReady[Focus of Healing]} && !${Me.Buff[Focus of Healing].ID}) { /cast "Focus of Healing"
+/delay 4
+}
+/gu trying to heal
+:loop
+
+/doevents
+/if (${Window[ConfirmationDialogBox].Open} && !${Window[SpellBookWnd].Open} && ${Window[ConfirmationDialogBox].Child[CD_TextOutput].Text.Find[Resurrect]}) {
+	/notify ConfirmationDialogBox Yes_Button leftmouseup
+}
+
+
+
+/if (!${Me.Buff[Gift of the Avenger II].ID})   {
+
+/cast "Gift of the Avenger II"
+
+/delay 5
+
+}
+
+/if (${count}>=10) {
+
+/if (${Me.SpellReady[Crabtwoshoes Will Heal You Too!]}) {
+
+/cast "Crabtwoshoes Will Heal You Too!"
+/delay 2s
+
+}
+
+}
+
+/if (${count}>=15) {
+/if (${Me.SpellReady[Wave of Purity III]}) {
+
+/cast "Wave of Purity III"
+/delay 1s
+
+
+
+}
+
+/varset count 0
+
+}
+
+/varcalc count ${count} + 1
+/delay 1s
+/goto :loop
+
+/return
+
+#event Death "You have been slain#*#"
+Sub Event_Death
+/delay 1s
+/memspellset 1
+/return
+
+
+
+

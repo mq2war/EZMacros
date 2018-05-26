@@ -1,0 +1,50 @@
+sub main
+
+
+/say enter guild peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter guild usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter raid peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter solo peign ${Param0}
+
+/delay 20s
+
+/call repop
+
+/say enter solo usurp ${Param0}
+
+/delay 20s
+
+/call repop
+
+
+/return 
+
+
+sub repop
+
+
+/say repop instance
+
+
+/return

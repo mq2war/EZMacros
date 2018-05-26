@@ -1,0 +1,46 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include fs2.inc
+#include utils.inc
+
+Sub Main()
+
+|  Parms:  Param0: first FWP holder  Param1: 2nd FWP holder Param2: bag#  Param3: slot#
+/declare run int inner
+/varset run 0
+
+/hidecorpse all
+/hidecorpse looted
+/call LoadIni
+/call SetLootVar
+
+/if (${Cursor.ID}) /autoinv
+
+
+
+
+/declare count int local
+/varset count 0
+
+|/if (${Param0.Equal[true]}) {
+|/call warbuff
+
+|/pet leave
+|}
+
+
+
+
+/delay 3
+
+
+/call fs2 ${Param2} ${Param3}
+
+/call NewKillFace 20
+
+/delay 2s
+
+/bct ${Param4} //macro lootgo 100
+
+/return

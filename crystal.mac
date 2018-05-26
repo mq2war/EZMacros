@@ -1,0 +1,14 @@
+#include EZCharmUpgrade.inc
+#include combat.inc
+#include buffs.inc
+#include tokenfarm.inc
+#include utils.inc
+
+Sub Main()
+
+/call rainbow
+
+/return
+
+
+
