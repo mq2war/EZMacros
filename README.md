@@ -48,6 +48,9 @@ MoveUtility.inc  Contains movement utilities for max automation!!!
 
 necro.mac - necro4.mac   Used for necros to continuously cast Death and other dmg spells.   Using on 4-5 necros will stagger the death spells to allow for max dps
 
+
+pal.inc   -  paladin combat
+
 palbuff.mac  -  Will cast all paladin buffs.  
 
 
