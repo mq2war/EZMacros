@@ -87,11 +87,11 @@ sub main
 
 
 
-/bct recluse //itemnotify powersource rightmouseup
+/bct ranger //itemnotify powersource rightmouseup
 /delay 1
-|/bct recluse //cast "Gale Force III"
+|/bct ranger //cast "Gale Force III"
 |/delay 2
-|/bct lateral //pet attack
+
 
 /useitem 23 4
 /delay 1s
@@ -118,9 +118,9 @@ sub main
 
 
 
-|/bct variable //target ID ${Target.ID}
-|/bct variable //cast 1
-|/bct variable //pet attack
+|/bct pet //target ID ${Target.ID}
+|/bct pet //cast 1
+|/bct pet //pet attack
 
 } else {
 
@@ -146,25 +146,22 @@ sub main
 
 
 
-/bct peign //cast "Vile Tightness"
-/bct lateral //assist Maslow
+/bct sk //cast "Vile Tightness"
+/bct chant //assist tank
 /delay 1
-/bct lateral //cast "Insanity VI"
-/bct recluse //itemnotify ranged rightmouseup
+/bct chant //cast "Insanity VI"
+/bct ranger //itemnotify ranged rightmouseup
 
-/bct recluse //stick 12
+/bct ranger //stick 12
 /delay 5
 
-/bct recluse //cast 9
-/bct peign //cast "Blood Ablaze IV"
+/bct ranger //cast 9
+/bct sk //cast "Blood Ablaze IV"
 /bct zerk //itemnotify mainhand rightmouseup
 
 
 /call ninja
 
-/bct undermine //target ID ${Target.ID}
-/delay 1
-/bct undermine //cast 6
 
 /call getsome
 
@@ -189,8 +186,8 @@ sub main
 
 
 |/delay 2
-|/bct lateral //cast "Insanity VI"
-/bct peign //cast "Blood Ablaze IV"
+
+/bct sk //cast "Blood Ablaze IV"
 /delay 3
 /varset boom 0
 }
@@ -209,21 +206,21 @@ sub main
 
 /if (${aoe}==8) {
 /delay 5
-/bct peign //cast 4
+/bct sk //cast 4
 /delay 2
-/bct lateral //assist Maslow
+/bct chant //assist tank
 /delay 2
-/bct lateral //cast "Breathless V"
+/bct chant //cast "Breathless V"
 
 
 /varset aoe 0
 }
 
-|  Maslow BP clicky
+|  Tank BP clicky
 
 /if (${fists}==24) {
 
-/bct recluse //cast 9
+/bct ranger //cast 9
 
 /delay 2
 
@@ -236,24 +233,24 @@ sub main
 /if (${fists}==8) {
 
 /bct ualegs useitem 18
-/bct peign //cast 3
+/bct sk //cast 3
 /delay 2
-/bct recluse //itemnotify ranged rightmouseup
-/bct goft //disc Fists of Wu
-/bct uberitis //disc Fists of Wu
+/bct ranger //itemnotify ranged rightmouseup
+/bct monk //disc Fists of Wu
+
 /disc Commanding Voice
-/bct undermine //target ID ${Target.ID}
+/bct wiz //target ID ${Target.ID}
 /delay 1
-/bct undermine //cast 3
+/bct wiz //cast 3
 /varset fists 0
 }
 
 /if (${burn}==25) {
 
-|/bct recluse //cast 9
-/bct recluse //cast "Burning Tinder III"
+
+/bct ranger //cast "Burning Tinder III"
 /delay 15
-/bct recluse //cast "Gale Force III"
+/bct ranger //cast "Gale Force III"
 
 /bct ua //useitem 17
 
@@ -277,7 +274,7 @@ sub main
 
 /if (${nerf}==3) {
 /bct zerk //itemnotify mainhand rightmouseup
-/bct peign //cast "Vile Tightness IV"
+/bct sk //cast "Vile Tightness IV"
 /varset nerf 0
 /delay 2
 
@@ -291,20 +288,20 @@ sub main
 /varset zerk 0
 /delay 4
 
-/bct peign //cast "Blood Ablaze IV"
+/bct sk //cast "Blood Ablaze IV"
 /bct drood //mqpause
 | need to add to drood group
 /bct redpill
 /delay 1
 |/bct drood //target ID ${Target.ID}
 /bct drood //itemnotify mainhand rightmouseup
-|/bct redpill //itemnotify mainhand rightmouseup
+
 /delay 1
 
 /bct drood //target ${Me.ID}
-|/bct redpill //target ${Me.ID}
+
 /bct drood //mqpause
-|/bct redpill //mqpause
+
 
 }
 
@@ -316,10 +313,6 @@ sub main
 /delay 2
 
 /itemnotify rightfinger rightmouseup
-
-/bct undermine //target ID ${Target.ID}
-/delay 1
-/bct undermine //cast 6
 
 
 }
@@ -359,11 +352,11 @@ sub Event_Frenzy
 
 |/gu in frenzy
 
-/bct submit //cast "Wave of Purity III"
+/bct pally //cast "Wave of Purity III"
 
-/bct timesink //itemnotify mainhand rightmouseup
+/bct cleric //itemnotify mainhand rightmouseup
 
-/bct fraz //cast "Wave of Purity III"
+
 
 /return
 
@@ -393,7 +386,7 @@ sub ninja
 
 
 /bct ninja //itemnotify ammo rightmouseup
-/bct recluse //itemnotify powersource rightmouseup
+/bct ranger //itemnotify powersource rightmouseup
 
 }
 /return
