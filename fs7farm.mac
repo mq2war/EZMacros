@@ -166,7 +166,7 @@ Sub Main()
 
 sub farmcall 
 
-/bct ${Param0} //macro fs7farmtest maslow
+/bct ${Param0} //macro fs7farmtest tank
 /delay 65s
 /call farmit
 /call topsecond
